@@ -1,0 +1,33 @@
+
+
+<div>
+    <table id="weekCalendar" class="table table-striped" (click)="editSlot($event)">
+        <tr>
+            <th></th>
+            <th *ngFor="let day of weekDays">
+                {{day}}
+            </th>
+        </tr>
+        <tbody>
+            <tr>
+                <td>Desayunos</td>
+                <td *ngFor="let breakfast of weekMeals.breakfasts; let i = index" [attr.data-day]="weekDaysEn[i]" [attr.data-zone]="'breakfast'">
+                    {{breakfast}}
+                </td>
+            </tr>
+            <tr>
+                <td>Comidas</td>
+                <td *ngFor="let lunch of weekMeals.lunches; let i = index" [attr.data-day]="weekDaysEn[i]" [attr.data-zone]="'lunch'">
+                    {{lunch}}
+                </td>
+            </tr>
+            <tr>
+                <td>Cenas</td>
+                <td *ngFor="let dinner of weekMeals.dinners; let i = index" [attr.data-day]="weekDaysEn[i]" [attr.data-zone]="'dinner'">
+                    {{dinner}}
+                </td>
+            </tr>
+        </tbody>
+        
+    </table>
+</div>

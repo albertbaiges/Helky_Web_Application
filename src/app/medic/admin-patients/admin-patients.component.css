@@ -1,0 +1,36 @@
+
+
+#filter {
+    position: absolute;
+    width: 25%;
+    left: 0;
+}
+
+
+#patientList {
+    position: absolute;
+    right: 3%;
+    height: calc(100vh - 2*8px);
+    border: solid 2px rgb(44, 44, 44);
+    border-radius: 10px;
+    width: 70%;
+}
+
+
+.patient {
+    display: flex;
+    justify-content: space-around;
+    padding: 0.5%;
+    padding-left: 2%;
+    border: solid 2px #3b8f84;
+    border-radius: 20px;
+    margin: 3% 5%;
+    overflow: auto;
+}
+
+#actions {
+    display: flex;
+    width: 10%;
+    justify-content: space-between;
+    align-items: center;
+}

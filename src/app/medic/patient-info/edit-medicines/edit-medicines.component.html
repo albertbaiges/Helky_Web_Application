@@ -1,0 +1,26 @@
+
+<div>
+    <div>
+        <div *ngFor="let medicine of medicines">
+            {{medicine.name}}
+            <i class="fas fa-trash" (click)="removeMedicine(medicine)"></i>
+        </div>
+    </div>
+    <app-search-medicines (medicine)="addMedicine($event)"></app-search-medicines>
+    <div id="buttons">
+        <div class="button afirmative" (click)="promptApply(askApply)">Aplicar</div>
+        <div class="button negative" (click)="promptDiscard(askDiscard)">Cancelar</div>
+    </div>
+</div>
+
+<ng-template #askApply>
+    Quieres aplicar los cambios?
+    <button type="button" class="btn btn-default" (click)="apply()">Sí</button>
+    <button type="button" class="btn btn-primary" (click)="cancel()">Cancelar</button>
+</ng-template>
+
+<ng-template #askDiscard>
+    Quieres descartar los cambios?
+    <button type="button" class="btn btn-default" (click)="discard()">Sí</button>
+    <button type="button" class="btn btn-primary" (click)="cancel()">Cancelar</button>
+</ng-template>

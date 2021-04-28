@@ -1,0 +1,20 @@
+
+<ng-template #noData>
+    No hay información disponible
+</ng-template>
+
+<ng-template #noComments>
+    No hay ningun comentario
+</ng-template>
+
+<ng-container *ngIf="mealInfo else noData">
+    <h2>Menu</h2>
+    <div>
+        {{mealInfo.menu}}
+    </div>
+    
+    <h3>Comments</h3>
+    <div *ngIf="mealInfo.comments else noComments">
+        {{mealInfo.comments}}
+    </div>
+</ng-container>

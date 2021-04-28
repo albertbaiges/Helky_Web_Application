@@ -1,0 +1,69 @@
+
+
+<div>
+    <div id="infoBox">
+        <div id="avatar">
+            {{getAvatarLetters()}}
+        </div>
+        <div id="info">
+            <h3>{{patient.username}}</h3>
+            <h5>{{patient.email}}</h5>
+        </div>
+    </div>
+
+
+    <aside>
+        <button id="dieta-toggle" type="button" class="btn btn-primary"
+        (click)="showDiet()"
+        btnCheckboxTrue="true" btnCheckboxFalse="false">
+            Dieta
+         </button>
+
+         <div id="dropdown-select">
+             <ng-multiselect-dropdown
+             [placeholder]="'Enfermedades'"
+             [settings]="dropdownSettings"
+             [data]="disorders"
+             (onSelect)="select($event)"
+             (onDeSelect)="deselect($event)"
+             >
+            </ng-multiselect-dropdown>
+        </div>
+            
+        <div id="medicines-panel">
+            <h4>Medicines</h4>
+            <div class="edit">
+                <i class="fas fa-edit" (click)="editMedicines()"></i>
+            </div>
+            <hr/>
+            <ng-template #noMedicines>
+                Sin medicamentos
+            </ng-template>
+            <ng-template #loading>
+                <div style="height: 50px; position: relative">
+                    <ngx-spinner [fullScreen]="false" [name]="'loading'" type="ball-clip-rotate-multiple" size="medium">
+                    </ngx-spinner>
+                </div>
+            </ng-template>
+    
+    
+            <ng-container *ngIf="patient.medicines.length !== 0 else noMedicines">
+                <div id="medicines">
+                    <ng-container *ngIf="medicines.length !== 0 else loading">
+                        <div *ngFor="let medicine of medicines" class="medicine" (click)="showDetails(medicine)">
+                            {{medicine.name}}
+                        </div>
+                    </ng-container>
+                </div>
+            </ng-container>
+        </div>
+    </aside>
+
+
+
+    <div id="content">
+        <ng-template #dietCont></ng-template>
+        <ng-template #registersCont></ng-template>
+    </div>
+
+</div>

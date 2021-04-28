@@ -1,0 +1,20 @@
+
+<div id="container">
+    <div class='modal-header'>
+        <h3>Medicamento</h3>
+        <button type="button" class="close"
+            data-dismiss="modal">&times;</button>
+    </div>
+    <h4>{{medicine.name}}</h4>
+    <h5>Numero de registro: {{medicine.nregistro}}</h5>
+    <div id="thumbnail" style='width:"500px"'>
+        <lib-ngx-image-zoom
+        [thumbImage]="medicine.box"
+        [magnification]="6"
+        [enableScrollZoom]="true"
+        [zoomMode]="'toggle'"
+        ></lib-ngx-image-zoom>
+    </div>
+    <i>Fuente de la información: Agencia Española de Medicamentos y Productos Sanitarios
+        <a href="https://www.aemps.gob.es/" target="_blank">www.aemps.gob.es</a>.</i>
+</div>

@@ -1,0 +1,9 @@
+
+<div id = "login">
+    <h1>Iniciar sesión en MiSalud</h1>
+    <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+        <input ngModel name="username" class = "field" placeholder="username">
+        <input ngModel name="password" class = "field" placeholder="password">
+        <button>Login</button>
+    </form>
+</div>

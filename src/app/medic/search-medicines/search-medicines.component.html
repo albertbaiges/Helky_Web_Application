@@ -1,0 +1,23 @@
+
+
+<form #medicinesForm=ngForm (ngSubmit)="searchMedicines(medicinesForm)">
+    <input type="text" name="medicine" ngModel>
+</form>
+<i>Fuente de la información: Agencia Española de Medicamentos y Productos Sanitarios
+    <a href="https://www.aemps.gob.es/" target="_blank">www.aemps.gob.es</a>.</i>
+
+<ng-container *ngIf="searched">
+    <div *ngIf="results.length !== 0 else noResults">
+        <div *ngFor="let result of results" [attr.data-nregistro]="result.nregistro">
+            <div>
+                <i class="fa fa-plus" (click)="emitMedicine(result)"></i>
+            </div>
+            <div (click)="showDetails(result)">
+                {{result.name}}
+            </div>
+        </div>
+    </div>
+    <ng-template #noResults>
+        <h1>No tenemos resultados</h1>
+    </ng-template>
+</ng-container>

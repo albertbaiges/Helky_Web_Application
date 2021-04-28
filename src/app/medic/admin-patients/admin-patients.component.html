@@ -1,0 +1,16 @@
+
+
+<div id="filter">
+    <h1>FILTRE DE PACIENTS *AQUI*</h1>
+</div>
+
+<div id="patientList">
+    <div *ngFor="let patient of patientList" class="patient">
+        {{patient.username}}
+        {{patient.email}}
+        <div id="actions">
+            <i class="fa fa-archive" (click)="goToInfo(patient)"></i>
+            <i class="fas fa-user" (click)="goToProfile(patient)"></i>
+        </div>
+    </div>
+</div>
