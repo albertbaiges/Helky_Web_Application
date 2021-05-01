@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { BsModalRef } from 'ngx-bootstrap/modal';
 import { MedicinesCimaService } from 'src/app/services/medicines-cima.service';
 
 @Component({
@@ -9,8 +10,11 @@ import { MedicinesCimaService } from 'src/app/services/medicines-cima.service';
 export class MedicineBoxModalComponent implements OnInit {
 
   medicine: any;
-  constructor() { }
+  constructor(private bsModalRef: BsModalRef) { }
 
-  ngOnInit(): void { console.log(this.medicine)}
+  ngOnInit(): void {}
 
+  closeModal() {
+    this.bsModalRef.hide();
+  }
 }

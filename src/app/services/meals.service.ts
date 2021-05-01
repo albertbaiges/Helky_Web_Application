@@ -23,9 +23,13 @@ export class MealsService {
       day,
       slot
     }})
-    .pipe(
+      .pipe(
         map((response: any) => response.weekdays[day])
       )
       .toPromise();
+  }
+
+  updateMeal(mealID: string, data: any) {
+    return this.http.post(`/api/mealplans/${mealID}`, data).toPromise();
   }
 }

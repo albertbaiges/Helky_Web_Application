@@ -58,7 +58,7 @@ export class MealsComponent implements OnInit {
       console.log(day, zone)
       const modalOptions = {
         animated: true,
-        class: 'modal-dialog-centered',
+        class: 'modal-dialog-centered modal-lg',
         backdrop: true,
         keyboard: true,
         initialState: {
@@ -69,10 +69,22 @@ export class MealsComponent implements OnInit {
       }
       this.bsModalRef = this.modalService.show(MealModalComponent, modalOptions);
       this.bsModalRef.onHide.subscribe(() => { //! Unsubscribre from this thing
-        if (this.bsModalRef?.content.hideReason === "success") {
-          // this.init();
+        const dayPos = this.weekdaysMap[this.bsModalRef.content.day!];
+        switch(this.bsModalRef.content.timezone) {
+          case "breakfast":
+            this.weekMeals.breakfasts[dayPos] = this.bsModalRef.content.mealInfo.menu;
+            break;
+          case "lunch":
+            this.weekMeals.lunches[dayPos] = this.bsModalRef.content.mealInfo.menu;
+            break;
+          case "dinner": 
+            this.weekMeals.dinners[dayPos] = this.bsModalRef.content.mealInfo.menu;
+            break;
         }
+
+        console.log(this.weekMeals)
       });
+
     }
   }
 }

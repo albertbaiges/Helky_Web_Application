@@ -1,7 +1,46 @@
+
+
+#edit-medicines-container {
+    position: relative;
+    width: 60vw;
+    height: 80vh;
+    background: #f1f1f1;
+    margin: auto;
+    padding: 5%;
+    border: 2px solid black;
+    box-sizing: border-box;
+}
+
+#current-medicines {
+    border: solid 1px gray;
+    height: 50%;
+    overflow: auto;
+    box-sizing: border-box;
+}
+
+.medicine {
+    display: flex;
+    align-items: center;
+    width: 75%;
+    margin: 2% auto;
+    cursor: pointer;
+}
+
+.medicine:hover {
+    background: #dbdbdb;
+    
+}
+
+#search-medicines-container {
+    margin-top: 2%;
+}
+
 #buttons {
+    position: absolute;
     display: flex;
     justify-content: space-around;
     margin-top: 3%;
+    bottom: 2%;
 }
 
 .button {

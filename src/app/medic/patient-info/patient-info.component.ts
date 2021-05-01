@@ -100,6 +100,12 @@ export class PatientInfoComponent implements OnInit {
     this.registerRefs.set(registerID, componentReference);
   }
 
+  selectAll(values: Array<any>) {
+    values.forEach(value => {
+      this.select(value);
+    })
+  }
+
   deselect(value: any) {
     const { registerID } = value;
     const componentReference = this.registerRefs.get(registerID)!;
@@ -107,10 +113,16 @@ export class PatientInfoComponent implements OnInit {
     this.registerRefs.delete(registerID);
   }
 
+  deselectAll() {
+    this.registerRefs.forEach(registerRef => registerRef.destroy());
+    this.registerRefs.clear();
+  }
+
+
   editMedicines() {
     const modalOptions = {
       animated: true,
-      class: 'modal-dialog-centered',
+      class: 'modal-dialog-centered modal-lg',
       backdrop: true,
       ignoreBackdropClick: true,
       initialState: {

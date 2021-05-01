@@ -1,26 +1,32 @@
-
-<div>
-    <div>
-        <div *ngFor="let medicine of medicines">
+<div id="edit-medicines-container">
+    <div class='modal-header'>
+        <h3>Medicamentos</h3>
+    </div>
+    <div id="current-medicines">
+        <div *ngFor="let medicine of medicines" class="medicine">
             {{medicine.name}}
             <i class="fas fa-trash" (click)="removeMedicine(medicine)"></i>
         </div>
     </div>
-    <app-search-medicines (medicine)="addMedicine($event)"></app-search-medicines>
+
+    <div id="search-medicines-container">
+        <h4>Buscar medicamentos</h4>
+        <app-search-medicines (medicine)="addMedicine($event)"></app-search-medicines>
+    </div>
     <div id="buttons">
         <div class="button afirmative" (click)="promptApply(askApply)">Aplicar</div>
         <div class="button negative" (click)="promptDiscard(askDiscard)">Cancelar</div>
     </div>
+
+    <ng-template #askApply>
+        Quieres aplicar los cambios?
+        <button type="button" class="btn btn-default" (click)="apply()">Sí</button>
+        <button type="button" class="btn btn-primary" (click)="cancel()">Cancelar</button>
+    </ng-template>
+
+    <ng-template #askDiscard>
+        Quieres descartar los cambios?
+        <button type="button" class="btn btn-default" (click)="discard()">Sí</button>
+        <button type="button" class="btn btn-primary" (click)="cancel()">Cancelar</button>
+    </ng-template>
 </div>
-
-<ng-template #askApply>
-    Quieres aplicar los cambios?
-    <button type="button" class="btn btn-default" (click)="apply()">Sí</button>
-    <button type="button" class="btn btn-primary" (click)="cancel()">Cancelar</button>
-</ng-template>
-
-<ng-template #askDiscard>
-    Quieres descartar los cambios?
-    <button type="button" class="btn btn-default" (click)="discard()">Sí</button>
-    <button type="button" class="btn btn-primary" (click)="cancel()">Cancelar</button>
-</ng-template>

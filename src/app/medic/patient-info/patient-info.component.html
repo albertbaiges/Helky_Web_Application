@@ -26,6 +26,8 @@
              [data]="disorders"
              (onSelect)="select($event)"
              (onDeSelect)="deselect($event)"
+             (onSelectAll)="selectAll($event)"
+             (onDeSelectAll)="deselectAll()"
              >
             </ng-multiselect-dropdown>
         </div>
