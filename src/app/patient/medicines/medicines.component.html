@@ -1,0 +1,8 @@
+
+<div (click)="goBack()" class="back-button">
+    <i class="fa fa-arrow-left"></i>
+</div>
+
+<ng-container *ngIf="medicines">
+    <app-medicines-list [registerCodes]="medicines"></app-medicines-list>
+</ng-container>

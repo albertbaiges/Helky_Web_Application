@@ -23,9 +23,9 @@ export class HomeComponent implements OnInit {
     this.router.navigateByUrl(url);
   }
 
-  isMedic() {
-    console.log("El usuario a mirar es", this.userService.user.utype);
-    console.log("is medic?", this.userService.user.utype === "medic")
-    return this.userService.user.utype === "medic";
-  }
+  // isMedic() {
+  //   console.log("El usuario a mirar es", this.userService.user.utype);
+  //   console.log("is medic?", this.userService.user.utype === "medic")
+  //   return this.userService.user.utype === "medic";
+  // }
 }

@@ -1,4 +1,6 @@
 
+
+
 .back_button {
     display: flex;
     justify-content: center;
@@ -42,5 +44,3 @@
     background: #808080b3;
     cursor: not-allowed;
 }
-
-

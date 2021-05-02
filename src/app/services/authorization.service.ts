@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { tap } from "rxjs/operators";
 import { User } from '../models';
-import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +10,9 @@ import { UserService } from './user.service';
 export class AuthorizationService {
 
   username$: Subject<string>;
+  user: any;
 
-  constructor(private http: HttpClient, private userService: UserService) {
+  constructor(private http: HttpClient) {
     console.log("service loaded");
     this.username$ = new Subject<string>();
   }
@@ -35,7 +35,7 @@ export class AuthorizationService {
     if(userData.error) {
       console.log(userData.error);
     } else {
-      this.userService.setUser(userData);
+      this.user = userData;
       this.username$.next(userData.username);
       localStorage.setItem("user", JSON.stringify(userData));
     }

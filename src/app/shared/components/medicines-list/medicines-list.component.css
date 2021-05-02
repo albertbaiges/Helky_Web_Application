@@ -1,0 +1,11 @@
+
+
+.medicine {
+    margin: 2% 0;
+    padding: 2%;
+    cursor: pointer;
+}
+
+.medicine:hover {
+    background: #dbdbdb;
+}

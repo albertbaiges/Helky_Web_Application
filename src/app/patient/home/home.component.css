@@ -2,14 +2,46 @@
 #menu-options {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    height: inherit;
+    justify-content: space-evenly;
+    padding: 5% 0;
+    height: 100%;
+    overflow: auto;
 }
 
 .box-option {
-    width: 20%;
-    height: 20%;
+    width: 15%;
+    height: 14.25vw;
     background-color: white;
-    border-top: solid 3px rgb(0, 132, 255);
+    border-top: solid 5px rgb(0, 132, 255);
     box-sizing: border-box;
+    border-radius: 10px;
+    box-shadow: 0 10px  20px 2px gray;
+    font-size: 3em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgb(45, 74, 75);
+    cursor: pointer;
+    transition: background-color 1s;
+}
+
+.red-accent {
+    border-color: #ff1e00;
+}
+
+.green-accent {
+    border-color: #008001;
+}
+
+.gray-accent {
+    border-color: #8f8f8f;
+}
+
+.purple-accent {
+    border-color: #8400ff;
+}
+
+.box-option:hover {
+    background-color: rgba(167, 167, 167, 0.2);
 }

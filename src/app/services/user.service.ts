@@ -1,35 +1,40 @@
 
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
-import { User } from '../models';
+import { map, tap } from 'rxjs/operators';
+import { AuthorizationService } from './authorization.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  user: User;
-  private user$: Subject<User>;
-
-  //Quitar todo esto de aqui y mandarlo usar el de auth
-  constructor(private http: HttpClient) { 
-    this.user$ = new Subject<User>();
+  constructor(private http: HttpClient, private authService: AuthorizationService) { 
   }
 
-  setUser(user: User): void {
-    console.log("The user has been set");
-    
-    this.user = user;
-    this.user$.next(user);
+  getMedicines(): Promise<any> {
+    return this.http.get(`/api/medicines/${this.authService.user.userID}`)
+    .pipe(
+      map((response: any) => response.medicines)
+    )
+    .toPromise();
   }
 
-  getUserObservable(): Observable<User> {
-    return this.user$.asObservable();
+  getDisorders() {
+    console.log(this.authService.user.userID)
+    return this.http.get(`/api/users/${this.authService.user.userID}/disorders`)
+    .pipe(
+      map((response: any) => response.disorders)
+    )
+    .toPromise();
   }
 
-  getUser(userID: string): Promise<any> {
-  //usar el http client
-    return this.http.get(`/api/users/${userID}`).toPromise();
+  getMedics() {
+    console.log(this.authService.user.userID)
+    return this.http.get(`/api/users/${this.authService.user.userID}/medics`)
+    .pipe(
+      tap((response: any) => console.log(response))
+    )
+    .toPromise();
   }
 
 }

@@ -1,0 +1,19 @@
+<div>
+    <div (click)="goBack()" class="back_button">
+        <i class="fa fa-arrow-left"></i>
+    </div>
+    <!-- NgFor -->
+    <div id="disorders">
+        <div [ngClass] = "'disorder'" *ngFor="let disorder of disorders">
+            <div>
+                <!--Remove the disorder.info... in database there will only be disorder.type-->
+                {{disorder.type || disorder.info}}
+            </div>
+            <div [ngClass] = "{button: true, disabled: !disorder.registerID }"
+            >
+            <!-- (click)="loadRegisters(disorder.registerID, disorder.type || disorder.info || null)" -->
+                <i class="fa fa-table"></i>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { ChildrenOutletContexts, RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from './authorization/auth.guard';
+import { AuthGuard } from './guards/auth.guard';
+import { RoleGuard } from './guards/role.guard';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './signing/login/login.component';
 
@@ -13,18 +14,11 @@ const routes: Routes = [
   {
     path: "",
     canActivate: [AuthGuard],
+    canActivateChild: [RoleGuard],
     children: [
       {
         path: "home",
-        component: HomeComponent
-      },  
-      // {
-      //   path: "meals",
-      //   loadChildren: () => import("./shared/components/meals/meals.module").then(module => module.MealsModule)
-      // },
-      {
-        path: "salud",
-        loadChildren: () => import("./salud/salud.module").then(module => module.SaludModule)
+        loadChildren: () => import("./patient/patient.module").then(module => module.PatientModule)
       },
       {
         path: "medic",

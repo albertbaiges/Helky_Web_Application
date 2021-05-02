@@ -17,7 +17,16 @@ import { EditMedicinesComponent } from './patient-info/edit-medicines/edit-medic
 import { PatientProfileComponent } from './patient-profile/patient-profile.component';
 
 @NgModule({
-  declarations: [MedicAdminComponent, AdminPatientsComponent, PatientInfoComponent, PatientRegisterComponent, TrackingComponent, SearchMedicinesComponent, MedicineBoxModalComponent, EditMedicinesComponent, PatientProfileComponent],
+  declarations: [
+    MedicAdminComponent,
+    AdminPatientsComponent,
+    PatientInfoComponent,
+    PatientRegisterComponent,
+    TrackingComponent,
+    SearchMedicinesComponent,
+    EditMedicinesComponent,
+    PatientProfileComponent
+  ],
   imports: [
     CommonModule,
     MedicRoutingModule,

@@ -1,0 +1,6 @@
+
+<div id="medicines-list-container">
+    <div *ngFor="let medicine of medicines" class="medicine" (click)="showDetails(medicine)">
+        {{medicine.name}}
+    </div>
+</div>

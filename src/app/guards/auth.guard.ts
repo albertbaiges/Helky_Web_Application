@@ -19,7 +19,7 @@ export class AuthGuard implements CanActivate {
       if(user) {
         const {authorization: auth} = user;
         if(this.isValid(auth.iat) && auth.jwt) {
-          this.userService.setUser(user); //! QUIZA ES MEJOR MOVERLO AL AUTHSERVICE JUNTO CON EL CHECKING DE VALIDEZ
+          this.authService.user = user;
           console.log("Eveything is valid", auth.jwt);
           this.authService.username$.next(user.username);
           return true;
