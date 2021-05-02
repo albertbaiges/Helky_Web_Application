@@ -1,0 +1,15 @@
+
+#menu-options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    height: inherit;
+}
+
+.box-option {
+    width: 20%;
+    height: 20%;
+    background-color: white;
+    border-top: solid 3px rgb(0, 132, 255);
+    box-sizing: border-box;
+}
