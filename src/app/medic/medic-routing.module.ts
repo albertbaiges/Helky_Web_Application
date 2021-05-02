@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminPatientsComponent } from './admin-patients/admin-patients.component';
-import { MedicAdminComponent } from "./medic-admin/medic-admin.component";
+import { HomeComponent } from './home/home.component';
 import { PatientInfoComponent } from './patient-info/patient-info.component';
 import { PatientProfileComponent } from './patient-profile/patient-profile.component';
 import { PatientGuard } from './patient.guard';
@@ -9,7 +9,7 @@ import { PatientGuard } from './patient.guard';
 const routes: Routes = [
   {
     path: "",
-    component: MedicAdminComponent
+    component: HomeComponent
   },
   {
     path: "patients",

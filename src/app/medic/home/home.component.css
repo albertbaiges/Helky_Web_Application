@@ -1,14 +1,4 @@
-
-/* #menu-options {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    padding: 5% 0;
-    height: 100%;
-    overflow: auto;
-} */
-
-#menu-options {
+#medic-menu-options {
     display: grid;
     grid-template-columns: repeat(4, 15%);
     grid-auto-rows: 14.25vw;

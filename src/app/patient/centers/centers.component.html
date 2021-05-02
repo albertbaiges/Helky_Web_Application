@@ -1,6 +1,5 @@
 
 
-
 <div>
     <div (click)="goBack()" class="back-button">
         <i class="fa fa-arrow-left"></i>
@@ -11,10 +10,10 @@
         </div>
     </ng-template>
     
-    <ng-container *ngIf="medicIDs">
-        <div id="medics-container" *ngIf="medics.length !== 0 else noMedics">
-            <div class="medic" *ngFor="let medic of medics"> 
-                {{medic.username}} {{medic.email}} {{medic.center}}
+    <ng-container *ngIf="centerIDs">
+        <div id="medics-container" *ngIf="centers.length !== 0 else noMedics">
+            <div class="medic" *ngFor="let center of centers"> 
+                {{center.username}} {{center.email}} {{center.center}}
             </div>
         </div>
     </ng-container>

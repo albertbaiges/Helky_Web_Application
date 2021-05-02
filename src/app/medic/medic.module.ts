@@ -15,6 +15,7 @@ import { NgxImageZoomModule } from 'ngx-image-zoom';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { EditMedicinesComponent } from './patient-info/edit-medicines/edit-medicines.component';
 import { PatientProfileComponent } from './patient-profile/patient-profile.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { PatientProfileComponent } from './patient-profile/patient-profile.compo
     TrackingComponent,
     SearchMedicinesComponent,
     EditMedicinesComponent,
-    PatientProfileComponent
+    PatientProfileComponent,
+    HomeComponent
   ],
   imports: [
     CommonModule,

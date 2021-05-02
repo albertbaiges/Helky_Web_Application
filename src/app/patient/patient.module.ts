@@ -8,6 +8,7 @@ import { SharedModule } from '../shared/shared.module';
 import { MedicinesComponent } from './medicines/medicines.component';
 import { RegistersComponent } from './registers/registers.component';
 import { MedicsComponent } from './medics/medics.component';
+import { CentersComponent } from './centers/centers.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { MedicsComponent } from './medics/medics.component';
     MealPlanComponent,
     MedicinesComponent,
     RegistersComponent,
-    MedicsComponent
+    MedicsComponent,
+    CentersComponent
   ],
   imports: [
     CommonModule,

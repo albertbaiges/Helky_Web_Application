@@ -4,17 +4,17 @@ import { SearchService } from 'src/app/services/search.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
-  selector: 'app-medics',
-  templateUrl: './medics.component.html',
-  styleUrls: ['./medics.component.css']
+  selector: 'app-centers',
+  templateUrl: './centers.component.html',
+  styleUrls: ['./centers.component.css']
 })
-export class MedicsComponent implements OnInit {
-  
-  medicIDs: Array<string>;
-  medics: Array<any>;
+export class CentersComponent implements OnInit {
+
+  centerIDs: Array<string>;
+  centers: Array<any>;
 
   constructor(private router: Router, private userService: UserService, private searchService: SearchService) {
-    this.medics = [];
+    this.centers = [];
   }
   
   ngOnInit(): void {
@@ -22,11 +22,10 @@ export class MedicsComponent implements OnInit {
   }
 
   async init() {
-    this.medicIDs = await this.userService.getMedics();
-    this.medicIDs.forEach(async medicID => {
-      this.medics.push(await this.searchService.getUser(medicID));
+    this.centerIDs = await this.userService.getCenters();
+    this.centerIDs.forEach(async centerID => {
+      this.centers.push(await this.searchService.getUser(centerID));
     });
-    console.log("mis medicos", this.medics)
   }
 
 

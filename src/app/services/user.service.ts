@@ -32,7 +32,16 @@ export class UserService {
     console.log(this.authService.user.userID)
     return this.http.get(`/api/users/${this.authService.user.userID}/medics`)
     .pipe(
-      tap((response: any) => console.log(response))
+      map((response: any) => response.medics)
+    )
+    .toPromise();
+  }
+
+  getCenters() {
+    console.log(this.authService.user.userID)
+    return this.http.get(`/api/users/${this.authService.user.userID}/centers`)
+    .pipe(
+      map((response: any) => response.centers)
     )
     .toPromise();
   }
