@@ -9,7 +9,9 @@ import { MedicinesComponent } from './medicines/medicines.component';
 import { RegistersComponent } from './registers/registers.component';
 import { MedicsComponent } from './medics/medics.component';
 import { CentersComponent } from './centers/centers.component';
-
+import { AccordionModule } from 'ngx-bootstrap/accordion';
+import { ProfileComponent } from './profile/profile.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,12 +20,15 @@ import { CentersComponent } from './centers/centers.component';
     MedicinesComponent,
     RegistersComponent,
     MedicsComponent,
-    CentersComponent
+    CentersComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,
     PatientRoutingModule,
-    SharedModule
+    SharedModule,
+    AccordionModule.forRoot(),
+    FormsModule
   ]
 })
 export class PatientModule { }

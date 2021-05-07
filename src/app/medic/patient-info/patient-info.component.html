@@ -34,8 +34,9 @@
             
         <div id="medicines-panel">
             <h4>Medicines</h4>
-            <div class="edit">
-                <i class="fas fa-edit" (click)="editMedicines()"></i>
+            <div class="medicines-actions">
+                <i class="far fa-calendar actions-item" (click)="medicinesCalendar()"></i>
+                <i class="fas fa-edit actions-item" (click)="editMedicines()"></i>
             </div>
             <hr/>
             <ng-template #noMedicines>

@@ -1,0 +1,57 @@
+
+#medicines-calendar-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 60vw;
+    height: 50vh;
+    background: #f1f1f1;
+    margin: auto;
+    padding: 5%;
+    border: 2px solid black;
+    box-sizing: border-box;
+}
+
+#medicines-calendar-container > .modal-header {
+    width: 100%;
+}
+
+
+#medicines-calendar {
+    /* border: 3px dotted blue; */
+    width: 100%;
+}
+
+#medicines-calendar tr th {
+    text-align: center;
+    /* padding: 0.4em; */
+    width: 30px;
+    background: #8E352E;
+    font-weight: bold;
+    color: white;
+}
+
+
+#medicines-calendar th, #medicines-calendar td  {
+    border: 2px solid rgba(110, 110, 110, 0.75);
+
+}
+
+#medicines-calendar td:first-child {
+    width: 10%;
+    text-align: center;
+    font-weight: bold;
+}
+
+#medicines-calendar td {
+    white-space: pre-line;    
+}
+
+#medicines-calendar td:not(:first-child) {
+    cursor: pointer;
+}
+
+#medicines-calendar td:not(:first-child):hover {
+    background: #c7c7c7;
+}

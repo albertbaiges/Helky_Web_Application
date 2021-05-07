@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { MealPlanComponent } from './meal-plan/meal-plan.component';
 import { MedicinesComponent } from './medicines/medicines.component';
 import { MedicsComponent } from './medics/medics.component';
+import { ProfileComponent } from './profile/profile.component';
 import { RegistersComponent } from './registers/registers.component';
 
 const routes: Routes = [
@@ -23,6 +24,10 @@ const routes: Routes = [
   {
     path: "registers",
     component: RegistersComponent
+  },
+  {
+    path: "profile",
+    component: ProfileComponent
   },
   {
     path: "medics",

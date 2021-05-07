@@ -11,6 +11,11 @@ export class UserService {
   constructor(private http: HttpClient, private authService: AuthorizationService) { 
   }
 
+  getUser() {
+    return this.http.get(`/api/users/${this.authService.user.userID}`)
+    .toPromise();
+  }
+
   getMedicines(): Promise<any> {
     return this.http.get(`/api/medicines/${this.authService.user.userID}`)
     .pipe(

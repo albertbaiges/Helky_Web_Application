@@ -10,6 +10,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { EditMedicinesComponent } from './edit-medicines/edit-medicines.component';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { MedicineBoxModalComponent } from 'src/app/shared/components/medicine-box-modal/medicine-box-modal.component';
+import { MedicinesPlanComponent } from 'src/app/shared/components/medicines-plan/medicines-plan.component';
 
 
 @Component({
@@ -143,6 +144,25 @@ export class PatientInfoComponent implements OnInit {
             this.hideSpinner("loading");
             console.log("HEEEY, el servicio conoce esto del paciente!", this.patientInfoService.patient);
         });
+      }
+    });
+  }
+
+  medicinesCalendar() {
+    const modalOptions = {
+      animated: true,
+      class: 'modal-dialog-centered modal-lg',
+      backdrop: true,
+      keyboard: true,
+      initialState: {
+        planID: this.patient.userID,
+        patient: this.patient
+      },
+    }
+    this.bsModalRef = this.modalService.show(MedicinesPlanComponent, modalOptions);
+    this.bsModalRef.onHide.subscribe(() => { //! Unsubscribre from this thing
+      if (this.bsModalRef?.content.hideReason === "success") {
+        //! what now?
       }
     });
   }

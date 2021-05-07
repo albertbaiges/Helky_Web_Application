@@ -10,9 +10,10 @@ import { MedicinesCimaService } from 'src/app/services/medicines-cima.service';
 export class MedicineBoxModalComponent implements OnInit {
 
   medicine: any;
-  constructor(private bsModalRef: BsModalRef) { }
+  constructor(private bsModalRef: BsModalRef) { 
+  }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   closeModal() {
     this.bsModalRef.hide();

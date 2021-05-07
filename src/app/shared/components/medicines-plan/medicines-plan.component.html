@@ -1,0 +1,27 @@
+<div id="medicines-calendar-container">
+    <div class='modal-header'>
+        <h3>Medicamentos Semanales</h3>
+        <button type="button" class="close"
+            data-dismiss="modal" (click)="closeModal()">&times;</button>
+    </div>
+    <table id="medicines-calendar" class="table table-striped">
+        <tr>
+            <th *ngFor="let day of weekDays">
+                {{day}}
+            </th>
+        </tr>
+        <tbody>
+            <tr>
+                <td *ngFor="let dayMedicines of weekMedicines">
+                    <div *ngFor="let medicine of dayMedicines.medicines" (click)="showDetails(medicine.data)">
+                        {{medicine.at}}: {{medicine.data.name}}
+                    </div>
+                    <div (click)="editDayMedicines(dayMedicines)">
+                        Editar
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+        
+    </table>
+</div>

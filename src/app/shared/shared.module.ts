@@ -8,7 +8,11 @@ import { TrackingComponent } from './components/tracking/tracking.component';
 import { MedicinesListComponent } from './components/medicines-list/medicines-list.component';
 import { ModalModule } from "ngx-bootstrap/modal";
 import { NgxImageZoomModule } from 'ngx-image-zoom';
-
+import { MedicinesPlanComponent } from './components/medicines-plan/medicines-plan.component';
+import { EditMedicinesPlanComponent } from './components/medicines-plan/edit-medicines-plan/edit-medicines-plan.component';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { FormsModule } from '@angular/forms';
+import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 
 
 @NgModule({
@@ -18,16 +22,22 @@ import { NgxImageZoomModule } from 'ngx-image-zoom';
     MedicineBoxModalComponent,
     ProfileComponent,
     TrackingComponent,
-    MedicinesListComponent
+    MedicinesListComponent,
+    MedicinesPlanComponent,
+    EditMedicinesPlanComponent
   ],
   imports: [
     CommonModule,
+    FormsModule,
     ModalModule.forRoot(),
-    NgxImageZoomModule
+    NgMultiSelectDropDownModule.forRoot(),
+    NgxImageZoomModule,
+    TimepickerModule.forRoot()
   ],
   exports: [
     MealsComponent,
     MedicinesListComponent,
+    MedicinesPlanComponent
   ]
 })
 export class SharedModule { }

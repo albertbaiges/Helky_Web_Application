@@ -1,0 +1,26 @@
+
+<div>
+    <div (click)="goBack()" class="back-button">
+        <i class="fa fa-arrow-left"></i>
+    </div>
+    <h2>Configuración del perfil</h2>
+    <div *ngIf="user">
+        <form #profile="ngForm" (ngSubmit)="submit(profile.value)">
+            <label for="username">Nombre de usuario</label>
+            <input type="text" id="username" name="username" [ngModel]="user.username">
+
+            <label for="email">Correo electronico</label>
+            <input disabled type="text" id="email" name="email" [ngModel]="user.email">
+            
+            <label for="disorders"></label>
+            <input disabled type="text" id="disorders" name="disorders" [ngModel]="user.disorders">
+
+
+            <label for="password">Cambiar contraseña</label>
+            <input type="text" id="password" name="password" [ngModel]>
+            <input type="text" id="password_repeated" name="password_repeated" [ngModel]>
+
+            <button type="submit">Aplicar cambios</button>
+        </form>
+    </div>
+</div>

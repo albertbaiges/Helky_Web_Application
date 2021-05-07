@@ -32,4 +32,19 @@ export class MealsService {
   updateMeal(mealID: string, data: any) {
     return this.http.post(`/api/mealplans/${mealID}`, data).toPromise();
   }
+
+  getMedicines(planID: string): Promise<any>  {
+    return this.http.get(`/api/mealplans/${planID}/medicines`)
+    .pipe(
+      map((response: any) => Object.values(response.weekdays)),
+      tap(medicines => console.log("Tapeado", medicines))
+    ).toPromise();
+  }
+
+  updateMedicines(planID: string, data: any) {
+    return this.http.patch(`/api/mealplans/${planID}/medicines`, data)
+    .pipe(
+      tap(response => console.log("respuesta del server", response))
+    ).toPromise();
+  }
 }

@@ -42,18 +42,21 @@
     overflow: hidden;
 }
 
-#medicines-panel > h4 {
-    text-align: center;
-}
-
 #medicines-panel > hr {
     border-top-color: grey;
 }
 
-#medicines-panel > .edit {
+#medicines-panel > .medicines-actions {
+    display: flex;
+    justify-content: space-evenly;
     position: absolute;
     top: 2%;
     right: 3%;
+    width: 30%;
+}
+
+.actions-item {
+    font-size: 1.3em;
     cursor: pointer;
 }
 
