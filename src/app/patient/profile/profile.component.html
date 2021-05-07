@@ -5,22 +5,27 @@
     </div>
     <h2>Configuración del perfil</h2>
     <div *ngIf="user">
-        <form #profile="ngForm" (ngSubmit)="submit(profile.value)">
+        <form #profile="ngForm" (ngSubmit)="submitProfile(profile.value)">
             <label for="username">Nombre de usuario</label>
             <input type="text" id="username" name="username" [ngModel]="user.username">
-
             <label for="email">Correo electronico</label>
-            <input disabled type="text" id="email" name="email" [ngModel]="user.email">
-            
+            <input type="text" id="email" name="email" [ngModel]="user.email">
+            <button type="submit">Guardar</button>
+        </form>
+
+        <form #disorders="ngForm" (ngSubmit)="submitDisorders(profile.value)">
             <label for="disorders"></label>
             <input disabled type="text" id="disorders" name="disorders" [ngModel]="user.disorders">
+            <button type="submit">Guardar</button>
+        </form>
 
-
-            <label for="password">Cambiar contraseña</label>
+        <form #password="ngForm" (ngSubmit)="submitPassword(profile.value)">
+            <label for="password">Contraseña</label>
             <input type="text" id="password" name="password" [ngModel]>
+            <label for="password_repeated">Repetir Contraseña</label>
             <input type="text" id="password_repeated" name="password_repeated" [ngModel]>
 
-            <button type="submit">Aplicar cambios</button>
+            <button type="submit">Aplicar</button>
         </form>
     </div>
 </div>

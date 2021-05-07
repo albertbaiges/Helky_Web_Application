@@ -1,0 +1,67 @@
+
+#center-menu-options {
+    display: grid;
+    grid-template-columns: repeat(4, 15%);
+    grid-auto-rows: 14.25vw;
+    gap: 6.25%;
+    justify-content: center;
+}
+
+.box-option {
+    /* width: 15%; */
+    /* height: 14.25vw; */
+    background-color: white;
+    border-top: solid 5px rgb(0, 132, 255);
+    box-sizing: border-box;
+    border-radius: 10px;
+    box-shadow: 0 10px  20px 2px gray;
+    font-size: 1.75vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgb(27, 45, 46);
+    cursor: pointer;
+    transition: background-color 1s;
+    user-select: none;
+}
+
+.patients {
+    grid-column: 2 / span 1;
+}
+.medics {
+    grid-column: 3 / span 1;
+}
+.add-user {
+    grid-column: 1 / span 2;
+}
+
+.create-user {
+    grid-column: 3 / span 2;
+}
+
+.red-accent {
+    border-color: #ff1e00;
+}
+
+.green-accent {
+    border-color: #008001;
+}
+
+.gray-accent {
+    border-color: #8f8f8f;
+}
+
+.purple-accent {
+    border-color: #8400ff;
+}
+
+.box-option:hover {
+    background-color: rgba(167, 167, 167, 0.2);
+}
+
+.box-option-icon {
+    font-size: 2em;
+    color: rgba(126, 126, 126, 0.7);
+    margin-bottom: 1%;
+}

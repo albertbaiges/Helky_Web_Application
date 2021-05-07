@@ -1,0 +1,19 @@
+<div>
+    <div (click)="goBack()" class="back-button">
+        <i class="fa fa-arrow-left"></i>
+    </div>
+    <ng-template #noMedics>
+        <div id="noMedics">
+            Ningun medico asignado
+        </div>
+    </ng-template>
+
+    <accordion [isAnimated]="true" *ngIf="patients">
+        <accordion-group *ngFor="let patient of patients" [heading]="patient.username"
+        [panelClass]="'medic-panel'">
+            <p>
+                Email: {{patient.email}}
+            </p>
+        </accordion-group>
+    </accordion>
+</div>

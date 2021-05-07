@@ -23,6 +23,10 @@ const routes: Routes = [
       {
         path: "medic",
         loadChildren: () => import("./medic/medic.module").then(module => module.MedicModule)
+      },
+      {
+        path: "center",
+        loadChildren: () => import("./center/center.module").then(module => module.CenterModule)
       }
     ]
   },

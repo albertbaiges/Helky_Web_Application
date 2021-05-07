@@ -18,7 +18,17 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  submit(values: any) {
+  submitProfile(values: any) {
+    console.log("datos a actualizar", values);
+
+  }
+
+  submitDisorders(values: any) {
+    console.log("datos a actualizar", values);
+
+  }
+
+  submitPassword(values: any) {
     console.log("datos a actualizar", values);
     //Valirdar contraseñas iguales, seguras, etc
     
@@ -30,6 +40,8 @@ export class ProfileComponent implements OnInit {
 
     //si se cambia el nombre hay que actualizar el jwt y cambiar el usuario de authService
   }
+
+  
 
   goBack() {
     this.router.navigateByUrl("/home");

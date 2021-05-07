@@ -3,6 +3,7 @@
     <i class="fa fa-arrow-left"></i>
 </div>
 
+<i class="far fa-calendar" (click)="medicinesCalendar()"></i>
 <ng-container *ngIf="medicines">
     <app-medicines-list [registerCodes]="medicines"></app-medicines-list>
 </ng-container>

@@ -25,9 +25,14 @@ export class RoleGuard implements CanActivate, CanActivateChild {
       console.log(path)
       if(utype === "medic" && path[1] !== "medic") {
         this.router.navigateByUrl("/medic");
-        return true;
+        return false;
+      } else if (utype === "center" && path[1] !== "center") {
+        this.router.navigateByUrl("/center");
+        return false;
+      } else if (utype === "patient" && (path[1] === "medic" || path[1] === "center")) {
+        this.router.navigateByUrl("/home");
+        return false
       }
-      
       return true;
   }
   
