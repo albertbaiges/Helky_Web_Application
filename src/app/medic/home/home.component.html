@@ -1,12 +1,15 @@
 
 <div id="medic-menu-options">
     <div class="box-option green-accent" (click)="goTo('/medic/patients')">
+        <i class="fas fa-users"></i>
         Lista de pacientes
     </div>
-    <div class="box-option">
+    <div class="box-option" (click)="goTo('/medic/profile')">
+        <i class="fas fa-user-md"></i>
         Perfil
     </div>
     <div class="box-option purple-accent search-box" (click)="goTo('/medic/search')">
+        <i class="fas fa-search box-option-icon"></i>
         Buscar pacientes y centros
     </div>
 </div>

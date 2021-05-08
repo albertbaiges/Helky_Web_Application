@@ -7,8 +7,7 @@
             Ningun medico asignado
         </div>
     </ng-template>
-
-    <accordion [isAnimated]="true" *ngIf="medicIDs">
+    <accordion [isAnimated]="true" *ngIf="medics.length !== 0">
         <accordion-group *ngFor="let medic of medics" [heading]="medic.username"
         [panelClass]="'medic-panel'">
             <p>

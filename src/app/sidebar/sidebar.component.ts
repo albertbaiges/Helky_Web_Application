@@ -15,6 +15,7 @@ export class SidebarComponent implements OnInit {
   ngOnInit(): void {//Quitar el servicio auth y usar el servicio usuario, eliminar todo lo que creamos en auth para poder hacer esto
     this.authService.username$.subscribe(username => {
       this.username = username;
+      console.log("ha cambiado el usuario a", username)
     })
   }
 

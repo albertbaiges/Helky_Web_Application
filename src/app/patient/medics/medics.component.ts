@@ -9,8 +9,6 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./medics.component.css']
 })
 export class MedicsComponent implements OnInit {
-  
-  medicIDs: Array<string>;
   medics: Array<any>;
 
   constructor(private router: Router, private userService: UserService, private searchService: SearchService) {
@@ -22,10 +20,7 @@ export class MedicsComponent implements OnInit {
   }
 
   async init() {
-    this.medicIDs = await this.userService.getMedics();
-    this.medicIDs.forEach(async medicID => {
-      this.medics.push(await this.searchService.getUser(medicID));
-    });
+    this.medics = await this.userService.getMedics();
     console.log("mis medicos", this.medics)
   }
 

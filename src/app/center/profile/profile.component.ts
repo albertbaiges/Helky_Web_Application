@@ -9,7 +9,6 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  
   user: any;
 
   constructor(private router: Router, private userService: UserService, private authService: AuthorizationService) {
@@ -49,6 +48,7 @@ export class ProfileComponent implements OnInit {
   
 
   goBack() {
-    this.router.navigateByUrl("/home");
+    this.router.navigateByUrl("/center");
   }
+
 }

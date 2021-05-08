@@ -15,7 +15,8 @@ export class CenterService {
   getPatients(): Promise<any> {
     return this.http.get(`/api/centers/${this.autService.user.userID}/patients`)
       .pipe(
-        map((response: any) => response.patients)
+        map((response: any) => response.patients),
+        map(patients => Object.values(patients))
       )
       .toPromise();
   }
@@ -24,7 +25,8 @@ export class CenterService {
   getMedics(): Promise<any> {
     return this.http.get(`/api/centers/${this.autService.user.userID}/medics`)
       .pipe(
-        map((response: any) => response.medics)
+        map((response: any) => response.medics),
+        map(medics => Object.values(medics))
       )
       .toPromise();
   }

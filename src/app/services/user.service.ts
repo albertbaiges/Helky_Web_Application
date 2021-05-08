@@ -37,7 +37,8 @@ export class UserService {
     console.log(this.authService.user.userID)
     return this.http.get(`/api/users/${this.authService.user.userID}/medics`)
     .pipe(
-      map((response: any) => response.medics)
+      map((response: any) => response.medics),
+      map(medics => Object.values(medics))
     )
     .toPromise();
   }
@@ -46,7 +47,9 @@ export class UserService {
     console.log(this.authService.user.userID)
     return this.http.get(`/api/users/${this.authService.user.userID}/centers`)
     .pipe(
-      map((response: any) => response.centers)
+      map((response: any) => response.centers),
+      map(centers => Object.values(centers))
+
     )
     .toPromise();
   }

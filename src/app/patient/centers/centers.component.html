@@ -10,7 +10,7 @@
         </div>
     </ng-template>
 
-    <accordion [isAnimated]="true" *ngIf="centerIDs">
+    <accordion [isAnimated]="true" *ngIf="centers.length !== 0">
         <accordion-group *ngFor="let center of centers" [heading]="center.username"
         [panelClass]="'medic-panel'">
             <p>

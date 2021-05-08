@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { PatientInfoComponent } from './patient-info/patient-info.component';
 import { PatientProfileComponent } from './patient-profile/patient-profile.component';
 import { PatientGuard } from './patient.guard';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   {
@@ -28,6 +29,10 @@ const routes: Routes = [
         component: PatientInfoComponent
       }
     ]
+  },
+  {
+    path: "profile",
+    component: ProfileComponent
   }
 ];
 

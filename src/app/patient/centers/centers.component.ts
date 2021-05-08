@@ -9,8 +9,6 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./centers.component.css']
 })
 export class CentersComponent implements OnInit {
-
-  centerIDs: Array<string>;
   centers: Array<any>;
 
   constructor(private router: Router, private userService: UserService, private searchService: SearchService) {
@@ -22,10 +20,7 @@ export class CentersComponent implements OnInit {
   }
 
   async init() {
-    this.centerIDs = await this.userService.getCenters();
-    this.centerIDs.forEach(async centerID => {
-      this.centers.push(await this.searchService.getUser(centerID));
-    });
+    this.centers = await this.userService.getCenters();
   }
 
 

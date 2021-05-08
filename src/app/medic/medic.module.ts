@@ -16,6 +16,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { EditMedicinesComponent } from './patient-info/edit-medicines/edit-medicines.component';
 import { PatientProfileComponent } from './patient-profile/patient-profile.component';
 import { HomeComponent } from './home/home.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { HomeComponent } from './home/home.component';
     SearchMedicinesComponent,
     EditMedicinesComponent,
     PatientProfileComponent,
-    HomeComponent
+    HomeComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,
