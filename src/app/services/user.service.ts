@@ -24,7 +24,7 @@ export class UserService {
     .toPromise();
   }
 
-  getDisorders() {
+  getDisorders(): Promise<any> {
     console.log(this.authService.user.userID)
     return this.http.get(`/api/users/${this.authService.user.userID}/disorders`)
     .pipe(
@@ -33,7 +33,7 @@ export class UserService {
     .toPromise();
   }
 
-  getMedics() {
+  getMedics(): Promise<any> {
     console.log(this.authService.user.userID)
     return this.http.get(`/api/users/${this.authService.user.userID}/medics`)
     .pipe(
@@ -42,12 +42,17 @@ export class UserService {
     .toPromise();
   }
 
-  getCenters() {
+  getCenters(): Promise<any> {
     console.log(this.authService.user.userID)
     return this.http.get(`/api/users/${this.authService.user.userID}/centers`)
     .pipe(
       map((response: any) => response.centers)
     )
+    .toPromise();
+  }
+
+  updateUser(data: any): Promise<any> {
+    return this.http.patch(`/api/users/${this.authService.user.userID}`, data)
     .toPromise();
   }
 

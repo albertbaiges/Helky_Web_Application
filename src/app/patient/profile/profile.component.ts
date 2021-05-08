@@ -18,9 +18,10 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  submitProfile(values: any) {
-    console.log("datos a actualizar", values);
-
+  submitProfile(data: any) {
+    this.userService.updateUser(data)
+     .then((response: any) => console.log(response))
+     // Si cambian estas dos hay que cambiar el auth, el nombre de la barra y el localStorage
   }
 
   submitDisorders(values: any) {
@@ -30,12 +31,12 @@ export class ProfileComponent implements OnInit {
 
   submitPassword(values: any) {
     console.log("datos a actualizar", values);
-    //Valirdar contraseñas iguales, seguras, etc
-    
-    //enviar cambios
+    const data = {
+      password: values.password
+    }
 
-    //recibir cambios
-
+    this.userService.updateUser(data)
+     .then((response: any) => console.log(response))
     //mostrar popup con mensaje de se han actualizado datos
 
     //si se cambia el nombre hay que actualizar el jwt y cambiar el usuario de authService

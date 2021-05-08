@@ -7,25 +7,70 @@
     <div *ngIf="user">
         <form #profile="ngForm" (ngSubmit)="submitProfile(profile.value)">
             <label for="username">Nombre de usuario</label>
-            <input type="text" id="username" name="username" [ngModel]="user.username">
+            <input type="text" id="username" name="username" [ngModel]="user.username" #username="ngModel"
+                required
+                [ngClass]="{
+                    'form-control': true,
+                    'is-invalid': username.errors?.required,
+                    'is-valid': username.touched && !username.errors?.required
+                }"
+            >
+            <div class="alert alert-info">
+                Seleccione un nombre de usuario identificativo, preferiblemente su nombre y apellidos
+            </div>
             <label for="email">Correo electronico</label>
-            <input type="text" id="email" name="email" [ngModel]="user.email">
-            <button type="submit">Guardar</button>
+            <input type="email" id="email" name="email" [ngModel]="user.email" #email="ngModel"
+                email
+                pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+                [ngClass]="{
+                    'form-control': true,
+                    'is-invalid': !email.value || email.touched && email.errors?.pattern,
+                    'is-valid': email.touched && !email.errors?.pattern
+                }"
+            > 
+            <div class="alert alert-danger" *ngIf="!email.value || email.touched && email.errors?.pattern">
+                Email invalido
+            </div>
+            <button type="submit"
+                [disabled]="( username.errors?.required || !email.value || email.touched && email.errors?.pattern)"
+            >
+                Guardar
+            </button>
         </form>
-
+        <hr>
         <form #disorders="ngForm" (ngSubmit)="submitDisorders(profile.value)">
             <label for="disorders"></label>
             <input disabled type="text" id="disorders" name="disorders" [ngModel]="user.disorders">
             <button type="submit">Guardar</button>
         </form>
-
-        <form #password="ngForm" (ngSubmit)="submitPassword(profile.value)">
+        <hr>
+        <form #passwordForm="ngForm" (ngSubmit)="submitPassword(passwordForm.value)">
             <label for="password">Contraseña</label>
-            <input type="text" id="password" name="password" [ngModel]>
+            <input type="text" id="password" name="password" [ngModel] #password="ngModel" pattern="^(?=.*[A-Z])(?=.*\d)[\w]{8,}$"
+            [ngClass]="{
+                'form-control': true,
+                'is-invalid': password.errors?.pattern,
+                'is-valid': password.value && !password.errors?.pattern
+            }">
+            <div class="alert alert-danger" *ngIf="password.errors?.pattern">
+                La constraseña debe contener un minimo de 8 caracteres con minimo una letra mayuscula 
+                y miniscula
+            </div>
             <label for="password_repeated">Repetir Contraseña</label>
-            <input type="text" id="password_repeated" name="password_repeated" [ngModel]>
-
-            <button type="submit">Aplicar</button>
+            <input type="text" id="password_repeated" name="password_repeated" ngModel #repeatedPassword="ngModel"
+            [ngClass]="{
+                'form-control': true,
+                'is-invalid': repeatedPassword.touched && password.value !== repeatedPassword.value,
+                'is-valid': repeatedPassword.touched && password.value === repeatedPassword.value
+            }">
+            <div class="alert alert-danger" *ngIf="repeatedPassword.touched && password.value !== repeatedPassword.value">
+                Las contraseñas no coinciden
+            </div>
+            <button type="submit"   
+                [disabled]="!password.value || password.errors?.pattern || password.value !== repeatedPassword.value"
+            >
+                Aplicar
+            </button>
         </form>
     </div>
 </div>
