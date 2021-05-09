@@ -6,6 +6,7 @@ import { PatientInfoComponent } from './patient-info/patient-info.component';
 import { PatientProfileComponent } from './patient-profile/patient-profile.component';
 import { PatientGuard } from './patient.guard';
 import { ProfileComponent } from './profile/profile.component';
+import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,10 @@ const routes: Routes = [
   {
     path: "profile",
     component: ProfileComponent
+  },
+  {
+    path: "search",
+    component: SearchComponent
   }
 ];
 

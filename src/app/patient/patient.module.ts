@@ -12,6 +12,7 @@ import { CentersComponent } from './centers/centers.component';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { ProfileComponent } from './profile/profile.component';
 import { FormsModule } from '@angular/forms';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { FormsModule } from '@angular/forms';
     RegistersComponent,
     MedicsComponent,
     CentersComponent,
-    ProfileComponent
+    ProfileComponent,
+    SearchComponent
   ],
   imports: [
     CommonModule,

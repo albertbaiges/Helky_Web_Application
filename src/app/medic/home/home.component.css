@@ -47,3 +47,9 @@
 .box-option:hover {
     background-color: rgba(167, 167, 167, 0.2);
 }
+
+.box-option-icon {
+    font-size: 2em;
+    color: rgba(126, 126, 126, 0.7);
+    margin-bottom: 1%;
+}

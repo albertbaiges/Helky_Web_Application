@@ -17,6 +17,7 @@ import { EditMedicinesComponent } from './patient-info/edit-medicines/edit-medic
 import { PatientProfileComponent } from './patient-profile/patient-profile.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ProfileComponent } from './profile/profile.component';
     EditMedicinesComponent,
     PatientProfileComponent,
     HomeComponent,
-    ProfileComponent
+    ProfileComponent,
+    SearchComponent
   ],
   imports: [
     CommonModule,

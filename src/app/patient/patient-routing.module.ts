@@ -7,6 +7,7 @@ import { MedicinesComponent } from './medicines/medicines.component';
 import { MedicsComponent } from './medics/medics.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RegistersComponent } from './registers/registers.component';
+import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
   {
     path: "centers",
     component: CentersComponent
+  },
+  {
+    path: "search",
+    component: SearchComponent
   }
 ];
 

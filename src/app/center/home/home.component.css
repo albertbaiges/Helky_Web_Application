@@ -26,12 +26,6 @@
     user-select: none;
 }
 
-.patients {
-    grid-column: 2 / span 1;
-}
-.medics {
-    grid-column: 3 / span 1;
-}
 .add-user {
     grid-column: 1 / span 2;
 }
@@ -64,4 +58,8 @@
     font-size: 2em;
     color: rgba(126, 126, 126, 0.7);
     margin-bottom: 1%;
+}
+
+.search-box {
+    grid-column: 1 / span 2;
 }
