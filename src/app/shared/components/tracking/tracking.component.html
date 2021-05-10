@@ -38,3 +38,21 @@
 
 
  <h1>tracking generico {{registerID}}</h1>
+ <i class="fas fa-chevron-left" (click)="previousMonth()"></i>
+ <table class = "calendar">
+    <caption>{{monthNames[currentMonth - 1] + " " + currentYear}}</caption>
+    <thead>
+        <tr>
+            <th *ngFor="let day of weekdays">{{day}}</th>
+        </tr>
+    </thead>
+    <tr *ngFor="let week of register">
+        <td *ngFor="let day of week">
+            <div *ngFor="let register of day">
+                {{register.timestamp | date: "shortTime"}} - {{register.data}}mg/dl
+            </div>
+        </td>
+    </tr>
+    <!--5 table rows make a month-->
+</table>
+<i class="fas fa-chevron-right" *ngIf="date.getMonth() + 1 !== currentMonth" (click)="nextMonth()"></i>

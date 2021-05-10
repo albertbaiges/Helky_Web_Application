@@ -15,8 +15,16 @@ export class RegistersService {
     this.reqRegisterID = id;
   }
 
-  getRegisterTracking(registerID: string) {
-    return this.http.get(`/api/registers/${registerID}/tracking`).toPromise();
+  getRegisterTracking(registerID: string, params?: any) {
+    console.log("peticion enviada")
+    if (params) {
+      console.log("parametros", params)
+      return this.http.get(`/api/registers/${registerID}/tracking`, {
+        params
+      }).toPromise();
+    } else {
+      return this.http.get(`/api/registers/${registerID}/tracking`).toPromise();
+    }
   }
 
   createRegister(disorder: string): Promise<any> {

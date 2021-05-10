@@ -18,24 +18,25 @@
 }
 
 
-#calendar {
+.calendar {
     border: solid 2px black;
     width: 70%;
     border-spacing: 0;
 }
 
-#calendar > caption {
+.calendar > caption {
     font-size: 1.4em;
     caption-side: top;
 }
-#calendar > thead {
+
+.calendar > thead {
     background: #8E352E;
     color: #ffffff;
     font-weight: bold;
 }
 
 
-#calendar td {
+.calendar td {
     /* display: flex;
     flex-direction: column; */
     width: 120px;

@@ -8,63 +8,110 @@ import { RegistersService } from 'src/app/services/registers.service';
   styleUrls: ['./tracking.component.css']
 })
 export class TrackingComponent implements OnInit {
-  // register: Array<any>[];
-  // tracking: any;
-  // weekdays: string[];
-  // months: string[];
-  // date: Date;
+
+  currentMonth: number;
+  currentYear: number;
+
+  months: Array<any>;
+  currentIndex: number;
+  currentDate: Date;
+  weekdays: string[];
+  monthNames: string[];
+  weekdaysMap: any;
+  date: Date;
+  register: any;
   @Input() registerID: string;
 
-  // constructor(private router: Router, private registersService: RegistersService) { 
-  //   //! Llevas a un fichero shared que exporte estas cosas... pueden ser utiles en otros sitios
-  //   this.weekdays = ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"];
-  //   this.months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto",
-  //    "Septiembre", "Octubre", "Noviembre", "Diciembre"];
-  //   this.register = [[], [], [], [], []]; // Month shaped array
-  //   this.date = new Date();
-  // }
 
   constructor(private registersService: RegistersService) {
-
+    console.log("reached the constructor")
+    this.register = []
+      for(let i=0; i<6; i++) {
+          this.register[i] = new Array(7);
+      }
+    this.weekdays = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"];
+    this.monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto",
+     "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+      this.months = [];
+      this.currentIndex = 0;
   }
 
   ngOnInit() {
     this.registersService.getRegisterTracking(this.registerID)
       .then((response: any) => {
         const date = new Date();
-        console.log(response, date.getFullYear(), date.getMonth())
-        const days = response.tracking[date.getFullYear()][date.getMonth()+1];
-        console.log(days);
-      })
+        this.currentMonth = date.getMonth() + 1;
+        this.currentYear = date.getFullYear();
+        const data = response.tracking[date.getFullYear()][date.getMonth()+1];
+        this.date = new Date(data.stamp)
+        this.registerMapping(data)
+      });
   }
 
-  // ngOnInit(): void {
-  //   this.registersService.getRegisterTracking("1").then((response: any) => {
-  //     console.log(response)
-  //     this.date = new Date(response.date);
-  //     console.log("Day of the week", this.date.getDay());
-  //     const {tracking} = response;
-  //     this.tracking = tracking;
-  //     let day = this.date.getDay();
-  //     let week = 0;
-  //     console.log(tracking);
-  //     for (let i = 1; i <= 31; i++) {
-  //       this.register[week][day] = tracking[`day_${i}`];
-  //       if (day + 1 > 6) {
-  //         day = 0;
-  //         week++;
-  //       } else {
-  //         day++;
-  //       }
-  //     }
 
-  //     console.log(this.register);
+  private registerMapping(data: any) {
+    if (data) {
+      const firstDay = this.date.getDay();
+      console.log("primer dia", this.date.getDay());
+      for (let entry of Object.entries(data)) {
+        if(entry[0] === "stamp")
+        continue;
+        
+        
+        const date = new Date(this.date.getFullYear(), this.date.getMonth(), Number(entry[0]));
+        console.log("este dia cae en semana", date.getDay())
+        let day = date.getDay();
+        day = (day - 1 < 0) ? 6 : day -1; //Adjust to monday first
+        const week = Math.floor((Number(entry[0]) + 4) / 7);
+        console.log("dia", day)
+        console.log("semana", week)
+        this.register[week][day] = entry[1];
+      }
+    }
 
-  //   });
-  // }
+    console.log("registro del mes", this.register)
+    const register = [...this.register];
 
-  // goBack() {
-  //   this.router.navigateByUrl("/salud");
-  // }
+    this.months.push(register);
+    console.log("cacheado", register, this.months)
+  }
+
+  previousMonth() {
+    --this.currentMonth;
+    if (!this.months[++this.currentIndex]) {
+      this.registersService.getRegisterTracking(this.registerID,
+      {
+        year: this.currentYear,
+        month: this.currentMonth
+      })
+        .then((response: any) => {
+          console.log("respuesta recibida****", response)
+          this.register = []
+          for(let i=0; i<6; i++) {
+            this.register[i] = new Array(7);
+          }
+          let data;
+          if (Object.keys(response).length !== 0) {
+            data = response.tracking[this.currentYear][this.currentMonth];
+          }
+            console.log("datos de la respuesta", data)
+            this.registerMapping(data);
+        })
+    } else {
+      this.register = this.months[this.currentIndex];
+    }
+    console.log("meses cacheados", this.months)
+    console.log("Current index", this.currentIndex);
+    console.log("Current month", this.currentMonth);
+  }
+
+  nextMonth() {
+    console.log("hacia adelante")
+    //Next month will always be cached
+    this.currentMonth++;
+    const month = this.months[--this.currentIndex];
+    console.log("mes a cargar", month, "con indice", this.currentIndex, "siendo el mes", this.currentMonth)
+    this.register = month;
+  }
 
 }

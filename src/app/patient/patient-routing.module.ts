@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ActivityPlanComponent } from './activity-plan/activity-plan.component';
 import { CentersComponent } from './centers/centers.component';
+import { RegisterGuard } from './guards/register.guard';
 import { HomeComponent } from './home/home.component';
 import { MealPlanComponent } from './meal-plan/meal-plan.component';
 import { MedicinesComponent } from './medicines/medicines.component';
@@ -37,6 +38,7 @@ const routes: Routes = [
       },
       {
         path: "tracking",
+        canActivate: [RegisterGuard],
         component: RegisterTrackingComponent
       }
     ]
