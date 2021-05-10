@@ -7,11 +7,15 @@
         <div [ngClass] = "'disorder'" *ngFor="let disorder of disorders">
             <div>
                 <!--Remove the disorder.info... in database there will only be disorder.type-->
-                {{disorder.type || disorder.info}}
+                {{disorder.type}}
             </div>
-            <div [ngClass] = "{button: true, disabled: !disorder.registerID }"
+            <div (click)="loadRegisters(disorder)" 
+            [ngClass]="{
+                button: true,
+                disabled: !disorder.registerID && disorder.family !== 'Other',
+                invalid: !disorder.registerID && disorder.family === 'Other'
+            }"
             >
-            <!-- (click)="loadRegisters(disorder.registerID, disorder.type || disorder.info || null)" -->
                 <i class="fa fa-table"></i>
             </div>
         </div>

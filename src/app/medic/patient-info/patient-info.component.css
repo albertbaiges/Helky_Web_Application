@@ -86,7 +86,14 @@ aside {
 #dieta-toggle {
     position: absolute;
     top: 2%;
-    width: 100%;
+    width: 45%;
+}
+
+#activity-toggle {
+    position: absolute;
+    top: 2%;
+    width: 45%;
+    left: 55%;
 }
 
 #dropdown-select {

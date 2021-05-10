@@ -11,6 +11,7 @@ import { EditMedicinesComponent } from './edit-medicines/edit-medicines.componen
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { MedicineBoxModalComponent } from 'src/app/shared/components/medicine-box-modal/medicine-box-modal.component';
 import { MedicinesPlanComponent } from 'src/app/shared/components/medicines-plan/medicines-plan.component';
+import { ExercisesComponent } from 'src/app/shared/components/exercises/exercises.component';
 
 
 @Component({
@@ -21,14 +22,16 @@ import { MedicinesPlanComponent } from 'src/app/shared/components/medicines-plan
 export class PatientInfoComponent implements OnInit {
   dropdownSettings: IDropdownSettings;
   patient: Patient;
-  disorders: Array<any>;
+  registeredDisorders: Array<any>;
   medicines: Array<any>
   registerRefs: Map<string, ComponentRef<TrackingComponent>>;
   dietRef: ComponentRef<MealsComponent> | null;
+  activityRef: ComponentRef<ExercisesComponent> | null;
   editModalRef: BsModalRef;
   bsModalRef: any;
   
   @ViewChild("dietCont", { read: ViewContainerRef }) dietCont: ViewContainerRef;
+  @ViewChild("activityCont", { read: ViewContainerRef}) activityCont: ViewContainerRef;
   @ViewChild("registersCont", { read: ViewContainerRef }) registersCont: ViewContainerRef;
 
   constructor(private patientInfoService: PatientInfoService, private componentFactoryResolver: ComponentFactoryResolver,
@@ -60,7 +63,8 @@ export class PatientInfoComponent implements OnInit {
           this.hideSpinner("loading");
       });
     }
-    this.disorders = Object.values(this.patient.disorders);
+    console.log("Enfermedades del paciente", this.patient.disorders)
+    this.registeredDisorders = Object.values(this.patient.disorders).filter((disorder: any) => disorder.registerID);
   }
 
   getAvatarLetters() {
@@ -91,12 +95,24 @@ export class PatientInfoComponent implements OnInit {
     }
   }
 
+  showActivity() {
+    if(this.activityRef) {
+      this.activityRef.destroy();
+      this.activityRef = null;
+    } else {
+      const componentFactory = this.componentFactoryResolver.resolveComponentFactory(ExercisesComponent);
+      const componentReference = this.dietCont.createComponent(componentFactory);
+      componentReference.instance.planID = this.patient.userID;
+      this.activityRef = componentReference;
+    }
+  }
+
   select(value: any) {
     console.log("selected", value)
     const { registerID } = value;
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(TrackingComponent);
     const componentReference = this.registersCont.createComponent(componentFactory);
-    componentReference.instance.registerID = "1";
+    componentReference.instance.registerID = registerID;
     console.log("referencia", componentReference)
     this.registerRefs.set(registerID, componentReference);
   }

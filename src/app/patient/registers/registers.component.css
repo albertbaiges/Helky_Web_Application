@@ -42,5 +42,10 @@
 
 .disabled {
     background: #808080b3;
+    cursor: pointer;
+}
+
+.invalid {
+    background: #d40000b3;
     cursor: not-allowed;
 }

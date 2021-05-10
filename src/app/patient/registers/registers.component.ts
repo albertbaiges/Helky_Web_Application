@@ -17,7 +17,6 @@ export class RegistersComponent implements OnInit {
   
   constructor(private router: Router, private userService: UserService, private registersService: RegistersService,
     private modalService: BsModalService) {
-    this.userService.getDisorders().then(response => console.log(response));
 
   }
 
@@ -28,25 +27,24 @@ export class RegistersComponent implements OnInit {
   init() {
       this.userService.getDisorders()
       .then((disorders: any) => {
-        console.log(disorders);
-        console.log(Object.values(disorders))
-        this.disorders = Object.values(disorders);
+        console.log(disorders, typeof disorders)
+        this.disorders = disorders;
       });
   }
 
-  loadRegisters(id: string | null, disorder: string | null) {
-    if (id) {
+  loadRegisters(disorder: any) {
+    if (disorder.registerID) {
       console.log("dentro... redirecting")
-      this.registersService.setRegisterID(id);
-      this.router.navigate(["/salud", "register"]);
-    } else {
+      this.registersService.setRegisterID(disorder.registerID);
+      this.router.navigateByUrl("/home/registers/tracking");
+    } else if (disorder.family !== "Other") {
       const modalOptions = {
         animated: true,
         class: 'modal-dialog-centered',
         backdrop: true,
         keyboard: true,
         initialState: {
-          disorder: disorder! //No null assertion
+          disorder: disorder.type! //No null assertion
         }
       }
       this.bsModalRef = this.modalService.show(CreateRegisterModalComponent, modalOptions);
@@ -55,9 +53,12 @@ export class RegistersComponent implements OnInit {
           this.init();
         }
       });
+    } else if (disorder.family === "Other") {
+      alert("es un other")
     }
-
   }
+
+  
   goBack() {
     this.router.navigateByUrl("/home");
   }

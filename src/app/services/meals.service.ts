@@ -37,7 +37,6 @@ export class MealsService {
     return this.http.get(`/api/mealplans/${planID}/medicines`)
     .pipe(
       map((response: any) => Object.values(response.weekdays)),
-      tap(medicines => console.log("Tapeado", medicines))
     ).toPromise();
   }
 
@@ -47,4 +46,29 @@ export class MealsService {
       tap(response => console.log("respuesta del server", response))
     ).toPromise();
   }
+
+  getExercises(planID: string): Promise<any>  {
+    return this.http.get(`/api/mealplans/${planID}/activities`)
+    .pipe(
+      map((response: any) => Object.values(response.weekdays))
+    )
+      .toPromise();
+  }
+
+  getExerciseInfo(planID: string, day: string): Promise<any> {
+    return this.http.get(`/api/mealplans/${planID}/activities`, {
+      params: {
+        day
+      }
+    })
+    .pipe(
+      map((response: any) => response.weekdays[day])
+    )
+    .toPromise();
+  }
+
+  updateExercises(planID: string, data: any) {
+    return this.http.patch(`/api/mealplans/${planID}/activities`, data).toPromise();
+  }
+
 }

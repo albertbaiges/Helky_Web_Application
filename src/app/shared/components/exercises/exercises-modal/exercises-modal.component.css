@@ -1,0 +1,44 @@
+
+#full-activity-container {
+    position: relative;
+    height: 50vh;
+    background: #f1f1f1;
+    padding: 2%;
+    border: 2px solid black;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.full-activity-header {
+    margin-bottom: 2%;
+}
+
+.activitiy-functinalities {
+    align-self: flex-end;
+    cursor: pointer;
+}
+
+#edit-functionalities {
+    align-self: flex-end;
+    display: flex;
+    justify-content: space-between;
+    width: 10%;
+    padding: 0 1%;
+}
+
+.activity-content {
+    height: 25%;
+    padding: 2%;
+    border: 2px solid rgba(128, 128, 128, 0.562);
+    border-radius: 10px;
+    overflow: auto;
+    white-space: pre-line;
+}
+
+
+.editable {
+    border: 2px dashed gray;
+    content: editable;
+    outline: none;
+}

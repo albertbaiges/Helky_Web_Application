@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class RegistersService {
   
-  private reqRegisterID: string;
+  reqRegisterID: string;
   constructor(private http: HttpClient) { 
     this.reqRegisterID = "";
   }
@@ -28,5 +28,9 @@ export class RegistersService {
     return this.http.post("/api/registers", body).toPromise();
   }
 
+
+  getSupportedRegisters() {
+    return this.http.get(`/api/registers/supported`).toPromise();
+  }
   
 }

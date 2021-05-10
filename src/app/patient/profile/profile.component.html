@@ -38,11 +38,28 @@
             </button>
         </form>
         <hr>
-        <form #disorders="ngForm" (ngSubmit)="submitDisorders(profile.value)">
-            <label for="disorders"></label>
-            <input disabled type="text" id="disorders" name="disorders" [ngModel]="user.disorders">
+        <div>
+            <div *ngFor="let disorder of disorders; let i = index">
+                {{disorder.type}} || {{disorder.family | titlecase}}
+                <i class="fas fa-times" (click)="removeDisorder(i)"></i>
+            </div>
+        </div>
+        <form #disorderForm="ngForm" (ngSubmit)="addDisorder(disorderForm.value)">
+            <input type="text" id="disorders" name="disorder" ngModel>
+            <ng-multiselect-dropdown
+             [placeholder]="'Registros Soportodas'"
+             [settings]="dropdownSettings"
+             [data]="supportedRegisters"
+             name="family"
+             ngModel
+           >
+           </ng-multiselect-dropdown>
             <button type="submit">Guardar</button>
         </form>
+        <button (click)="submitDisorders()">Aplicar cambios</button>
+        <div class="alert alert-warn">
+            Eliminar una enfermedad con registro provocará perder los registros
+        </div>
         <hr>
         <form #passwordForm="ngForm" (ngSubmit)="submitPassword(passwordForm.value)">
             <label for="password">Contraseña</label>

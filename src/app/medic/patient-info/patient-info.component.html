@@ -14,21 +14,26 @@
 
     <aside>
         <button id="dieta-toggle" type="button" class="btn btn-primary"
-        (click)="showDiet()"
-        btnCheckboxTrue="true" btnCheckboxFalse="false">
+            (click)="showDiet()"
+        >
             Dieta
-         </button>
+        </button>
+        <button id="activity-toggle" type="button" class="btn btn-primary"
+            (click)="showActivity()"
+        >
+             Actividad
+        </button>
 
-         <div id="dropdown-select">
-             <ng-multiselect-dropdown
+        <div id="dropdown-select">
+            <ng-multiselect-dropdown
              [placeholder]="'Enfermedades'"
              [settings]="dropdownSettings"
-             [data]="disorders"
+             [data]="registeredDisorders"
              (onSelect)="select($event)"
              (onDeSelect)="deselect($event)"
              (onSelectAll)="selectAll($event)"
              (onDeSelectAll)="deselectAll()"
-             >
+            >
             </ng-multiselect-dropdown>
         </div>
             
@@ -66,6 +71,7 @@
 
     <div id="content">
         <ng-template #dietCont></ng-template>
+        <ng-template #activityCont></ng-template>
         <ng-template #registersCont></ng-template>
     </div>
 

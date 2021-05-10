@@ -25,11 +25,10 @@
         </div>
         <hr>
         <h3>Comments</h3>
-        <div id="menu" class='meal-content' #comments [attr.contentEditable]="editable" [ngClass]="{'editable': editable}">
+        <div id="comments" class='meal-content' #comments [attr.contentEditable]="editable" [ngClass]="{'editable': editable}">
             <ng-container *ngIf="mealInfo.comments else noComments">
                 {{mealInfo.comments}}
             </ng-container>
         </div>
-        <ng-content></ng-content>
     </ng-container>
 </div>

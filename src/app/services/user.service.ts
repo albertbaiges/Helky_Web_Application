@@ -28,7 +28,8 @@ export class UserService {
     console.log(this.authService.user.userID)
     return this.http.get(`/api/users/${this.authService.user.userID}/disorders`)
     .pipe(
-      map((response: any) => response.disorders)
+      map((response: any) => response.disorders),
+      map(disorders => Object.values(disorders))
     )
     .toPromise();
   }

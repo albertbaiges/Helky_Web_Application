@@ -13,6 +13,9 @@ import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { ProfileComponent } from './profile/profile.component';
 import { FormsModule } from '@angular/forms';
 import { SearchComponent } from './search/search.component';
+import { ActivityPlanComponent } from './activity-plan/activity-plan.component';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { RegisterTrackingComponent } from './register-tracking/register-tracking.component';
 
 @NgModule({
   declarations: [
@@ -23,11 +26,14 @@ import { SearchComponent } from './search/search.component';
     MedicsComponent,
     CentersComponent,
     ProfileComponent,
-    SearchComponent
+    SearchComponent,
+    ActivityPlanComponent,
+    RegisterTrackingComponent
   ],
   imports: [
     CommonModule,
     PatientRoutingModule,
+    NgMultiSelectDropDownModule.forRoot(),
     SharedModule,
     AccordionModule.forRoot(),
     FormsModule

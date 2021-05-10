@@ -25,6 +25,7 @@ export class TrackingComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log("*****PIDIENDO EL REGISTRO", this.registerID)
     this.registersService.getRegisterTracking(this.registerID).then((response: any) => {
       this.date = new Date(response.date);
       console.log("Day of the week", this.date.getDay());

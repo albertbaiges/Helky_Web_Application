@@ -13,6 +13,8 @@ import { EditMedicinesPlanComponent } from './components/medicines-plan/edit-med
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { FormsModule } from '@angular/forms';
 import { TimepickerModule } from 'ngx-bootstrap/timepicker';
+import { ExercisesComponent } from './components/exercises/exercises.component';
+import { ExercisesModalComponent } from './components/exercises/exercises-modal/exercises-modal.component';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { TimepickerModule } from 'ngx-bootstrap/timepicker';
     TrackingComponent,
     MedicinesListComponent,
     MedicinesPlanComponent,
-    EditMedicinesPlanComponent
+    EditMedicinesPlanComponent,
+    ExercisesComponent,
+    ExercisesModalComponent
   ],
   imports: [
     CommonModule,
@@ -37,7 +41,9 @@ import { TimepickerModule } from 'ngx-bootstrap/timepicker';
   exports: [
     MealsComponent,
     MedicinesListComponent,
-    MedicinesPlanComponent
+    MedicinesPlanComponent,
+    ExercisesComponent,
+    TrackingComponent
   ]
 })
 export class SharedModule { }
