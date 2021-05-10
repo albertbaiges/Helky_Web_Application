@@ -44,3 +44,26 @@
     border-bottom: 1px solid #cccccc;
     border-right: 1px solid #cccccc;
 }
+
+
+.prior-meal {
+    background: rgba(255, 95, 47, 0.521);
+
+}
+
+.post-meal {
+    background: rgba(255, 49, 49, 0.521);
+}
+
+.prior-activity {
+    background: rgba(0, 255, 255, 0.521);
+
+}
+
+.post-activity {
+    background: rgba(45, 45, 255, 0.521);
+}
+
+.other {
+    background: rgba(202, 202, 202, 0.521);
+}

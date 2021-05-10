@@ -59,11 +59,13 @@ export class AuthorizationService {
       .pipe(tap(this.storeUser)).toPromise();
   }
 
+  register(body: any) {
+    return this.http.post("/signup", body)
+      .toPromise();
+  }
+
   logout() {
     localStorage.removeItem("user");
   }
 
-  register() {
-
-  }
 }

@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { MedicsComponent } from './medics/medics.component';
 import { PatientsComponent } from './patients/patients.component';
 import { ProfileComponent } from './profile/profile.component';
+import { RegisterMedicComponent } from './register-medic/register-medic.component';
 import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: "search",
     component: SearchComponent
+  },
+  {
+    path: "registermedic",
+    component: RegisterMedicComponent
   }
 ];
 

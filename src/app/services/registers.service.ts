@@ -40,5 +40,11 @@ export class RegistersService {
   getSupportedRegisters() {
     return this.http.get(`/api/registers/supported`).toPromise();
   }
+
+  addRegister(registerID: string, body: any) {
+    console.log("peticion", registerID, body)
+    return this.http.patch(`/api/registers/${registerID}/tracking`, body)
+      .toPromise();
+  }
   
 }

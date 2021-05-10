@@ -9,9 +9,10 @@ import { MedicsComponent } from './medics/medics.component';
 import { ProfileComponent } from './profile/profile.component';
 import { FormsModule } from '@angular/forms';
 import { SearchComponent } from './search/search.component';
+import { RegisterMedicComponent } from './register-medic/register-medic.component';
 
 @NgModule({
-  declarations: [HomeComponent, PatientsComponent, MedicsComponent, ProfileComponent, SearchComponent],
+  declarations: [HomeComponent, PatientsComponent, MedicsComponent, ProfileComponent, SearchComponent, RegisterMedicComponent],
   imports: [
     CommonModule,
     CenterRoutingModule,

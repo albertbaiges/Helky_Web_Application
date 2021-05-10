@@ -60,4 +60,16 @@ export class UserService {
     .toPromise();
   }
 
+  getNotifications() {
+    return this.http.get(`/api/users/${this.authService.user.userID}/notifications`)
+    .pipe(
+      map((response: any) => response.notifications)
+    )
+    .toPromise();
+  }
+
+  postRelation(body: any) {
+    return this.http.post(`/api/users/${this.authService.user.userID}/relations`, body).toPromise();
+  }
+
 }

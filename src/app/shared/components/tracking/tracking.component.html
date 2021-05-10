@@ -46,11 +46,22 @@
             <th *ngFor="let day of weekdays">{{day}}</th>
         </tr>
     </thead>
-    <tr *ngFor="let week of register">
-        <td *ngFor="let day of week">
-            <div *ngFor="let register of day">
-                {{register.timestamp | date: "shortTime"}} - {{register.data}}mg/dl
-            </div>
+    <tr *ngFor="let week of register.data; let weekNum = index">
+        <td *ngFor="let day of week; let dayNum = index" (click)="openEditModal(day, weekNum, dayNum)">
+            {{day.number}}
+            <ng-container *ngIf="day.logs">
+                <div *ngFor="let register of day.logs" 
+                [ngClass]="{
+                    'prior-meal': register.at === 'prior meal',
+                    'post-meal': register.at === 'post meal',
+                    'prior-activity': register.at === 'prior activity',
+                    'post-activity': register.at === 'post activity',
+                    'other': register.at === 'other'
+                    }"
+                >
+                    {{register.timestamp | date: "shortTime"}} - {{register.data}}mg/dl
+                </div>
+            </ng-container>
         </td>
     </tr>
     <!--5 table rows make a month-->

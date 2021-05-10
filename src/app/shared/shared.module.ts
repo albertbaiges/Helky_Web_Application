@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 import { ExercisesComponent } from './components/exercises/exercises.component';
 import { ExercisesModalComponent } from './components/exercises/exercises-modal/exercises-modal.component';
+import { EditTrackingModalComponent } from './components/tracking/edit-tracking-modal/edit-tracking-modal.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { ExercisesModalComponent } from './components/exercises/exercises-modal/
     MedicinesPlanComponent,
     EditMedicinesPlanComponent,
     ExercisesComponent,
-    ExercisesModalComponent
+    ExercisesModalComponent,
+    EditTrackingModalComponent
   ],
   imports: [
     CommonModule,

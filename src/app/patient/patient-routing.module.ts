@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { MealPlanComponent } from './meal-plan/meal-plan.component';
 import { MedicinesComponent } from './medicines/medicines.component';
 import { MedicsComponent } from './medics/medics.component';
+import { NotificationsComponent } from './notifications/notifications.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RegisterTrackingComponent } from './register-tracking/register-tracking.component';
 import { RegistersComponent } from './registers/registers.component';
@@ -42,6 +43,10 @@ const routes: Routes = [
         component: RegisterTrackingComponent
       }
     ]
+  },
+  {
+    path: "notifications",
+    component: NotificationsComponent
   },
   {
     path: "profile",
