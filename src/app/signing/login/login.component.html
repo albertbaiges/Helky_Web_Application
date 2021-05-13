@@ -1,11 +1,12 @@
 
-<div id = "login">
+<div id="general-login-container" class="container-element purple-accent">
     <h1>Iniciar sesión en MiSalud</h1>
-    <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
-        <input ngModel name="username" class = "field" placeholder="username">
-        <input ngModel name="password" class = "field" placeholder="password">
-        <button>Login</button>
+    <form #loginForm="ngForm" (ngSubmit)="login(loginForm)" class="form-group">
+        <input class="form-control form-control-lg mb-2" ngModel name="username" placeholder="Usuario">
+        <input class="form-control form-control-lg mb-3" ngModel name="password" placeholder="Contraseña">
+        <button class="btn btn-primary w-100">Login</button>
     </form>
-    <button (click)="goToRegister()">Registro</button>
+    <p>No tienes cuenta? </p>
+    <button class="btn btn-secondary w-100" (click)="goToRegister()">Registro</button>
 
 </div>

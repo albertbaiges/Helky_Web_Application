@@ -1,35 +1,22 @@
 
-
-
-#registro {
-    width: 25%;
+#general-register-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+    padding: 2%;
+    border-top-style: solid;
+    border-top-width: 10px;
+    border-radius: 20px;
     margin: auto;
-    border: 2px solid red;
-    padding: 3% 0;
 }
 
-#registro > h1 {
-    text-align: center;
+.btn-primary, .btn-primary:active, .btn-primary:visited {
+    background-color: #5c2f94 !important;
+    border: none;
 }
 
-.field {
-    display: block;
-    margin: 2%;
-    border: 2px solid black;
-}
-
-#submit {
-    width: 50%;
-    margin: auto;
-    background-color: #ff80ff;
-    text-align: center;
-    font-weight: bold;
-    padding: 3% 5%;
-    border-radius: 100px;
-    cursor: pointer;
-}
-
-#submit:hover {
-    background-color: #da6dda;
-
+.btn-primary:hover {
+    background-color: #7139b6 !important;
 }

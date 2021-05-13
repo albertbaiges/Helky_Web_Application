@@ -13,12 +13,17 @@ export class ApiUrlInterceptor implements HttpInterceptor {
         if (req.url.startsWith('http') || req.url.includes('/assets/')) {
             finalReq = req;
         } else {
-            finalReq = req.clone({
-                setHeaders: {Authorization: `Bearer ${this.auth.user.authorization.jwt}`},
-                url: `${API_URL}${req.url}`
-            })
+            if(!req.url.includes("/login") && !req.url.includes("/register")) {
+                finalReq = req.clone({
+                    setHeaders: {Authorization: `Bearer ${this.auth.user.authorization.jwt}`},
+                    url: `${API_URL}${req.url}`
+                })
+            } else {
+                finalReq = req.clone({
+                    url: `${API_URL}${req.url}`
+                })
+            }
         }
-        console.log("intercepted...")
         return next.handle(finalReq);
     }
 }

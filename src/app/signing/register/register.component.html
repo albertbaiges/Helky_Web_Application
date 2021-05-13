@@ -1,10 +1,10 @@
-<div id="registro">
+<div id="general-register-container" class="container-element purple-accent">
     <h1>Registrate en MiSalud</h1>
-    <form #registerForm="ngForm" (ngSubmit)="register(registerForm.value)">
+    <form #registerForm="ngForm" (ngSubmit)="register(registerForm.value)" class="form-group">
         <label for="username">Nombre de usuario:</label>
-        <input ngModel #username="ngModel" required name="username" class = "field" type="text" placeholder="Nombre Usuario">
+        <input ngModel #username="ngModel" required name="username" class="form-control form-control-lg mb-2" type="text" placeholder="Nombre Usuario">
         <label for="email">Correo electronico</label>
-        <input ngModel #email="ngModel" required name="email" class = "field" type="text" placeholder="Email"
+        <input ngModel #email="ngModel" required name="email" class="form-control form-control-lg mb-2" type="text" placeholder="Email"
             email
             pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
         >
@@ -15,7 +15,7 @@
             Este correo electronico ya está en uso
         </div>
         <label for="password">Contraseña</label>
-        <input ngModel #password="ngModel" required name="password" class = "field"  type="text" placeholder="Contraseña"
+        <input ngModel #password="ngModel" required name="password" class="form-control form-control-lg mb-2"  type="text" placeholder="Contraseña"
             pattern="^(?=.*[A-Z])(?=.*\d)[\w]{8,}$"
         >
         <div class="alert alert-danger" *ngIf="password.errors?.pattern">
@@ -23,11 +23,12 @@
             y miniscula
         </div>
         <label for="repeat_password">Repetir Contraseña</label>
-        <input ngModel #repeatedPassword="ngModel" required name="repeat_password" class ="field" type="text" placeholder="Repetir Contraseña">
+        <input ngModel #repeatedPassword="ngModel" required name="repeat_password" class="form-control form-control-lg mb-3" type="text" placeholder="Repetir Contraseña">
         <div class="alert alert-danger" *ngIf="repeatedPassword.touched && password.value !== repeatedPassword.value">
             Las contraseñas no coinciden
         </div>
         <button type="submit"
+            class="btn btn-primary w-100"
             [disabled]=" username.errors?.required 
             || email.errors?.required || email.errors?.pattern 
             || !password.value || password.errors?.pattern 
@@ -36,7 +37,8 @@
             Registrar
         </button>
     </form>
-    <button (click)="goToLogin()">
+    <p>Ya tienes una cuenta?</p>
+    <button class="btn btn-secondary w-100" (click)="goToLogin()">
         Iniciar Sesion
     </button>
 </div>
