@@ -1,7 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { API_URL} from "../shared/toRemove";
-import { catchError } from "rxjs/operators"
 import { Router } from '@angular/router';
 import { UserService } from '../services/user.service';
 

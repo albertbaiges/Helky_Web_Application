@@ -1,0 +1,107 @@
+
+
+#patient-profile-container {
+    width: 90%;
+    height: 90%;
+    padding: 2%;
+    border-top-style: solid;
+    border-top-width: 10px;
+    border-radius: 20px;
+    margin: auto;
+    overflow: auto;
+}
+
+#patient-profile-container h3 {
+    text-align: center;
+    border-bottom: solid thick rgba(128, 128, 128, 0.281);
+    border-radius: 5px;
+    padding-bottom: 1%;
+    box-sizing: border-box;
+    margin-bottom: 1%;
+}
+
+.patient-profile-subcontainer {
+    margin-top: 2%;
+    padding: 0 2%;
+}
+
+
+.patient-profile-section {
+    display: flex;
+    justify-content: space-around;
+}
+
+.patient-profile-section form {
+    border: 1px solid black;
+    background: #F2F4F5;
+    border-radius: 10px;
+    width: 50%;
+    padding: 2%;
+    box-sizing: border-box;
+}
+
+.patient-profile-section form button {
+    display: block;
+    width: 50%;
+    margin: 2% auto;
+    padding: 1%;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.patient-profile-section form label:not(:first-child) {
+    margin-top: 1%;
+}
+
+.patient-profile-disorders-section {
+    position: relative;
+    height: 70%;
+}
+
+.patient-profile-disorders-section form {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+}
+
+.patient-profile-disorders-section .deletion-warning {
+    width: 40%;
+}
+
+.patient-profile-disorders-section form {
+    position: absolute;
+    top: 50%;
+    left: 15%;
+    transform: translate(-50%, -50%);
+    height: 35vh;
+    padding: 1%;
+    box-sizing: border-box;
+}
+
+.patient-profile-disorders-section form .multiselect-dropdown-container {
+    margin-top: 2%;
+}
+
+.patient-profile-disorders-section form button {
+    position: absolute;
+    bottom: 1%;
+    width: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.patient-profile-disorders-section .patient-profile-disorders-list {
+    position: absolute;
+    right: 5%;
+    width: 50%;
+    height: 40vh;
+    overflow: auto;
+}
+
+.patient-profile-disorders-section .submitdisorders {
+    position: absolute;
+    right: 5%;
+    width: 50%;
+    top: calc(40vh + 45px);
+    overflow: auto;
+}

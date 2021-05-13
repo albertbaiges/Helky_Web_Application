@@ -1,7 +1,7 @@
 import { HttpResponseBase } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { MealsService } from 'src/app/services/meals.service';
+import { PlansService } from 'src/app/services/plans.service';
 import { MedicinesCimaService } from 'src/app/services/medicines-cima.service';
 import { MedicineBoxModalComponent } from '../medicine-box-modal/medicine-box-modal.component';
 import { EditMedicinesPlanComponent } from './edit-medicines-plan/edit-medicines-plan.component';
@@ -21,7 +21,7 @@ export class MedicinesPlanComponent implements OnInit {
   weekMedicines: any; //DayMealsModel[]
   detailsModalRef: BsModalRef;
 
-  constructor(private bsModalRef: BsModalRef, private mealsService: MealsService,
+  constructor(private bsModalRef: BsModalRef, private plansService: PlansService,
     private cima: MedicinesCimaService, private modalService: BsModalService) { 
     this.weekdaysMap = {
       monday: 0,
@@ -39,9 +39,10 @@ export class MedicinesPlanComponent implements OnInit {
 
   ngOnInit(): void {
     const weekMedicinesTemp: any = []
-    this.mealsService.getMedicines(this.planID)
+    this.plansService.getMedicines(this.planID)
       .then((weekMedicines: Array<any>) => {
         // console.log(weekMedicines)
+        console.log(weekMedicines)
         for (const dayMedicines of weekMedicines) {
           const dayPos = this.weekdaysMap[dayMedicines.day];
           if(dayMedicines.medicines) {
@@ -112,7 +113,7 @@ export class MedicinesPlanComponent implements OnInit {
 
 
   closeModal() {
-    alert("No completado")
+    this.bsModalRef.hide();
   }
 
   showDetails(medicine: any) {

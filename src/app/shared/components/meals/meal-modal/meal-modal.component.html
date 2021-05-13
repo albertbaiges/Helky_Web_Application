@@ -1,9 +1,5 @@
 
-<div id="full-meal-container">
-    <ng-template #noData>
-        No hay información disponible
-    </ng-template>
-    
+<div id="meal-fullmeal-container" class="container-element red-accent">
     <ng-template #noComments>
         No hay ningun comentario
     </ng-template>
@@ -13,7 +9,6 @@
         <button type="button" class="close"
             data-dismiss="modal" (click)="closeModal()">&times;</button>
     </div>
-    <ng-container *ngIf="mealInfo else noData">
         <i class="fas fa-edit meal-functinalities" *ngIf="!editable" (click)="toggleEdit()"></i>
         <div *ngIf="editable" id="edit-functionalities">
             <i class="fas fa-check meal-functinalities" (click)="applyChanges({menu: menu.innerText, comments: comments.innerText})"></i>
@@ -30,5 +25,4 @@
                 {{mealInfo.comments}}
             </ng-container>
         </div>
-    </ng-container>
 </div>

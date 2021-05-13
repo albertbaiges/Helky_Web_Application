@@ -1,10 +1,13 @@
 
-<div>
-    <div (click)="goBack()" class="back_button">
-        <i class="fa fa-arrow-left"></i>
-    </div>
 
+<div id="patient-tracking-container" class="container-element blue-accent">
     <div>
-        <app-tracking [registerID]="registerID"></app-tracking>
+        <div (click)="goBack()" class="back_button">
+            <i class="fa fa-arrow-left"></i>
+        </div>
+        <h3>Registro de patologia</h3>
+        <div id="patient-generic-tracking-container">
+            <app-tracking [registerID]="registerID"></app-tracking>
+        </div>
     </div>
 </div>

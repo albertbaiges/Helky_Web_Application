@@ -1,0 +1,52 @@
+#medic-profile-container {
+    width: 90%;
+    height: 90%;
+    padding: 2%;
+    border-top-style: solid;
+    border-top-width: 10px;
+    border-radius: 20px;
+    margin: auto;
+    overflow: auto;
+}
+
+#medic-profile-container h3 {
+    text-align: center;
+    border-bottom: solid thick rgba(128, 128, 128, 0.281);
+    border-radius: 5px;
+    padding-bottom: 1%;
+    box-sizing: border-box;
+    margin-bottom: 1%;
+}
+
+.medic-profile-subcontainer {
+    margin-top: 2%;
+    padding: 0 2%;
+}
+
+
+.medic-profile-section {
+    display: flex;
+    justify-content: space-around;
+}
+
+.medic-profile-section form {
+    border: 1px solid black;
+    background: #F2F4F5;
+    border-radius: 10px;
+    width: 50%;
+    padding: 2%;
+    box-sizing: border-box;
+}
+
+.medic-profile-section form button {
+    display: block;
+    width: 50%;
+    margin: 2% auto;
+    padding: 1%;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.medic-profile-section form label:not(:first-child) {
+    margin-top: 1%;
+}

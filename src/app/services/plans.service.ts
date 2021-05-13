@@ -5,12 +5,12 @@ import { map, tap } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class MealsService {
+export class PlansService {
 
   constructor(private http: HttpClient) { }
 
   getMeals(patientID: string): Promise<any> {
-    return this.http.get(`/api/mealplans/${patientID}`)
+    return this.http.get(`/api/plans/${patientID}/meals`)
     .pipe(
       tap(response => console.log("Obtenemos esta respuesta de las comidas", response)),
       map((response: any) => Object.values(response.weekdays))
@@ -19,7 +19,7 @@ export class MealsService {
   }
 
   getMealInfo(patientID: string, day: string, slot: string) {
-    return this.http.get(`/api/mealplans/${patientID}`, {params: {
+    return this.http.get(`/api/plans/${patientID}/meals`, {params: {
       day,
       slot
     }})
@@ -30,25 +30,25 @@ export class MealsService {
   }
 
   updateMeal(mealID: string, data: any) {
-    return this.http.post(`/api/mealplans/${mealID}`, data).toPromise();
+    return this.http.patch(`/api/plans/${mealID}/meals`, data).toPromise();
   }
 
   getMedicines(planID: string): Promise<any>  {
-    return this.http.get(`/api/mealplans/${planID}/medicines`)
+    return this.http.get(`/api/plans/${planID}/medicines`)
     .pipe(
       map((response: any) => Object.values(response.weekdays)),
     ).toPromise();
   }
 
   updateMedicines(planID: string, data: any) {
-    return this.http.patch(`/api/mealplans/${planID}/medicines`, data)
+    return this.http.patch(`/api/plans/${planID}/medicines`, data)
     .pipe(
       tap(response => console.log("respuesta del server", response))
     ).toPromise();
   }
 
   getExercises(planID: string): Promise<any>  {
-    return this.http.get(`/api/mealplans/${planID}/activities`)
+    return this.http.get(`/api/plans/${planID}/activities`)
     .pipe(
       map((response: any) => Object.values(response.weekdays))
     )
@@ -56,7 +56,7 @@ export class MealsService {
   }
 
   getExerciseInfo(planID: string, day: string): Promise<any> {
-    return this.http.get(`/api/mealplans/${planID}/activities`, {
+    return this.http.get(`/api/plans/${planID}/activities`, {
       params: {
         day
       }
@@ -68,7 +68,7 @@ export class MealsService {
   }
 
   updateExercises(planID: string, data: any) {
-    return this.http.patch(`/api/mealplans/${planID}/activities`, data).toPromise();
+    return this.http.patch(`/api/plans/${planID}/activities`, data).toPromise();
   }
 
 }

@@ -3,7 +3,7 @@ import { Patient } from 'src/app/models/Patient';
 import { PatientInfoService } from '../services';
 import { IDropdownSettings} from "ng-multiselect-dropdown"
 import { PatientRegisterComponent } from '../patient-register/patient-register.component';
-import { TrackingComponent } from "../tracking/tracking.component";
+import { TrackingComponent } from "../../shared/components/tracking/tracking.component";
 import { MealsComponent } from 'src/app/shared/components/meals/meals-component/meals.component';
 import { MedicinesCimaService } from 'src/app/services/medicines-cima.service';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -12,6 +12,7 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { MedicineBoxModalComponent } from 'src/app/shared/components/medicine-box-modal/medicine-box-modal.component';
 import { MedicinesPlanComponent } from 'src/app/shared/components/medicines-plan/medicines-plan.component';
 import { ExercisesComponent } from 'src/app/shared/components/exercises/exercises.component';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -34,7 +35,8 @@ export class PatientInfoComponent implements OnInit {
   @ViewChild("activityCont", { read: ViewContainerRef}) activityCont: ViewContainerRef;
   @ViewChild("registersCont", { read: ViewContainerRef }) registersCont: ViewContainerRef;
 
-  constructor(private patientInfoService: PatientInfoService, private componentFactoryResolver: ComponentFactoryResolver,
+  constructor(private router: Router, 
+              private patientInfoService: PatientInfoService, private componentFactoryResolver: ComponentFactoryResolver,
               private spinner: NgxSpinnerService,
               private cima: MedicinesCimaService,
               private modalService: BsModalService) {
@@ -65,10 +67,6 @@ export class PatientInfoComponent implements OnInit {
     }
     console.log("Enfermedades del paciente", this.patient.disorders)
     this.registeredDisorders = Object.values(this.patient.disorders).filter((disorder: any) => disorder.registerID);
-  }
-
-  getAvatarLetters() {
-    return this.patient.username.split(" ").map(word => word[0]).join("").toUpperCase();
   }
 
   showSpinner(spinner: any) {
@@ -199,5 +197,11 @@ export class PatientInfoComponent implements OnInit {
         //! what now?
       }
     });
-}
+  }
+
+  goBack() {
+    this.router.navigateByUrl("/medic/patients");
+  }
+
+
 }

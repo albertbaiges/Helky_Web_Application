@@ -4,3 +4,27 @@
 .back-button {
     cursor: pointer;
 }
+
+
+#patient-meals-container {
+    width: 90%;
+    height: 90%;
+    padding: 2%;
+    border-top-style: solid;
+    border-top-width: 10px;
+    border-radius: 20px;
+    margin: auto;
+}
+
+#patient-meals-container h3 {
+    text-align: center;
+    border-bottom: solid thick rgba(128, 128, 128, 0.281);
+    border-radius: 5px;
+    padding-bottom: 1%;
+    box-sizing: border-box;
+}
+
+#week-meals {
+    margin-top: 2%;
+    height: 80%;
+}

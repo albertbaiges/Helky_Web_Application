@@ -33,4 +33,9 @@ export class AdminPatientsComponent implements OnInit {
 
   }
 
+  goBack() {
+    this.router.navigateByUrl("/medic");
+  }
+
+
 }

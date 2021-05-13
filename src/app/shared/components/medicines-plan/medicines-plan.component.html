@@ -1,4 +1,4 @@
-<div id="medicines-calendar-container">
+<div id="medicines-calendar-container" class="container-element green-accent">
     <div class='modal-header'>
         <h3>Medicamentos Semanales</h3>
         <button type="button" class="close"
@@ -13,11 +13,15 @@
         <tbody>
             <tr>
                 <td *ngFor="let dayMedicines of weekMedicines">
-                    <div *ngFor="let medicine of dayMedicines.medicines" (click)="showDetails(medicine.data)">
-                        {{medicine.at}}: {{medicine.data.name}}
-                    </div>
-                    <div (click)="editDayMedicines(dayMedicines)">
-                        Editar
+                    <div class="medicines-calendar-cellcontent">
+                        <div *ngFor="let medicine of dayMedicines.medicines" (click)="showDetails(medicine.data)">
+                            <div class="medicines-calendar-item">
+                                {{medicine.at}}: {{medicine.data.name}}
+                            </div>
+                        </div>
+                        <div class="medicines-calendar-cellcontent-edit" (click)="editDayMedicines(dayMedicines)">
+                            Editar
+                        </div>
                     </div>
                 </td>
             </tr>

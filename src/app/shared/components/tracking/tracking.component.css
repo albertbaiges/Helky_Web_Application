@@ -1,20 +1,6 @@
 
-.back_button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background: #c2bdbd;
-    font-size: 1.4em;
-    cursor: pointer;
-    transition: width 1s, height 1s;
-}
-
-.back_button:hover {
-    width: 35px;
-    height: 35px;
+#generic-tracking-container {
+    position: relative;
 }
 
 
@@ -66,4 +52,29 @@
 
 .other {
     background: rgba(202, 202, 202, 0.521);
+}
+
+#generic-calendar-container {
+    position: relative;
+    /* top: 50%; */
+    left: 50%;
+    transform: translateX(-35%);
+    width: 90%;
+}
+
+
+.move-month {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 4em;
+    cursor: pointer;
+}
+
+.move-prev {
+    left: 5%;
+}
+
+.move-next {
+    right: 5%;
 }

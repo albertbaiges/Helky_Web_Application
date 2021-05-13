@@ -1,69 +1,34 @@
-<!-- 
-<div>
-    <div (click)="goBack()" class="back_button">
-        <i class="fa fa-arrow-left"></i>
+
+
+<div id="generic-tracking-container">
+    <i class="fas fa-chevron-left move-month move-prev" (click)="previousMonth()"></i>
+    <div id="generic-calendar-container">
+        <table class = "calendar">
+           <caption>{{monthNames[currentMonth - 1] + " " + currentYear}}</caption>
+           <thead>
+               <tr>
+                   <th *ngFor="let day of weekdays">{{day}}</th>
+               </tr>
+           </thead>
+           <tr *ngFor="let week of register.data; let weekNum = index">
+               <td *ngFor="let day of week; let dayNum = index" (click)="openEditModal(day, weekNum, dayNum)">
+                   {{day.number}}
+                   <ng-container *ngIf="day.logs">
+                       <div *ngFor="let register of day.logs" 
+                       [ngClass]="{
+                           'prior-meal': register.at === 'prior meal',
+                           'post-meal': register.at === 'post meal',
+                           'prior-activity': register.at === 'prior activity',
+                           'post-activity': register.at === 'post activity',
+                           'other': register.at === 'other'
+                           }"
+                       >
+                           {{register.timestamp | date: "shortTime"}} - {{register.data}}mg/dl
+                       </div>
+                   </ng-container>
+               </td>
+           </tr>
+       </table>
     </div>
-
-    <table *ngIf="tracking" id = "calendar">
-        <caption>{{months[date.getMonth()] + " " + date.getFullYear()}}</caption>
-        <thead>
-            <tr>
-                <th *ngFor="let day of weekdays">{{day}}</th>
-            </tr>
-        </thead>
-        <tr *ngFor="let week of register">
-            <td *ngFor="let day_lectures of week">
-                <div *ngIf="day_lectures">
-                    <div>
-                        {{day_lectures[0].data}}
-                        {{day_lectures[0].date | date: "mediumTime"}}
-                    </div>
-                    <div>
-                        {{day_lectures[1].data}}
-                        {{day_lectures[1].date | date: "mediumTime"}}
-                    </div>
-                    <div>
-                        {{day_lectures[2].data}}
-                        {{day_lectures[2].date | date: "mediumTime"}}
-                    </div>
-                </div>
-            </td>
-        </tr>
-        <!--5 table rows make a month-
-    </table>
-
+   <i class="fas fa-chevron-right move-month move-next" *ngIf="date.getMonth() + 1 !== currentMonth" (click)="nextMonth()"></i>
 </div>
-
- -->
-
-
- <h1>tracking generico {{registerID}}</h1>
- <i class="fas fa-chevron-left" (click)="previousMonth()"></i>
- <table class = "calendar">
-    <caption>{{monthNames[currentMonth - 1] + " " + currentYear}}</caption>
-    <thead>
-        <tr>
-            <th *ngFor="let day of weekdays">{{day}}</th>
-        </tr>
-    </thead>
-    <tr *ngFor="let week of register.data; let weekNum = index">
-        <td *ngFor="let day of week; let dayNum = index" (click)="openEditModal(day, weekNum, dayNum)">
-            {{day.number}}
-            <ng-container *ngIf="day.logs">
-                <div *ngFor="let register of day.logs" 
-                [ngClass]="{
-                    'prior-meal': register.at === 'prior meal',
-                    'post-meal': register.at === 'post meal',
-                    'prior-activity': register.at === 'prior activity',
-                    'post-activity': register.at === 'post activity',
-                    'other': register.at === 'other'
-                    }"
-                >
-                    {{register.timestamp | date: "shortTime"}} - {{register.data}}mg/dl
-                </div>
-            </ng-container>
-        </td>
-    </tr>
-    <!--5 table rows make a month-->
-</table>
-<i class="fas fa-chevron-right" *ngIf="date.getMonth() + 1 !== currentMonth" (click)="nextMonth()"></i>

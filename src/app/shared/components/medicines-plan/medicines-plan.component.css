@@ -1,5 +1,5 @@
 
-#medicines-calendar-container {
+/* #medicines-calendar-container {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -11,7 +11,22 @@
     padding: 5%;
     border: 2px solid black;
     box-sizing: border-box;
+} */
+
+
+#medicines-calendar-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 2%;
+    border-top-style: solid;
+    border-top-width: 10px;
+    margin: auto;
+    max-height: 70vh;
+    width: 60vw;
+    overflow: auto;
 }
+
 
 #medicines-calendar-container > .modal-header {
     width: 100%;
@@ -35,23 +50,38 @@
 
 #medicines-calendar th, #medicines-calendar td  {
     border: 2px solid rgba(110, 110, 110, 0.75);
-
 }
 
-#medicines-calendar td:first-child {
-    width: 10%;
-    text-align: center;
-    font-weight: bold;
+#medicines-calendar td .medicines-calendar-cellcontent{
+    white-space: pre-line;
+    min-height: 14vh;
+    max-height: 30vh;
+    overflow: auto;
 }
 
-#medicines-calendar td {
-    white-space: pre-line;    
-}
-
-#medicines-calendar td:not(:first-child) {
+.medicines-calendar-item {
+    background-color: lightgreen;
     cursor: pointer;
+    border-radius: 10px;
+    margin: 1%;
+    padding: 5%;
+    box-sizing: border-box;
 }
 
-#medicines-calendar td:not(:first-child):hover {
-    background: #c7c7c7;
+.medicines-calendar-item:hover {
+    background-color: rgb(131, 255, 131);
+}
+
+.medicines-calendar-cellcontent-edit {
+    margin: auto;
+    background: lightblue;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    padding: 2%;
+    border-radius: 10px;
+}
+
+.medicines-calendar-cellcontent-edit:hover {
+    background-color: rgb(122, 201, 228)
 }

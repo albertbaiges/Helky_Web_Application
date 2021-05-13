@@ -1,16 +1,10 @@
 
 
-<div>
-    <div id="infoBox">
-        <div id="avatar">
-            {{getAvatarLetters()}}
-        </div>
-        <div id="info">
-            <h3>{{patient.username}}</h3>
-            <h5>{{patient.email}}</h5>
-        </div>
+<div id="medic-patientInfo-container" class="container-element green-accent">
+    <div (click)="goBack()" class="back-button">
+        <i class="fa fa-arrow-left"></i>
     </div>
-
+    <h3>{{patient.username}} || {{patient.email}}</h3>
 
     <aside>
         <button id="dieta-toggle" type="button" class="btn btn-primary"

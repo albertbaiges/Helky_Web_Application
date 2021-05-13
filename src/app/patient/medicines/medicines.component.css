@@ -4,3 +4,37 @@
     width: 75%;
     margin: auto;
 }
+
+#patient-medicines-container {
+    width: 90%;
+    height: 90%;
+    padding: 2%;
+    border-top-style: solid;
+    border-top-width: 10px;
+    border-radius: 20px;
+    margin: auto;
+}
+
+#patient-medicines-container h3 {
+    text-align: center;
+    border-bottom: solid thick rgba(128, 128, 128, 0.281);
+    border-radius: 5px;
+    padding-bottom: 1%;
+    box-sizing: border-box;
+    margin-bottom: 1%;
+}
+
+.calendar-icon {
+    position: absolute;
+    right: 10%;
+    font-size: 2vw;
+    cursor: pointer;
+}
+
+#patient-medicines-list {
+    margin-top: 4%;
+    height: 80%;
+    border: solid 2px gray;
+    border-radius: 20px;
+    box-sizing: border-box;
+}

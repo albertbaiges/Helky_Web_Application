@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
-import { MealsService } from 'src/app/services/meals.service';
+import { PlansService } from 'src/app/services/plans.service';
 import { DayMealsModel } from '../models/DayMealsModel';
 
 @Component({
@@ -24,13 +24,17 @@ export class MealModalComponent implements OnInit {
   @ViewChild("menu") private menu: ElementRef;
   @ViewChild("comments") private comments: ElementRef;
   
-  constructor(public bsModalRef: BsModalRef, private mealsService: MealsService) {
+  constructor(public bsModalRef: BsModalRef, private plansService: PlansService) {
   }
 
   ngOnInit(): void {
     console.log("requesting for", this.day, this.timezone)
-    this.mealsService.getMealInfo(this.patientID, this.day, this.timezone).then((response: any) => {
-      this.mealInfo = (response.constructor === Object && Object.keys(response).length !== 0)? response : null;
+    
+    this.plansService.getMealInfo(this.patientID, this.day, this.timezone).then((response: any) => {
+      console.log("La respuesta es", response)
+      console.log(response.constructor === Object && Object.keys(response).length !== 0)
+      this.mealInfo = (response.constructor === Object && Object.keys(response).length !== 0)? response : ({menu: "", comments: ""});
+      console.log(this.mealInfo)
     }); 
   }
 
@@ -51,7 +55,7 @@ export class MealModalComponent implements OnInit {
 
     //!Se puede comparar con lo que está en mealInfo y enviar solo aquellos campos nuevos
     //! o si no hay nada, cancelarlo
-    this.mealsService.updateMeal(this.patientID, body)
+    this.plansService.updateMeal(this.patientID, body)
       .then((response: any) => this.mealInfo = response[this.day][this.timezone]);
     this.editable = false;
   }

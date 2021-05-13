@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { MealsService } from 'src/app/services/meals.service';
+import { PlansService } from 'src/app/services/plans.service';
 import { ExercisesModalComponent } from './exercises-modal/exercises-modal.component';
 
 @Component({
@@ -21,7 +21,7 @@ export class ExercisesComponent implements OnInit {
   bsModalRef: BsModalRef;
 
 
-  constructor(private modalService: BsModalService, private mealsService: MealsService) {
+  constructor(private modalService: BsModalService, private plansService: PlansService) {
     this.weekdaysMap = {
       monday: 0,
       tuesday: 1,
@@ -38,7 +38,7 @@ export class ExercisesComponent implements OnInit {
 
   ngOnInit(): void {
     const weekActivitiesTemp: any = []
-    this.mealsService.getExercises(this.planID)
+    this.plansService.getExercises(this.planID)
       .then(weekActivities => {
         console.log(weekActivities)
         for(const dayActivities of weekActivities) {

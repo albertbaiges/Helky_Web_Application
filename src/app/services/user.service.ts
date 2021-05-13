@@ -17,8 +17,10 @@ export class UserService {
   }
 
   getMedicines(): Promise<any> {
-    return this.http.get(`/api/medicines/${this.authService.user.userID}`)
+    console.log("pidiendo con esto")
+    return this.http.get(`/api/users/${this.authService.user.userID}/medicines`)
     .pipe(
+      tap(response => console.log(response)),
       map((response: any) => response.medicines)
     )
     .toPromise();

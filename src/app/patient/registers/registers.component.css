@@ -1,32 +1,50 @@
 
+#patient-registers-container {
+    width: 90%;
+    height: 90%;
+    padding: 2%;
+    border-top-style: solid;
+    border-top-width: 10px;
+    border-radius: 20px;
+    margin: auto;
+}
 
+#patient-registers-container h3 {
+    text-align: center;
+    border-bottom: solid thick rgba(128, 128, 128, 0.281);
+    border-radius: 5px;
+    padding-bottom: 1%;
+    box-sizing: border-box;
+    margin-bottom: 1%;
+}
 
 .back_button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background: #c2bdbd;
-    font-size: 1.4em;
     cursor: pointer;
-    transition: width 1s, height 1s;
 }
 
-.back_button:hover {
-    width: 35px;
-    height: 35px;
-}
-
-
-#disorders {
-    border: 2px solid black;
+#patient-registers-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(40%,1fr));
+    justify-content: space-around;
+    margin-top: 2%;
+    height: 80%;
+    padding: 2%;
+    box-sizing: border-box;
+    overflow: auto;
 }
 
 .disorder {
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 1.6em;
+    max-height: 20%;
+}
+
+.disorder i {
+    font-size: 0.8em;
+    margin: 0.4em;
 }
 
 .button {
@@ -35,8 +53,6 @@
     border-radius: 25%;
     justify-content: center;
     align-items: center;
-    width: 25px;
-    height: 25px;
     cursor: pointer;
 }
 
@@ -49,3 +65,4 @@
     background: #d40000b3;
     cursor: not-allowed;
 }
+

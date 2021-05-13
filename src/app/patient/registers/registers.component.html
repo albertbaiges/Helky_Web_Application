@@ -1,9 +1,12 @@
-<div>
+
+<div id="patient-registers-container" class="container-element blue-accent">
     <div (click)="goBack()" class="back_button">
         <i class="fa fa-arrow-left"></i>
     </div>
-    <!-- NgFor -->
-    <div id="disorders">
+
+    <h3>Lista de patologias</h3>
+
+    <div id="patient-registers-list">
         <div [ngClass] = "'disorder'" *ngFor="let disorder of disorders">
             <div>
                 <!--Remove the disorder.info... in database there will only be disorder.type-->

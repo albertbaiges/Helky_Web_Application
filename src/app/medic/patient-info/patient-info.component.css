@@ -1,4 +1,30 @@
 
+
+#medic-patientInfo-container {
+    position: relative;
+    width: 90%;
+    height: 90%;
+    padding: 2%;
+    border-top-style: solid;
+    border-top-width: 10px;
+    border-radius: 20px;
+    margin: auto;
+    overflow: auto;
+}
+
+#medic-patientInfo-container h3 {
+    text-align: center;
+    border-bottom: solid thick rgba(128, 128, 128, 0.281);
+    border-radius: 5px;
+    padding-bottom: 1%;
+    box-sizing: border-box;
+    margin-bottom: 1%;
+}
+
+
+
+
+
 #infoBox {
     display: flex;
     position: relative;

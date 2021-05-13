@@ -1,8 +1,10 @@
-
-<div (click)="goBack()" class="back-button">
-    <i class="fa fa-arrow-left"></i>
-</div>
-
-<div id="week-meals">
-    <app-meals [patientID]="mealID"></app-meals>
+<div id="patient-meals-container" class="container-element red-accent">
+    <div (click)="goBack()" class="back-button">
+        <i class="fa fa-arrow-left"></i>
+    </div>
+    <h3>Comidas semanales</h3>
+    
+    <div id="week-meals">
+        <app-meals [patientID]="mealID"></app-meals>
+    </div>
 </div>

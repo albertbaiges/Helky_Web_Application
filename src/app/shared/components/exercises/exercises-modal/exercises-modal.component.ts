@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
-import { MealsService } from 'src/app/services/meals.service';
+import { PlansService } from 'src/app/services/plans.service';
 
 @Component({
   selector: 'app-exercises-modal',
@@ -19,10 +19,10 @@ export class ExercisesModalComponent implements OnInit {
   @ViewChild("comments") private comments: ElementRef;
 
 
-  constructor(private bsModalRef: BsModalRef, private mealsService: MealsService) { }
+  constructor(private bsModalRef: BsModalRef, private plansService: PlansService) { }
 
   ngOnInit(): void {
-    this.mealsService.getExerciseInfo(this.planID, this.day).then(response => {
+    this.plansService.getExerciseInfo(this.planID, this.day).then(response => {
       this.activitiesInfo = (response.constructor === Object && Object.keys(response).length !== 0)? response : null;
       console.log("informacion de actividades", this.activitiesInfo)
     });
@@ -44,7 +44,7 @@ export class ExercisesModalComponent implements OnInit {
       activities: info
     }
 
-    this.mealsService.updateExercises(this.planID, body).then((response: any) => {
+    this.plansService.updateExercises(this.planID, body).then((response: any) => {
       this.activitiesInfo.activities = response[this.day].activities;
       this.editable = false;
     });

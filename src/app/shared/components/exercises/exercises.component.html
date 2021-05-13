@@ -1,7 +1,5 @@
 
 
-<h1>Ejercicio fisico generico</h1>
-
 <div id="activity-calendar-container">
     <table id="activity-calendar" class="table table-striped">
         <tr>
@@ -13,8 +11,8 @@
             <tr>
                 <td *ngFor="let dayActivities of weekActivities">
                     <div>{{dayActivities.activities}}</div>
-                    <div (click)="editDayActivities(dayActivities.day)">
-                        Editar
+                    <div  (click)="editDayActivities(dayActivities.day)">
+                        Ver
                     </div>
                 </td>
             </tr>

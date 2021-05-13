@@ -1,11 +1,13 @@
-<div (click)="goBack()" class="back-button">
-    <i class="fa fa-arrow-left"></i>
-</div>
 
-<h1>Zona ejercicio fisico del paciente</h1>
+<div id="patient-activities-container" class="container-element blue-accent">
+    <div (click)="goBack()" class="back-button">
+        <i class="fa fa-arrow-left"></i>
+    </div>
 
-
-<div id="week-activity">
-    <!-- <app-meals [patientID]="mealID"></app-meals> -->
-    <app-exercises [planID]="planID"></app-exercises>
+    <h3>Actividades semanales</h3>
+    
+    <div id="patient-activities-calendar">
+        <!-- <app-meals [patientID]="mealID"></app-meals> -->
+        <app-exercises [planID]="planID"></app-exercises>
+    </div>
 </div>

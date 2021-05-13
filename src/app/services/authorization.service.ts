@@ -36,6 +36,7 @@ export class AuthorizationService {
       console.log(userData.error);
     } else {
       this.user = userData;
+      console.log(this.user)
       this.username$.next(userData.username);
       localStorage.setItem("user", JSON.stringify(userData));
     }

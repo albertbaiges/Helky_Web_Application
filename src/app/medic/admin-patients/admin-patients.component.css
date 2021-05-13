@@ -1,19 +1,23 @@
 
 
-#filter {
-    position: absolute;
-    width: 25%;
-    left: 0;
+#medic-patients-container {
+    width: 90%;
+    height: 90%;
+    padding: 2%;
+    border-top-style: solid;
+    border-top-width: 10px;
+    border-radius: 20px;
+    margin: auto;
+    overflow: auto;
 }
 
-
-#patientList {
-    position: absolute;
-    right: 3%;
-    height: calc(100vh - 2*8px);
-    border: solid 2px rgb(44, 44, 44);
-    border-radius: 10px;
-    width: 70%;
+#medic-patients-container h3 {
+    text-align: center;
+    border-bottom: solid thick rgba(128, 128, 128, 0.281);
+    border-radius: 5px;
+    padding-bottom: 1%;
+    box-sizing: border-box;
+    margin-bottom: 1%;
 }
 
 

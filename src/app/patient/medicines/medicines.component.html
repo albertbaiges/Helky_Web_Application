@@ -1,9 +1,15 @@
 
-<div (click)="goBack()" class="back-button">
-    <i class="fa fa-arrow-left"></i>
-</div>
+<div id="patient-medicines-container" class="container-element green-accent">
+    <div (click)="goBack()" class="back-button">
+        <i class="fa fa-arrow-left"></i>
+    </div>
 
-<i class="far fa-calendar" (click)="medicinesCalendar()"></i>
-<ng-container *ngIf="medicines">
-    <app-medicines-list [registerCodes]="medicines"></app-medicines-list>
-</ng-container>
+    <h3>Medicinas semanales</h3>
+
+    <i class="far fa-calendar calendar-icon" (click)="medicinesCalendar()"></i>
+    <div id="patient-medicines-list">
+        <ng-container *ngIf="medicines">
+            <app-medicines-list [registerCodes]="medicines"></app-medicines-list>
+        </ng-container>
+    </div>
+</div>

@@ -4,7 +4,7 @@ import { PatientInfoService } from 'src/app/medic/services';
 import { IDropdownSettings} from "ng-multiselect-dropdown"
 import { PatientService } from 'src/app/services/patient.service';
 import { MedicinesCimaService } from 'src/app/services/medicines-cima.service';
-import { MealsService } from 'src/app/services/meals.service';
+import { PlansService } from 'src/app/services/plans.service';
 
 @Component({
   selector: 'app-edit-medicines-plan',
@@ -25,7 +25,7 @@ export class EditMedicinesPlanComponent implements OnInit {
   selectedHour: Date;
 
   constructor(private bsModalRef: BsModalRef,
-    private mealsService: MealsService,
+    private plansService: PlansService,
     private cima: MedicinesCimaService) {
       this.medicines = null;
       this.previewImage = "";
@@ -142,7 +142,7 @@ export class EditMedicinesPlanComponent implements OnInit {
       medicines
     }
     console.log("datos a actualizar", data);
-    this.mealsService.updateMedicines(this.planID, data)
+    this.plansService.updateMedicines(this.planID, data)
       .then(response => console.log("respuesta recibida"))
   }
 
