@@ -1,10 +1,10 @@
 
-<div *ngIf="username">
+<div *ngIf="username" id="application-topbar">
     <div>
         {{username}}
     </div>
 
-    <div (click)=logout()>
+    <div (click)=logout() id="logout">
         Log out
     </div>
 </div>

@@ -12,20 +12,27 @@
            </thead>
            <tr *ngFor="let week of register.data; let weekNum = index">
                <td *ngFor="let day of week; let dayNum = index" (click)="openEditModal(day, weekNum, dayNum)">
-                   {{day.number}}
-                   <ng-container *ngIf="day.logs">
-                       <div *ngFor="let register of day.logs" 
-                       [ngClass]="{
-                           'prior-meal': register.at === 'prior meal',
-                           'post-meal': register.at === 'post meal',
-                           'prior-activity': register.at === 'prior activity',
-                           'post-activity': register.at === 'post activity',
-                           'other': register.at === 'other'
-                           }"
-                       >
-                           {{register.timestamp | date: "shortTime"}} - {{register.data}}mg/dl
-                       </div>
-                   </ng-container>
+                   <div class="generic-tracking-cellcontent">
+                       <div class="generic-tracking-daynumber" *ngIf="day.number !== 0">
+                           {{day.number}}
+                        </div>
+                        <div class="generic-tracking-day-logs">
+                            <ng-container *ngIf="day.logs">
+                                <div *ngFor="let register of day.logs" 
+                                class="generic-tracking-day-log"
+                                [ngClass]="{
+                                    'prior-meal': register.at === 'prior meal',
+                                    'post-meal': register.at === 'post meal',
+                                    'prior-activity': register.at === 'prior activity',
+                                    'post-activity': register.at === 'post activity',
+                                    'other': register.at === 'other'
+                                }"
+                                >
+                                {{register.timestamp | date: "shortTime"}} - {{register.data}}mg/dl
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
                </td>
            </tr>
        </table>

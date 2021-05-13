@@ -29,7 +29,35 @@
     height: 100px;
     border-bottom: 1px solid #cccccc;
     border-right: 1px solid #cccccc;
+    padding: 0;
 }
+
+.generic-tracking-cellcontent {
+    position: relative;
+    height: 100%;
+    overflow: auto;
+}
+
+
+
+.generic-tracking-day-logs {
+    margin-top: 20%;
+}
+
+.generic-tracking-day-log {
+    padding: 2%;
+    border-radius: 10px;
+    width: 90%;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+.generic-tracking-daynumber {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+
 
 
 .prior-meal {
