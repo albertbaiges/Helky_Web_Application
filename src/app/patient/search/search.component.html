@@ -1,24 +1,43 @@
+<div id="patient-search-container" class="container-element purple-accent">
+    <div (click)="goBack()" class="back-button">
+        <i class="fa fa-arrow-left"></i>
+    </div>
+    <h3>Buscador</h3>
+    <div class="search-subcontainer">
+        <div id="search-form-container">
+            <form #form="ngForm" (ngSubmit)="submit(form.value)">
+                <div class="form-group">
+                    <label for="search_username">Nombre de usuario</label>
+                    <input type="text" id="search_username" name="u" ngModel placeholder="Nombre de usuario"
+                        class="form-control">
+                </div>
 
-<div (click)="goBack()" class="back_button">
-    <i class="fa fa-arrow-left"></i>
-</div>
-<h1>Buscador</h1>
-<form #form="ngForm" (ngSubmit)="submit(form.value)">
-    <label for="search_username"></label>
-    <input type="text" id="search_username" name="u" ngModel >
-    <label for="search_email"></label>
-    <input type="text" id="search_email" name="e" ngModel>
-    Filter:
-    <input type="radio" id="search_any" value="any" name="t" ngModel><label for="search_any">Cualquiera</label> 
-    <input type="radio" id="search_medic" value="medic" name="t" ngModel><label for="search_medic">Medico</label> 
-    <input type="radio" id="search_center" value="center" name="t" ngModel><label for="search_center">Centro</label>
-    <button type="submit">Buscar</button>
-</form>
+                <div class="form-group">
+                    <label for="search_email">Correo electronico</label>
+                    <input type="email" id="search_email" name="e" ngModel placeholder="email" class="form-control">
+                </div>
 
-<div>
-    <div *ngFor="let user of users">
-        {{user.username}} | {{user.email}} | {{user.utype}}
+                Filter:
+                <div class="form-check">
+                    <input type="radio" id="search_any" value="any" name="t" ngModel class="form-check-input">
+                    <label for="search_any" class="form-check-label">Cualquiera</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" id="search_medic" value="medic" name="t" ngModel class="form-check-input">
+                    <label for="search_medic" class="form-check-label">Medico</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" id="search_center" value="center" name="t" ngModel class="form-check-input">
+                    <label for="search_center" class="form-check-label">Centro</label>
+                </div>
+                <button class="btn btn-primary mt-4 w-100" type="submit">Buscar</button>
+            </form>
+        </div>
+
+        <div id="search-results-container">
+            <div *ngFor="let user of users" class="user-search-result">
+                {{user.username}} | {{user.email}} | {{user.utype}}
+            </div>
+        </div>
     </div>
 </div>
-
-<h1>Impedir que con el any tambien bajen los que son de nuestro tipo de usuario</h1>

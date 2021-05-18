@@ -10,10 +10,11 @@ export class ApiUrlInterceptor implements HttpInterceptor {
     intercept(req: HttpRequest<any>, next: HttpHandler) {
         const API_URL = "http://localhost:3000";
         let finalReq: HttpRequest<any> | null = null;
+        console.log(req)
         if (req.url.startsWith('http') || req.url.includes('/assets/')) {
             finalReq = req;
         } else {
-            if(!req.url.includes("/login") && !req.url.includes("/register")) {
+            if(req.url !== "/login" && req.url !== "/register") {
                 finalReq = req.clone({
                     setHeaders: {Authorization: `Bearer ${this.auth.user.authorization.jwt}`},
                     url: `${API_URL}${req.url}`

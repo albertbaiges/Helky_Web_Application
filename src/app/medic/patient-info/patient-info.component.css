@@ -12,7 +12,7 @@
     overflow: auto;
 }
 
-#medic-patientInfo-container h3 {
+#medic-patientInfo-container h3, .patient-data-container h4 {
     text-align: center;
     border-bottom: solid thick rgba(128, 128, 128, 0.281);
     border-radius: 5px;
@@ -135,8 +135,12 @@ aside {
     border-left: 3px solid gray;
     bottom: 2%;
     right: 2%;
-    padding: 5%;
+    padding: 5% 1%;
     width: 80%;
     height: 80%;
     overflow: auto;
 }
+
+
+
+/*    height: 160%;*/

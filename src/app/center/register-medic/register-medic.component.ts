@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CenterService } from '../services/center.service';
 
 @Component({
@@ -10,7 +11,7 @@ export class RegisterMedicComponent implements OnInit {
 
   showEmailTaken: boolean;
 
-  constructor(private centerService: CenterService) {
+  constructor(private router: Router, private centerService: CenterService) {
     this.showEmailTaken = false;
   }
 
@@ -31,4 +32,8 @@ export class RegisterMedicComponent implements OnInit {
 
   }
 
+
+  goBack() {
+    this.router.navigateByUrl("/center");
+  }
 }

@@ -7,6 +7,7 @@
     border-top-width: 10px;
     border-radius: 20px;
     margin: auto;
+    overflow: auto;
 }
 
 #patient-registers-container h3 {
@@ -18,28 +19,22 @@
     margin-bottom: 1%;
 }
 
-.back_button {
-    cursor: pointer;
-}
-
 #patient-registers-list {
     display: grid;
-    grid-template-columns: repeat(2, minmax(40%,1fr));
-    justify-content: space-around;
-    margin-top: 2%;
-    height: 80%;
-    padding: 2%;
-    box-sizing: border-box;
-    overflow: auto;
+    grid-template-columns: repeat(2, 35%);
+    grid-auto-rows: 5vw;
+    gap: 2em 6em;
+    justify-content: center;
+    align-items: center;
 }
 
 .disorder {
+    position: relative;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
     font-size: 1.6em;
-    max-height: 20%;
 }
 
 .disorder i {
@@ -48,6 +43,8 @@
 }
 
 .button {
+    position: absolute;
+    right: 5%;
     display: flex;
     background-color: #0d86f8b3;
     border-radius: 25%;
@@ -66,3 +63,18 @@
     cursor: not-allowed;
 }
 
+/* @media screen and (max-width: 1366px) {
+    #patient-registers-list {
+
+    }
+}
+ */
+
+
+@media screen and (max-width : 768px) {
+    #patient-registers-list {
+        grid-template-columns: 1fr;
+        gap: 1.5em;
+        padding: 5%;
+    }
+}

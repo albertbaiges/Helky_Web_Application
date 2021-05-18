@@ -32,10 +32,10 @@ export class EditTrackingModalComponent implements OnInit {
     this.editable = this.authService.user.userID === this.patient.userID;
     this.atList = ["Antes de una comida", "Despues de una comida", "Antes actividad fisica", "Despues actividad fisica", "Otro"];
     this.atMap = {
-      "Antes de una comida": "prior meal",
-      "Despues de una comida": "post meal" ,
-      "Antes actividad fisica": "prior activity" ,
-      "Despues actividad fisica": "post activity",
+      "Antes de una comida": "prior-meal",
+      "Despues de una comida": "post-meal" ,
+      "Antes actividad fisica": "prior-activity" ,
+      "Despues actividad fisica": "post-activity",
       "Otro": "other"
     }
 

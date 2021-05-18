@@ -67,6 +67,8 @@ export class PatientInfoComponent implements OnInit {
     }
     console.log("Enfermedades del paciente", this.patient.disorders)
     this.registeredDisorders = Object.values(this.patient.disorders).filter((disorder: any) => disorder.registerID);
+    console.log("enfermedades", this.patient.disorders);
+    console.log("enfermedades registradas", this.registeredDisorders);
   }
 
   showSpinner(spinner: any) {
@@ -99,7 +101,7 @@ export class PatientInfoComponent implements OnInit {
       this.activityRef = null;
     } else {
       const componentFactory = this.componentFactoryResolver.resolveComponentFactory(ExercisesComponent);
-      const componentReference = this.dietCont.createComponent(componentFactory);
+      const componentReference = this.activityCont.createComponent(componentFactory);
       componentReference.instance.planID = this.patient.userID;
       this.activityRef = componentReference;
     }

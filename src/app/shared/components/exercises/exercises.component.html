@@ -1,6 +1,6 @@
 
 
-<div id="activity-calendar-container">
+<div id="generic-activityplan-container">
     <table id="activity-calendar" class="table table-striped">
         <tr>
             <th *ngFor="let day of weekDays">
@@ -11,9 +11,9 @@
             <tr>
                 <td *ngFor="let dayActivities of weekActivities">
                     <div>{{dayActivities.activities}}</div>
-                    <div  (click)="editDayActivities(dayActivities.day)">
+                    <button class="btn btn-info mt-2 generic-activityplan-viewer" (click)="editDayActivities(dayActivities.day)">
                         Ver
-                    </div>
+                    </button>
                 </td>
             </tr>
         </tbody>

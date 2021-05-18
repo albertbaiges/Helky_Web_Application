@@ -1,5 +1,120 @@
 
 #generic-tracking-container {
+    height: 100%;
+    position: relative;
+}
+
+
+.calendar {
+    border: solid 2px black;
+    width: 100%;
+    border-spacing: 0;
+}
+
+.calendar > caption {
+    font-size: 1.4em;
+    caption-side: top;
+}
+
+.calendar thead tr th {
+    text-align: center;
+    width: 10%;
+    background: #8E352E;
+    font-weight: bold;
+    color: white;
+}
+
+.calendar td {
+    width: 14%;
+    height: 100px;
+    border-bottom: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+    padding: 0;
+}
+
+.generic-tracking-cellcontent {
+    position: relative;
+    height: 100%;
+    overflow: auto;
+}
+
+
+
+.generic-tracking-day-logs {
+    margin-top: 15%;
+}
+
+.generic-tracking-day-log {
+    padding: 2%;
+    border-radius: 10px;
+    width: 90%;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+.generic-tracking-daynumber {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+
+
+
+.prior-meal {
+    background: rgba(255, 95, 47, 0.521);
+
+}
+
+.post-meal {
+    background: rgba(255, 49, 49, 0.521);
+}
+
+.prior-activity {
+    background: rgba(0, 255, 255, 0.521);
+
+}
+
+.post-activity {
+    background: rgba(45, 45, 255, 0.521);
+}
+
+.other {
+    background: rgba(202, 202, 202, 0.521);
+}
+
+#generic-calendar-container {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    height: 100%;
+}
+
+
+.move-month {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 4em;
+    cursor: pointer;
+}
+
+.move-prev {
+    left: 1%;
+}
+
+.move-next {
+    right: 1%;
+}
+
+
+
+
+
+/*
+    COPIA DE SEGURIDAD
+
+    #generic-tracking-container {
     position: relative;
 }
 
@@ -15,16 +130,15 @@
     caption-side: top;
 }
 
-.calendar > thead {
+.calendar thead tr th {
+    text-align: center;
+    width: 10%;
     background: #8E352E;
-    color: #ffffff;
     font-weight: bold;
+    color: white;
 }
 
-
 .calendar td {
-    /* display: flex;
-    flex-direction: column; */
     width: 120px;
     height: 100px;
     border-bottom: 1px solid #cccccc;
@@ -84,7 +198,6 @@
 
 #generic-calendar-container {
     position: relative;
-    /* top: 50%; */
     left: 50%;
     transform: translateX(-35%);
     width: 90%;
@@ -106,3 +219,69 @@
 .move-next {
     right: 5%;
 }
+
+*/
+
+
+
+
+
+/*
+
+
+
+#generic-mealplan-container {
+    height: 100%;
+}
+
+#weekCalendar {
+    table-layout: fixed;
+    width: 100%;
+}
+
+#weekCalendar tr th {
+    text-align: center;
+    width: 10%;
+    background: #8E352E;
+    font-weight: bold;
+    color: white;
+}
+
+#weekCalendar th, #weekCalendar td  {
+    border: 2px solid rgba(110, 110, 110, 0.75);
+
+}
+
+#weekCalendar td:first-child {
+    width: 10%;
+    text-align: center;
+    font-weight: bold;
+}
+
+#weekCalendar td {
+    white-space: pre-line;
+}
+
+#weekCalendar td:first-child div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#weekCalendar th:first-child {
+    width: 120px !important;
+}
+
+#weekCalendar td:not(:first-child) {
+    cursor: pointer;
+}
+
+#weekCalendar td:not(:first-child):hover {
+    background: #c7c7c7;
+}
+
+#weekCalendar td div {
+    height: 145px;
+    overflow: auto
+}
+*/

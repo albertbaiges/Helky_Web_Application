@@ -8,6 +8,7 @@
     border-top-width: 10px;
     border-radius: 20px;
     margin: auto;
+    overflow: auto;
 }
 
 #patient-activities-container h3 {

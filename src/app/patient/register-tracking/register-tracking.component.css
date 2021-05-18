@@ -20,6 +20,5 @@
 
 
 #patient-generic-tracking-container {
-    position: relative;
-    overflow: hidden;
+    height: 80%;
 }

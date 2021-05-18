@@ -64,9 +64,21 @@
 
 
     <div id="content">
-        <ng-template #dietCont></ng-template>
-        <ng-template #activityCont></ng-template>
-        <ng-template #registersCont></ng-template>
+        <div class="patient-data-container">
+            <h4 *ngIf="dietRef">Comidas semanales</h4>
+            <ng-template #dietCont></ng-template>
+        </div>
+        <div class="patient-data-container"
+            [ngClass]="{'mt-4': dietRef}"
+        >
+            <h4 *ngIf="activityRef">Actividades semanales</h4>
+            <ng-template #activityCont></ng-template>
+        </div>
+        <div class="patient-data-container" 
+            [ngClass]="{'mt-4': dietRef || activityRef}">
+            <h4 *ngIf="registerRefs.size !== 0">Registros</h4>
+            <ng-template #registersCont></ng-template>
+        </div>
     </div>
 
 </div>

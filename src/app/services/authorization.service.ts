@@ -18,6 +18,18 @@ export class AuthorizationService {
   }
 
 
+  updateUser(user: any) {
+    const authJSON = localStorage.getItem("user");
+    const auth = JSON.parse(authJSON!);
+    if (user.username && user.username !== auth.username) {
+      console.log("actualizando el username")
+      auth.username = user.username;
+    } 
+    localStorage.setItem("user", JSON.stringify(auth));
+    this.username$.next(auth.username);
+  }
+
+
 
   // private storeUser(userData: any) {
   //   console.log("Insiside the tap we obtain", userData);

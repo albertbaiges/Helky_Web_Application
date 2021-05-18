@@ -1,0 +1,27 @@
+
+<div id="medic-centers-container" class="container-element gray-accent">
+    <div (click)="goBack()" class="back-button">
+        <i class="fa fa-arrow-left"></i>
+    </div>
+    <ng-template #noCenters>
+        <div id="noCenters">
+            Ningun centro asignado
+        </div>
+    </ng-template>
+
+    <h3>Centros Asignados</h3>
+
+    <div id="medic-centers-list">
+        <accordion [isAnimated]="true" *ngIf="centers.length !== 0">
+            <div class="medic-center-panel" *ngFor="let center of centers">
+                <accordion-group [heading]="center.username"
+                [panelClass]="'medic-panel'">
+                    <p>
+                        Email: {{center.email}}
+                        Center: {{center.center}}
+                    </p>
+                </accordion-group>
+            </div>
+        </accordion>
+    </div>
+</div>

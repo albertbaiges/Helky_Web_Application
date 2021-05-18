@@ -1,13 +1,23 @@
 
-<h1>Notificaciones</h1>
-
-{{notifications | json}}
-
-
-<div>
-    <div *ngFor="let request of notifications.requests">
-        {{request.username}} - {{request.utype}}
-        <i class="fas fa-user-check" (click)="acceptRequest(request.userID)"></i>
-        <i class="fas fa-user-times"></i>
+<div id="patient-notifications-container" class="container-element blue-accent">
+    <div (click)="goBack()" class="back-button">
+        <i class="fa fa-arrow-left"></i>
     </div>
+    <h3>Notificaciones</h3>
+    
+    <div class="patient-notif-req-container sub-container">
+        <h4>Peticiones</h4>
+        <div *ngFor="let request of notifications.requests" class="request">
+            <div class="patient-request-actions">
+                <i class="fas fa-user-check" (click)="acceptRequest(request.userID)"></i>
+                <i class="fas fa-user-times" (click)="rejectRequest(request.userID)"></i>
+            </div>
+            {{request.username}} - {{request.utype}}
+        </div>
+    </div>
+    <hr>
+    <div class="patient-notif-req-container sub-container">
+        <h4>Actualizaciones</h4>
+    </div>
+    
 </div>

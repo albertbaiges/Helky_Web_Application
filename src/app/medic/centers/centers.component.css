@@ -1,5 +1,6 @@
 
-#patient-meals-container {
+
+#medic-centers-container {
     width: 90%;
     height: 90%;
     padding: 2%;
@@ -10,15 +11,22 @@
     overflow: auto;
 }
 
-#patient-meals-container h3 {
+#medic-centers-container h3 {
     text-align: center;
     border-bottom: solid thick rgba(128, 128, 128, 0.281);
     border-radius: 5px;
     padding-bottom: 1%;
     box-sizing: border-box;
+    margin-bottom: 1%;
 }
 
-#week-meals {
+#medic-centers-list {
     margin-top: 2%;
     height: 80%;
+    padding: 0 10%;
+    overflow: auto;
+}
+
+.medic-center-panel {
+    margin: 1% 0;
 }

@@ -1,18 +1,21 @@
 
+
+#generic-mealplan-container {
+    height: 100%;
+}
+
 #weekCalendar {
-    /* border: 3px dotted blue; */
+    table-layout: fixed;
     width: 100%;
 }
 
 #weekCalendar tr th {
     text-align: center;
-    /* padding: 0.4em; */
-    width: 30px;
+    width: 10%;
     background: #8E352E;
     font-weight: bold;
     color: white;
 }
-
 
 #weekCalendar th, #weekCalendar td  {
     border: 2px solid rgba(110, 110, 110, 0.75);
@@ -26,7 +29,17 @@
 }
 
 #weekCalendar td {
-    white-space: pre-line;    
+    white-space: pre-line;
+}
+
+#weekCalendar td:first-child div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#weekCalendar th:first-child {
+    width: 120px !important;
 }
 
 #weekCalendar td:not(:first-child) {
@@ -35,4 +48,9 @@
 
 #weekCalendar td:not(:first-child):hover {
     background: #c7c7c7;
+}
+
+#weekCalendar td div {
+    height: 145px;
+    overflow: auto
 }

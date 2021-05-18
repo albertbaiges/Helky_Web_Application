@@ -54,10 +54,17 @@ export class TrackingComponent implements OnInit {
         this.currentYear = date.getFullYear();
         console.log("respuesta", response)
         this.patient = response.patient;
-        const data = response.tracking[date.getFullYear()][date.getMonth()+1];
-        this.date = new Date(data.stamp)
+        let data;
+        if(response.tracking) {
+          data = response.tracking[date.getFullYear()][date.getMonth()+1];
+          this.date = new Date(data.stamp)
+          this.register.stamp = data.stamp;
+        } else {
+          this.date = new Date(date.getFullYear(), date.getMonth());
+          this.register.stamp = this.date.toISOString();
+          console.log("fecha del primero de mes", this.date)
+        }
         console.log("esta fecha", this.date)
-        this.register.stamp = data.stamp;
         this.registerMapping(data)
       });
   }
@@ -68,31 +75,6 @@ export class TrackingComponent implements OnInit {
     let currDate = new Date(this.register.stamp)
     console.log("currentDate", this.register.stamp)
     let firstDay = (currDate.getDay() - 1 < 0) ? 6 : currDate.getDay() -1;
-    if (data) {
-      console.log("datos", data)
-      this.register.stamp = data.stamp;
-      currDate = new Date(this.register.stamp)
-      console.log("primer dia", this.date.getDay());
-      for (let entry of Object.entries(data)) {
-        if(entry[0] === "stamp")
-        continue;
-        
-        
-        const date = new Date(currDate.getFullYear(), currDate.getMonth(), Number(entry[0]));
-        console.log("este dia cae en semana", date.getDay())
-        let day = date.getDay();
-        day = (day - 1 < 0) ? 6 : day -1; //Adjust to monday first
-
-        let week = Math.floor(Number(entry[0]) / 7);
-        if(firstDay === 0 && day === 6) {
-          week--;
-        }
-        console.log("entrada", entry)
-        console.log("dia", day)
-        console.log("semana", week)
-        this.register.data[week][day].logs = entry[1];
-      }
-    }
 
     const aux = new Date(this.register.stamp);
     console.log(aux)
@@ -112,6 +94,41 @@ export class TrackingComponent implements OnInit {
           number = ++auxDay;
         }
         this.register.data[i][j].number = number;
+      }
+    }
+
+    if (data) {
+      console.log("datos", data)
+      this.register.stamp = data.stamp;
+      currDate = new Date(this.register.stamp)
+      console.log("primer dia", this.date.getDay());
+
+      for (let entry of Object.entries(data)) {
+        if(entry[0] === "stamp")
+        continue;
+        console.log("miranmos para la entry", entry)
+        const week = this.register.data.find((week: any) => week.find((day: any) => day.number === Number(entry[0])));
+        const day = week.find((day: any) => day.number === Number(entry[0]));
+        day.logs = entry[1];
+        console.log("datos cargado en el dia", day)
+
+
+        
+        // const date = new Date(currDate.getFullYear(), currDate.getMonth(), Number(entry[0]));
+        // console.log("este dia cae en semana", date.getDay())
+        // let day = date.getDay();
+        // day = (day - 1 < 0) ? 6 : day -1; //Adjust to monday first
+
+        // let week = Math.floor(Number(entry[0]) / 7);
+        // console.log("el primer dia de la semana ha caido en", firstDay)
+        // if(firstDay === 0 && day === 6) {
+        //   console.log("******Quitando -1 a la semana primera")
+        //   week--;
+        // }
+        // console.log("entrada", entry)
+        // console.log("dia", day)
+        // console.log("semana", week)
+        // this.register.data[week][day].logs = entry[1];
       }
     }
 

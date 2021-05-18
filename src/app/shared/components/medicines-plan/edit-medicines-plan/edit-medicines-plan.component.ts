@@ -67,6 +67,10 @@ export class EditMedicinesPlanComponent implements OnInit {
     console.log(this.medicineSlot)
   }
 
+  deselect() {
+    
+  }
+
   addHour() {
     const hour = this.selectedHour.toTimeString().split(" ")[0];
     this.medicineSlot.at.push(hour);

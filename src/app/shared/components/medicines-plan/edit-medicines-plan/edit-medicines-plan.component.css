@@ -1,0 +1,80 @@
+
+#edit-medicines-plan-container {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#edit-medicines-list-container {
+    height: 30%;
+    overflow: auto;
+    padding: 2%;
+}
+
+.apply-changes {
+    position: relative;
+    top: 2%;
+    right: 2%;
+    align-self: flex-end;
+}
+
+#search-medicines-container {
+    margin-top: 4%;
+    padding: 0 2%;
+    height: 50%;
+}
+
+#dropdown-select {
+    position: relative;
+    height: 90%;
+}
+
+
+#dropdown-select .selected-item {
+    max-width: none !important;
+}
+
+#edit-medicines-hours-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 5%;
+    bottom: 10%;
+    width: 50%;
+    height: 50%;
+    background: pink;
+}
+
+#edit-medicines-hours-container > div{
+    height: 65%;
+    border: solid 1px black;
+    overflow: auto;
+}
+
+#edit-medicines-hours-container > button {
+    position: relative;
+    right: 5%;
+    align-self: flex-end;
+}
+
+#dropdown-select > img {
+    position: absolute;
+    left: 5%;
+    bottom: 0;
+    width: 30%;
+}
+
+.edit-medicines-timepicker-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    left: 5%;
+    width: 30%;
+}
+
+.edit-medicines-timepicker-container > button{
+    align-self: flex-end;
+}
+
+
+

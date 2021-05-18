@@ -1,0 +1,14 @@
+<h1>Notificaciones</h1>
+<div (click)="goBack()" class="back-button">
+    <i class="fa fa-arrow-left"></i>
+</div>
+{{notifications | json}}
+
+
+<div>
+    <div *ngFor="let request of notifications.requests">
+        {{request.username}} - {{request.utype}}
+        <i class="fas fa-user-check" (click)="acceptRequest(request.userID)"></i>
+        <i class="fas fa-user-times"></i>
+    </div>
+</div>

@@ -1,7 +1,7 @@
 
 
 <div id="generic-tracking-container">
-    <i class="fas fa-chevron-left move-month move-prev" (click)="previousMonth()"></i>
+    <i class="fas fa-chevron-left move-month move-prev" *ngIf="currentMonth > 1 && currentYear >= 2021" (click)="previousMonth()"></i>
     <div id="generic-calendar-container">
         <table class = "calendar">
            <caption>{{monthNames[currentMonth - 1] + " " + currentYear}}</caption>
@@ -21,10 +21,10 @@
                                 <div *ngFor="let register of day.logs" 
                                 class="generic-tracking-day-log"
                                 [ngClass]="{
-                                    'prior-meal': register.at === 'prior meal',
-                                    'post-meal': register.at === 'post meal',
-                                    'prior-activity': register.at === 'prior activity',
-                                    'post-activity': register.at === 'post activity',
+                                    'prior-meal': register.at === 'prior-meal',
+                                    'post-meal': register.at === 'post-meal',
+                                    'prior-activity': register.at === 'prior-activity',
+                                    'post-activity': register.at === 'post-activity',
                                     'other': register.at === 'other'
                                 }"
                                 >

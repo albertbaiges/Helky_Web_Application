@@ -10,9 +10,10 @@ import { ProfileComponent } from './profile/profile.component';
 import { FormsModule } from '@angular/forms';
 import { SearchComponent } from './search/search.component';
 import { RegisterMedicComponent } from './register-medic/register-medic.component';
+import { NotificationsComponent } from './notifications/notifications.component';
 
 @NgModule({
-  declarations: [HomeComponent, PatientsComponent, MedicsComponent, ProfileComponent, SearchComponent, RegisterMedicComponent],
+  declarations: [HomeComponent, PatientsComponent, MedicsComponent, ProfileComponent, SearchComponent, RegisterMedicComponent, NotificationsComponent],
   imports: [
     CommonModule,
     CenterRoutingModule,

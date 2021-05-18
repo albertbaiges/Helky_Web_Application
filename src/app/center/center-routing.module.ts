@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { MedicsComponent } from './medics/medics.component';
+import { NotificationsComponent } from './notifications/notifications.component';
 import { PatientsComponent } from './patients/patients.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RegisterMedicComponent } from './register-medic/register-medic.component';
@@ -23,6 +24,10 @@ const routes: Routes = [
   {
     path: "profile",
     component: ProfileComponent
+  },
+  {
+    path: "notifications",
+    component: NotificationsComponent
   },
   {
     path: "search",

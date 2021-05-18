@@ -18,6 +18,9 @@ import { PatientProfileComponent } from './patient-profile/patient-profile.compo
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SearchComponent } from './search/search.component';
+import { NotificationsComponent } from './notifications/notifications.component';
+import { CentersComponent } from './centers/centers.component';
+import { AccordionModule } from 'ngx-bootstrap/accordion';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,9 @@ import { SearchComponent } from './search/search.component';
     PatientProfileComponent,
     HomeComponent,
     ProfileComponent,
-    SearchComponent
+    SearchComponent,
+    NotificationsComponent,
+    CentersComponent
   ],
   imports: [
     CommonModule,
@@ -40,7 +45,8 @@ import { SearchComponent } from './search/search.component';
     FormsModule,
     ModalModule.forRoot(),
     NgxImageZoomModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    AccordionModule.forRoot(),
   ]
 })
 export class MedicModule { }

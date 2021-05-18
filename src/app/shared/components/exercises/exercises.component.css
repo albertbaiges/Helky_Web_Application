@@ -1,39 +1,37 @@
 
 
+#generic-activityplan-container {
+    height: 100%;
+}
+
 #activity-calendar {
-    /* border: 3px dotted blue; */
+    table-layout: fixed;
     width: 100%;
 }
 
 #activity-calendar tr th {
     text-align: center;
-    /* padding: 0.4em; */
-    width: 30px;
+    width: 10%;
     background: #8E352E;
     font-weight: bold;
     color: white;
 }
 
-
 #activity-calendar th, #activity-calendar td  {
-    border: 2px solid rgba(110, 110, 110, 0.75);
+    border: 2px solid rgba(110, 110, 110, 0.466);
 
 }
 
-#activity-calendar td:first-child {
-    width: 10%;
-    text-align: center;
-    font-weight: bold;
-}
 
-#activity-calendar td {
-    white-space: pre-line;    
-}
-
-#activity-calendar td:not(:first-child) {
-    cursor: pointer;
-}
-
-#activity-calendar td:not(:first-child):hover {
+#activity-calendar td:hover {
     background: #c7c7c7;
+}
+
+#activity-calendar td div:first-child {
+    height: 400px;
+    overflow: auto;
+}
+
+.generic-activityplan-viewer {
+    width: 100%;
 }

@@ -52,10 +52,8 @@ export class ProfileComponent implements OnInit {
   submitProfile(data: any) {
     this.userService.updateUser(data)
      .then((response: any) => {
-      this.authService.username$.next(response.username);
-      console.log("actualizacion", response)
+        this.authService.updateUser(response);
      })
-     // Si cambian estas dos hay que cambiar el auth, el nombre de la barra y el localStorage
   }
 
   addDisorder(value: any) {
