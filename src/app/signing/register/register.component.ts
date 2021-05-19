@@ -23,8 +23,7 @@ export class RegisterComponent implements OnInit {
       email: values.email,
       password: values.password
     }
-
-    console.log("Queremos registrar al usuario", body)
+    console.log("queremos registrar a", body)
     this.authService.register(body)
       .then((response: any) => console.log(response))
       .catch(response => {

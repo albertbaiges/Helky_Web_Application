@@ -1,0 +1,32 @@
+
+
+#center-patients-container {
+    width: 90%;
+    height: 90%;
+    padding: 2%;
+    border-top-style: solid;
+    border-top-width: 10px;
+    border-radius: 20px;
+    margin: auto;
+    overflow: auto;
+}
+
+#center-patients-container h3 {
+    text-align: center;
+    border-bottom: solid thick rgba(128, 128, 128, 0.281);
+    border-radius: 5px;
+    padding-bottom: 1%;
+    box-sizing: border-box;
+    margin-bottom: 1%;
+}
+
+#center-patients-list {
+    margin-top: 2%;
+    height: 80%;
+    padding: 0 10%;
+    overflow: auto;
+}
+
+.center-medic-panel {
+    margin: 1% 0;
+}

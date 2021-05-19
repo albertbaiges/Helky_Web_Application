@@ -5,7 +5,7 @@
     </div>
     <h3>Notificaciones</h3>
     
-    <div class="patient-notif-req-container sub-container">
+    <div class="patient-notif-req-container sub-container" *ngIf="notifications">
         <h4>Peticiones</h4>
         <div *ngFor="let request of notifications.requests" class="request">
             <div class="patient-request-actions">

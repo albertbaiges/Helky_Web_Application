@@ -28,8 +28,17 @@ export class RegisterMedicComponent implements OnInit {
 
     console.log("Queremos registrar al usuario", body)
     this.centerService.registerMedic(body)
-      .then((response: any) => console.log(response)).catch(repsonse => console.log(repsonse));
-
+      .then((response: any) => console.log(response))
+      .catch(response => {
+        if(response.error && response.error.Error) {
+          if(response.error.Error === "Email in use") {
+            this.showEmailTaken = true;
+            setTimeout(() => {
+              this.showEmailTaken = false;
+            }, 1000 * 3);
+          }
+        }});
+    
   }
 
 

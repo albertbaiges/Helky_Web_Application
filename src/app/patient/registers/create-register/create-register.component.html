@@ -1,0 +1,10 @@
+<div id="patient-createRegister-container" class="container-element green-accent">
+    <div class="mb-4">
+        No existe ningún registro para <i>{{disorder}}</i>. <br>
+        Quiere crear uno?
+    </div>
+    <div id="buttons">
+        <button class="btn btn-success" (click)="setAnswer(true)">Aplicar</button>
+        <button class="btn btn-danger" (click)="setAnswer(false)">Cancelar</button>
+    </div>
+</div>

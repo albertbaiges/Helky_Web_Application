@@ -10,24 +10,46 @@ import { AuthorizationService } from 'src/app/services/authorization.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private authService: AuthorizationService, private router: Router) { }
+  invalidPassword: boolean;
+  notRegistered: boolean;
+
+  constructor(private authService: AuthorizationService, private router: Router) {
+    this.invalidPassword = false;
+  }
 
   ngOnInit(): void {
   }
 
-  async login(form: NgForm) {
+  login(form: NgForm) {
     const {username, password} = form.value;
     if(username === "" || password === "") {
       return
     }
 
-    const response = await this.authService.login(username, password);
-    this.router.navigateByUrl("/home");
+    this.authService.login(username, password)
+      .then(response => {
+        this.router.navigateByUrl("/home");
+      })
+      .catch(error => {
+        console.log(error)
+        if (error.status === 401) {
+          console.log("entramos aqui")
+          this.invalidPassword = true;
+          setTimeout(() => {this.invalidPassword = false}, 1000 * 3);
+        } else if (error.status === 400) {
+          this.notRegistered = true;
+          setTimeout(() => {this.notRegistered = false}, 1000 * 3);
+        }
+      });
   }
 
 
   goToRegister() {
     this.router.navigateByUrl("/signup");
+  }
+
+  goToNotes() {
+    this.router.navigateByUrl("/release_notes");
   }
 
 }

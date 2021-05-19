@@ -3,13 +3,13 @@
     <div (click)="goBack()" class="back-button">
         <i class="fa fa-arrow-left"></i>
     </div>
-    <h3>Configuracion del perfil</h3>
+    <h3>Configuración del perfil</h3>
     <div class="patient-profile-disorders-section">
         <h4>Modificar patologias</h4>
         <div class="patient-profile-disorders-list">
             <div *ngFor="let disorder of disorders; let i = index">
-                {{disorder.type}} || {{disorder.family | titlecase}}
                 <i class="fas fa-times" (click)="removeDisorder(i)"></i>
+                {{disorder.type}} || {{disorder.family | titlecase}}
             </div>
         </div>
         <form #disorderForm="ngForm" (ngSubmit)="addDisorder(disorderForm.value)">
@@ -24,9 +24,9 @@
                >
                </ng-multiselect-dropdown>
             </div>
-            <button type="submit">Añadir</button>
+            <button type="submit" class="btn btn-secondary">Añadir</button>
         </form>
-        <button class="submitdisorders" (click)="submitDisorders()">Aplicar cambios</button>
+        <button class="submitdisorders btn btn-primary" (click)="submitDisorders()">Aplicar cambios</button>
         <div class="alert alert-warning deletion-warning">
             Eliminar una enfermedad con registro provocará perder los registros
         </div>
@@ -61,7 +61,10 @@
                 <div class="alert alert-danger" *ngIf="!email.value || email.touched && email.errors?.pattern">
                     Email invalido
                 </div>
-                <button type="submit" class="btn-primary"
+                <div class="alert alert-danger" *ngIf="emailTaken">
+                    Este email ya está en uso
+                </div>
+                <button type="submit" class="btn btn-primary"
                     [disabled]="( !(username.dirty || email.dirty) || username.errors?.required || !email.value || email.touched && email.errors?.pattern)"
                 >
                     Guardar
@@ -73,7 +76,7 @@
             <h4>Cambiar contraseña</h4>
             <form #passwordForm="ngForm" (ngSubmit)="submitPassword(passwordForm.value)">
                 <label for="password">Contraseña</label>
-                <input type="text" id="password" name="password" [ngModel] #password="ngModel" pattern="^(?=.*[A-Z])(?=.*\d)[\w]{8,}$"
+                <input type="password" id="password" name="password" [ngModel] #password="ngModel" pattern="^(?=.*[A-Z])(?=.*\d)[\w]{8,}$"
                 [ngClass]="{
                     'form-control': true,
                     'is-invalid': password.errors?.pattern,
@@ -84,7 +87,7 @@
                     y miniscula
                 </div>
                 <label for="password_repeated">Repetir Contraseña</label>
-                <input type="text" id="password_repeated" name="password_repeated" ngModel #repeatedPassword="ngModel"
+                <input type="password" id="password_repeated" name="password_repeated" ngModel #repeatedPassword="ngModel"
                 [ngClass]="{
                     'form-control': true,
                     'is-invalid': repeatedPassword.touched && password.value !== repeatedPassword.value,
@@ -93,7 +96,7 @@
                 <div class="alert alert-danger" *ngIf="repeatedPassword.touched && password.value !== repeatedPassword.value">
                     Las contraseñas no coinciden
                 </div>
-                <button type="submit"   
+                <button type="submit" class="btn btn-primary"   
                     [disabled]="!password.value || password.errors?.pattern || password.value !== repeatedPassword.value"
                 >
                     Aplicar

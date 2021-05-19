@@ -1,32 +1,31 @@
-<h1>dentro del modal de diario</h1>
-{{patient | json}}
-{{day | json}}
-{{editable}}
-
-
-<div>
+<div id="edit-tracking-container" class="container-element blue-accent">
     <div class='modal-header'>
-        <h3>Registros del dia</h3>
+        <h3 class="modal-title">Registros del dia</h3>
         <button type="button" class="close" data-dismiss="modal" (click)="closeModal()">&times;</button>
     </div>
-    <div>
+    <div id="tracking-logs-container" [class.entire-height]="!editable">
         <div *ngFor="let register of day.logs">
             {{register.timestamp | date: "shortTime"}} - {{register.data}}mg/dl
         </div>
     </div>
-    <div *ngIf="editable">
+    <div *ngIf="editable" id="tracking-adding-container">
+        <h3 class="modal-title">Añadir entrada al registro</h3>
         <form #addForm="ngForm" (ngSubmit)="addRegister(addForm.value)">
             <input type="number" name="data" ngModel>
-            <timepicker ngModel name="hour" [showSeconds]="true" [showMeridian]="false"></timepicker>
-            <ng-multiselect-dropdown
-            [placeholder]="'Tiempo no especificado'"
-            [settings]="dropdownSettings"
-            [data]="atList"
-            ngModel
-            name="at"
-            >
-        </ng-multiselect-dropdown>
-            <button type="submit">Registrar</button>
+            <div class="timepicker-container">
+                <timepicker ngModel name="hour" [showSeconds]="true" [showMeridian]="false"></timepicker>
+            </div>
+            <div class="multiselect-container">
+                <ng-multiselect-dropdown
+                    [placeholder]="'Tiempo no especificado'"
+                    [settings]="dropdownSettings"
+                    [data]="atList"
+                    ngModel
+                    name="at"
+                    >
+                </ng-multiselect-dropdown>
+            </div>
+            <button class="btn btn-primary" type="submit">Registrar</button>
         </form>
     </div>
 </div>

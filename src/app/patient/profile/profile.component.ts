@@ -17,9 +17,11 @@ export class ProfileComponent implements OnInit {
   private _disordersBackup: any;
   dropdownSettings: IDropdownSettings;
   supportedRegisters: any;
-
+  emailTaken: boolean;
+  
   constructor(private router: Router, private userService: UserService, private authService: AuthorizationService,
     private registersService: RegistersService) {
+    this.emailTaken = false;
     this.dropdownSettings = {
       singleSelection: true,
       closeDropDownOnSelection: true,
@@ -54,6 +56,12 @@ export class ProfileComponent implements OnInit {
      .then((response: any) => {
         this.authService.updateUser(response);
      })
+     .catch(errorResponse => {
+       if (errorResponse.status === 400 && errorResponse.error.Error === "Email already taken") {
+         this.emailTaken = true;
+         setTimeout(() => {this.emailTaken = false}, 1000 * 3);
+       }
+     })
   }
 
   addDisorder(value: any) {
@@ -61,7 +69,7 @@ export class ProfileComponent implements OnInit {
     const family = (value.family)? value.family[0] : "Other";
     const disorder = {
       type: value.disorder,
-      family
+      family: family.toLowerCase()
     }
     this.disorders.push(disorder);
     console.log("disorders", this.disorders)

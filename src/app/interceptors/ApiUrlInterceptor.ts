@@ -14,7 +14,7 @@ export class ApiUrlInterceptor implements HttpInterceptor {
         if (req.url.startsWith('http') || req.url.includes('/assets/')) {
             finalReq = req;
         } else {
-            if(req.url !== "/login" && req.url !== "/register") {
+            if(req.url !== "/login" && req.url !== "/signup") {
                 finalReq = req.clone({
                     setHeaders: {Authorization: `Bearer ${this.auth.user.authorization.jwt}`},
                     url: `${API_URL}${req.url}`

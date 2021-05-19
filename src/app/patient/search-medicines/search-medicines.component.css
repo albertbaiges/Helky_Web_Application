@@ -1,0 +1,23 @@
+
+#results {
+    height: 120px;
+    overflow: auto;
+}
+
+.results-item {
+    display: flex;
+    cursor: pointer;
+    padding: 1%;
+}
+
+.results-item:hover {
+    background: #dbdbdb;
+}
+
+.results-item > .icon {
+    margin-right: 2%;
+}
+
+button {
+    margin: 0 2%;
+}

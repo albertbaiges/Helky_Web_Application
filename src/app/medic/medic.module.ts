@@ -7,7 +7,6 @@ import { AdminPatientsComponent } from './admin-patients/admin-patients.componen
 import { PatientInfoComponent } from './patient-info/patient-info.component';
 import { NgMultiSelectDropDownModule } from "ng-multiselect-dropdown";
 import { PatientRegisterComponent } from './patient-register/patient-register.component';
-import { TrackingComponent } from './tracking/tracking.component';
 import { SearchMedicinesComponent } from './search-medicines/search-medicines.component'
 import { FormsModule } from "@angular/forms";
 import { MedicineBoxModalComponent } from '../shared/components/medicine-box-modal/medicine-box-modal.component';
@@ -21,6 +20,7 @@ import { SearchComponent } from './search/search.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { CentersComponent } from './centers/centers.component';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -28,7 +28,6 @@ import { AccordionModule } from 'ngx-bootstrap/accordion';
     AdminPatientsComponent,
     PatientInfoComponent,
     PatientRegisterComponent,
-    TrackingComponent,
     SearchMedicinesComponent,
     EditMedicinesComponent,
     PatientProfileComponent,
@@ -43,6 +42,7 @@ import { AccordionModule } from 'ngx-bootstrap/accordion';
     MedicRoutingModule,
     NgMultiSelectDropDownModule.forRoot(),
     FormsModule,
+    SharedModule,
     ModalModule.forRoot(),
     NgxImageZoomModule,
     NgxSpinnerModule,

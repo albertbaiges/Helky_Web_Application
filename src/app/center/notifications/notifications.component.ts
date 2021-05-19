@@ -26,11 +26,26 @@ export class NotificationsComponent implements OnInit {
       action: "accept"
     }
     this.userService.postRelation(body)
-      .then();
+      .then((response: any) => {
+        if(response.userID === userID) {
+          const request = this.notifications.requests.find((request: any) => request.userID === userID);
+          const index = this.notifications.requests.indexOf(request);
+          this.notifications.requests.splice(index, 1);
+        }
+      });
   }
 
   rejectRequest(userID: string) {
-
+    const body = {
+      target: userID,
+      action: "reject"
+    }
+    this.userService.postRelation(body)
+      .then((response: any) => {
+          const request = this.notifications.requests.find((request: any) => request.userID === userID);
+          const index = this.notifications.requests.indexOf(request);
+          this.notifications.requests.splice(index, 1);
+      });
   }
 
   goBack() {

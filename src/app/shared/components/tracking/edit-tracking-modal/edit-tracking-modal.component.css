@@ -1,0 +1,64 @@
+
+
+#edit-tracking-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 2%;
+    border-top-style: solid;
+    border-top-width: 10px;
+    margin: auto;
+    height: 80vh;
+    overflow: auto;
+}
+
+#tracking-logs-container {
+    height: 40%;
+    margin-bottom: 2%;
+    box-sizing: border-box;
+    overflow: auto;
+}
+
+.entire-height {
+    height: 85% !important;
+}
+
+#tracking-logs-container > div{
+    font-size: 1.1em;
+    padding: 1%;
+    margin: 1%;
+    box-sizing: border-box;
+}
+
+#tracking-adding-container {
+    position: relative;
+    height: 40%;
+    padding: 1rem;
+}
+
+#tracking-adding-container input{
+    position: absolute;
+    top: 35%;
+    width: 30%;
+}
+
+#tracking-adding-container .timepicker-container {
+    position: absolute;
+    top: 50%;
+}
+
+#tracking-adding-container .multiselect-container {
+    position: absolute;
+    top: 20%;
+    right: 5%;
+    width: 45%;
+}
+
+#tracking-adding-container button {
+    position: absolute;
+    width: 35%;
+    bottom: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+

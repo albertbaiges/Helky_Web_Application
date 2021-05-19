@@ -15,8 +15,8 @@
             <div (click)="loadRegisters(disorder)" 
             [ngClass]="{
                 button: true,
-                disabled: !disorder.registerID && disorder.family !== 'Other',
-                invalid: !disorder.registerID && disorder.family === 'Other'
+                disabled: !disorder.registerID && disorder.family !== 'other',
+                invalid: !disorder.registerID && disorder.family === 'other'
             }"
             >
                 <i class="fa fa-table"></i>

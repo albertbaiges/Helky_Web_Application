@@ -29,6 +29,8 @@ export class EditTrackingModalComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log("day", this.day);
+    console.log("patient", this.patient);
     this.editable = this.authService.user.userID === this.patient.userID;
     this.atList = ["Antes de una comida", "Despues de una comida", "Antes actividad fisica", "Despues actividad fisica", "Otro"];
     this.atMap = {
@@ -76,8 +78,15 @@ export class EditTrackingModalComponent implements OnInit {
     }
 
     this.registersService.addRegister(this.registerID, body)
-      .then(response => {
-        console.log("response")
+      .then((response: any) => {
+        console.log("año", timestamp.getFullYear());
+        console.log("mes", timestamp.getMonth() + 1);
+        console.log("dia", timestamp.getDay());
+        const year = timestamp.getFullYear();
+        const month = timestamp.getMonth() + 1;
+        const day = timestamp.getDate();
+        const registers = response.tracking[year][month][day];
+        this.day.logs = registers;
       });
   }
 

@@ -11,9 +11,10 @@ import { UserService } from 'src/app/services/user.service';
 export class ProfileComponent implements OnInit {
 
   user: any;
-
+  emailTaken: boolean;
   constructor(private router: Router, private userService: UserService, private authService: AuthorizationService) {
     this.userService.getUser().then(user => {this.user = user});
+    this.emailTaken = false;
   }
 
   ngOnInit(): void {
@@ -22,10 +23,14 @@ export class ProfileComponent implements OnInit {
   submitProfile(data: any) {
     this.userService.updateUser(data)
      .then((response: any) => {
-      this.authService.username$.next(response.username);
-      console.log("actualizacion", response)
+        this.authService.updateUser(response);
      })
-     // Si cambian estas dos hay que cambiar el auth, el nombre de la barra y el localStorage
+     .catch(errorResponse => {
+       if (errorResponse.status === 400 && errorResponse.error.Error === "Email already taken") {
+         this.emailTaken = true;
+         setTimeout(() => {this.emailTaken = false}, 1000 * 3);
+       }
+     })
   }
 
   submitDisorders(values: any) {

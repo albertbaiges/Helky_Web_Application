@@ -2,7 +2,6 @@ import { Component, ComponentFactory, ComponentFactoryResolver, ComponentRef, On
 import { Patient } from 'src/app/models/Patient';
 import { PatientInfoService } from '../services';
 import { IDropdownSettings} from "ng-multiselect-dropdown"
-import { PatientRegisterComponent } from '../patient-register/patient-register.component';
 import { TrackingComponent } from "../../shared/components/tracking/tracking.component";
 import { MealsComponent } from 'src/app/shared/components/meals/meals-component/meals.component';
 import { MedicinesCimaService } from 'src/app/services/medicines-cima.service';
@@ -30,6 +29,7 @@ export class PatientInfoComponent implements OnInit {
   activityRef: ComponentRef<ExercisesComponent> | null;
   editModalRef: BsModalRef;
   bsModalRef: any;
+  patientRegisters: Array<any>;
   
   @ViewChild("dietCont", { read: ViewContainerRef }) dietCont: ViewContainerRef;
   @ViewChild("activityCont", { read: ViewContainerRef}) activityCont: ViewContainerRef;
@@ -51,10 +51,12 @@ export class PatientInfoComponent implements OnInit {
     this.registerRefs = new Map();
     this.dietRef = null;
     this.medicines = [];
+    this.patientRegisters = [];
   }
 
   ngOnInit(): void {
     this.patient = this.patientInfoService.patient;
+    console.log(this.patient)
     console.log(this.patient.medicines)
     if(this.patient.medicines.length !== 0) {
       this.showSpinner("loading");
@@ -108,13 +110,18 @@ export class PatientInfoComponent implements OnInit {
   }
 
   select(value: any) {
-    console.log("selected", value)
+    // console.log("selected", value)
     const { registerID } = value;
-    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(TrackingComponent);
-    const componentReference = this.registersCont.createComponent(componentFactory);
-    componentReference.instance.registerID = registerID;
-    console.log("referencia", componentReference)
-    this.registerRefs.set(registerID, componentReference);
+    // const componentFactory = this.componentFactoryResolver.resolveComponentFactory(TrackingComponent);
+    // const componentReference = this.registersCont.createComponent(componentFactory);
+    // componentReference.instance.registerID = registerID;
+    // console.log("referencia", componentReference)
+    // this.registerRefs.set(registerID, componentReference);
+
+
+    this.patientRegisters.push(registerID);
+
+
   }
 
   selectAll(values: Array<any>) {
@@ -125,14 +132,16 @@ export class PatientInfoComponent implements OnInit {
 
   deselect(value: any) {
     const { registerID } = value;
-    const componentReference = this.registerRefs.get(registerID)!;
-    componentReference.destroy();
-    this.registerRefs.delete(registerID);
+    // const componentReference = this.registerRefs.get(registerID)!;
+    // componentReference.destroy();
+    // this.registerRefs.delete(registerID);
+    const index = this.patientRegisters.indexOf(registerID);
+    this.patientRegisters.splice(index, 1);
+
   }
 
   deselectAll() {
-    this.registerRefs.forEach(registerRef => registerRef.destroy());
-    this.registerRefs.clear();
+    this.patientRegisters = [];
   }
 
 

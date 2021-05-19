@@ -56,7 +56,7 @@ export class EditMedicinesPlanComponent implements OnInit {
 
 
   closeModal() {
-    alert("no implementado")
+    this.bsModalRef.hide();
   }
 
   select(medicine: any) {
@@ -69,6 +69,10 @@ export class EditMedicinesPlanComponent implements OnInit {
 
   deselect() {
     
+  }
+
+  remove(index: number) {
+    this.dayMedicines.medicines.splice(index, 1);
   }
 
   addHour() {
@@ -147,7 +151,7 @@ export class EditMedicinesPlanComponent implements OnInit {
     }
     console.log("datos a actualizar", data);
     this.plansService.updateMedicines(this.planID, data)
-      .then(response => console.log("respuesta recibida"))
+      .then(response => { })
   }
 
 }

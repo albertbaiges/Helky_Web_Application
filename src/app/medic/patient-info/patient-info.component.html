@@ -4,7 +4,7 @@
     <div (click)="goBack()" class="back-button">
         <i class="fa fa-arrow-left"></i>
     </div>
-    <h3>{{patient.username}} || {{patient.email}}</h3>
+    <h3>Nombre: {{patient.username}} - Contacto: {{patient.email}}</h3>
 
     <aside>
         <button id="dieta-toggle" type="button" class="btn btn-primary"
@@ -20,7 +20,7 @@
 
         <div id="dropdown-select">
             <ng-multiselect-dropdown
-             [placeholder]="'Enfermedades'"
+             [placeholder]="'Registros'"
              [settings]="dropdownSettings"
              [data]="registeredDisorders"
              (onSelect)="select($event)"
@@ -42,7 +42,7 @@
                 Sin medicamentos
             </ng-template>
             <ng-template #loading>
-                <div style="height: 50px; position: relative">
+                <div class="spinner-container">
                     <ngx-spinner [fullScreen]="false" [name]="'loading'" type="ball-clip-rotate-multiple" size="medium">
                     </ngx-spinner>
                 </div>
@@ -74,10 +74,14 @@
             <h4 *ngIf="activityRef">Actividades semanales</h4>
             <ng-template #activityCont></ng-template>
         </div>
-        <div class="patient-data-container" 
-            [ngClass]="{'mt-4': dietRef || activityRef}">
-            <h4 *ngIf="registerRefs.size !== 0">Registros</h4>
-            <ng-template #registersCont></ng-template>
+        <div class="patient-data-container" [ngClass]="{'mt-4': dietRef || activityRef}">
+            <h4 *ngIf="patientRegisters.length !== 0">Registros</h4>
+            <!-- <div class="patient-registers-container">
+                <ng-template #registersCont></ng-template>
+            </div> -->
+            <div class="patient-register-container" *ngFor="let register of patientRegisters">
+                <app-tracking [registerID]="register"></app-tracking>
+            </div>
         </div>
     </div>
 

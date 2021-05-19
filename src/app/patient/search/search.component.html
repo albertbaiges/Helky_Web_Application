@@ -13,7 +13,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="search_email">Correo electronico</label>
+                    <label for="search_email">Correo electrónico</label>
                     <input type="email" id="search_email" name="e" ngModel placeholder="email" class="form-control">
                 </div>
 
@@ -36,6 +36,7 @@
 
         <div id="search-results-container">
             <div *ngFor="let user of users" class="user-search-result">
+                <i class="fas fa-plus" (click)="sendRequest(user.userID)"></i>
                 {{user.username}} | {{user.email}} | {{user.utype}}
             </div>
         </div>

@@ -27,12 +27,6 @@ export class AdminPatientsComponent implements OnInit {
     this.router.navigateByUrl("/medic/patient/administrate");
   }
 
-  goToProfile(patient: Patient) {
-    this.patientInfoService.patient = patient;
-    this.router.navigateByUrl("/medic/patient");
-
-  }
-
   goBack() {
     this.router.navigateByUrl("/medic");
   }

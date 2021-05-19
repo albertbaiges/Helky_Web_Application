@@ -8,7 +8,7 @@
     </ng-template>
 
     <div class='modal-header full-activity-header'>
-        <h3>Ejercicios - {{day | titlecase}}</h3>
+        <h3>Actividad Física - {{day | titlecase}}</h3>
         <button type="button" class="close"
             data-dismiss="modal" (click)="closeModal()">&times;</button>
     </div>
@@ -18,7 +18,7 @@
             <i class="fas fa-check meal-functinalities" (click)="applyChanges({exercises: exercises.innerText, comments: comments.innerText})"></i>
             <i class="fas fa-times meal-functinalities" (click)="rejectChanges()"></i>
         </div>
-        <h2>Menu</h2>
+        <h2>Ejercicios</h2>
         <div id="exercises" class='activity-content' #exercises [attr.contentEditable]="editable" [ngClass]="{'editable': editable}">
             {{activitiesInfo.activities.exercises}}
         </div>

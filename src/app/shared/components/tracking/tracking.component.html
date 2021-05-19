@@ -1,6 +1,6 @@
 
 
-<div id="generic-tracking-container">
+<div id="generic-tracking-container" *ngIf="register.stamp">
     <i class="fas fa-chevron-left move-month move-prev" *ngIf="currentMonth > 1 && currentYear >= 2021" (click)="previousMonth()"></i>
     <div id="generic-calendar-container">
         <table class = "calendar">

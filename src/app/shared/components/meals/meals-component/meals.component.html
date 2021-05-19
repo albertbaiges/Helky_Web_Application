@@ -22,7 +22,11 @@
                 </td>
             </tr>
             <tr>
-                <td>Comidas</td>
+                <td>
+                    <div>
+                        Comidas
+                    </div>
+                </td>
                 <td *ngFor="let lunch of weekMeals.lunches; let i = index">
                     <div [attr.data-day]="weekDaysEn[i]" [attr.data-zone]="'lunch'">
                         {{lunch}}
@@ -30,7 +34,11 @@
                 </td>
             </tr>
             <tr>
-                <td>Cenas</td>
+                <td>
+                    <div>
+                        Cenas
+                    </div>
+                </td>
                 <td *ngFor="let dinner of weekMeals.dinners; let i = index">
                     <div [attr.data-day]="weekDaysEn[i]" [attr.data-zone]="'dinner'">
                         {{dinner}}

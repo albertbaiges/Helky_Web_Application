@@ -110,6 +110,8 @@ export class TrackingComponent implements OnInit {
         const week = this.register.data.find((week: any) => week.find((day: any) => day.number === Number(entry[0])));
         const day = week.find((day: any) => day.number === Number(entry[0]));
         day.logs = entry[1];
+        console.log("***Antes de ordenar", day.logs)
+        console.log("***Despues de ordenar", day.logs)
         console.log("datos cargado en el dia", day)
 
 
@@ -202,10 +204,11 @@ export class TrackingComponent implements OnInit {
       },
     }
     this.modalRef = this.modalService.show(EditTrackingModalComponent, modalOptions);
-    // this.bsModalRef.onHide.subscribe(() => { //! Unsubscribre from this thing
-    //   if (this.bsModalRef?.content.hideReason === "success") {
-    //     //! what now?
-    //   }
-    // });
+    this.modalRef.onHide.subscribe(() => { //! Unsubscribre from this thing
+      const receivedDay = this.modalRef.content.day;
+      const week = this.register.data.find((week: any) => week.find((day: any) => day.number === receivedDay.number));
+      const day = week.find((day: any) => day.number === receivedDay.number);
+      day.logs = receivedDay.logs;
+    });
   }
 }

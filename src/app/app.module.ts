@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './signing/login/login.component';
-import { NoAccountInterceptor } from './interceptors/noaccount.interceptor';
 import { FormsModule } from "@angular/forms"
 import { HomeComponent } from './home/home.component';
 import { ApiUrlInterceptor } from './interceptors/ApiUrlInterceptor';
@@ -19,6 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProfileComponent } from './shared/components/profile/profile.component';
 import { SharedModule } from './shared/shared.module';
 import { RegisterComponent } from './signing/register/register.component';
+import { ReleaseNotesComponent } from './public/release-notes/release-notes.component';
 
 
 @NgModule({
@@ -27,7 +27,8 @@ import { RegisterComponent } from './signing/register/register.component';
     LoginComponent,
     HomeComponent,
     SidebarComponent,
-    RegisterComponent
+    RegisterComponent,
+    ReleaseNotesComponent
   ],
   imports: [
     BrowserModule,

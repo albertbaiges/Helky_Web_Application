@@ -15,7 +15,7 @@ export class PatientsComponent implements OnInit {
 
   ngOnInit(): void {
     this.centerService.getPatients()
-      .then(patients => {this.patients = patients; console.log(this.patients)});
+      .then(patients => this.patients = patients);
   }
 
 

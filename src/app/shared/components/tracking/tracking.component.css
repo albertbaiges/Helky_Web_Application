@@ -48,8 +48,12 @@
     padding: 2%;
     border-radius: 10px;
     width: 90%;
-    margin: auto;
+    margin: 3% auto;
     box-sizing: border-box;
+}
+
+.generic-tracking-day-log:first-child {
+    margin-top: 20%;
 }
 
 .generic-tracking-daynumber {

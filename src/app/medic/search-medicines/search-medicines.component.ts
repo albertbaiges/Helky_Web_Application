@@ -10,7 +10,7 @@ import { MedicineBoxModalComponent } from '../../shared/components/medicine-box-
   styleUrls: ['./search-medicines.component.css']
 })
 export class SearchMedicinesComponent implements OnInit {
-
+  now: Date;
   results: any[];
   searched: boolean;
   bsModalRef: BsModalRef;
@@ -78,6 +78,7 @@ export class SearchMedicinesComponent implements OnInit {
         this.cima.getByNRegistro(code).then(response => {
           this.results = response;
           this.searched = true;
+          this.now = new Date();
         });
       }
     }

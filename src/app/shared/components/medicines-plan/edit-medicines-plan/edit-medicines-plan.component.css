@@ -3,10 +3,18 @@
     height: 90vh;
     display: flex;
     flex-direction: column;
+    padding: 2% 2% 1%;
+    border-top-style: solid;
+    border-top-width: 10px;
+    margin: auto;
 }
 
 #edit-medicines-list-container {
     height: 30%;
+    width: 90%;
+    margin: auto;
+    border: solid 1px gray;
+    border-radius: 20px;
     overflow: auto;
     padding: 2%;
 }
@@ -42,12 +50,17 @@
     bottom: 10%;
     width: 50%;
     height: 50%;
-    background: pink;
+    border: 1px solid gray;
+    border-radius: 20px;
+    padding: 2%;
+}
+#edit-medicines-hours-container h5{
+    font-weight: bold;
 }
 
 #edit-medicines-hours-container > div{
     height: 65%;
-    border: solid 1px black;
+    margin-bottom: 2%;
     overflow: auto;
 }
 
@@ -61,7 +74,7 @@
     position: absolute;
     left: 5%;
     bottom: 0;
-    width: 30%;
+    width: 25%;
 }
 
 .edit-medicines-timepicker-container {
@@ -73,7 +86,8 @@
 }
 
 .edit-medicines-timepicker-container > button{
-    align-self: flex-end;
+    margin-top: 2%;
+    align-self: center;
 }
 
 

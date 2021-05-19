@@ -129,9 +129,6 @@ export class MedicinesPlanComponent implements OnInit {
     }
     this.detailsModalRef = this.modalService.show(MedicineBoxModalComponent, modalOptions);
     // this.bsModalRef.onHide.subscribe(() => { //! Unsubscribre from this thing
-    //   if (this.bsModalRef?.content.hideReason === "success") {
-    //     //! what now?
-    //   }
     // });
   }
 
@@ -149,10 +146,12 @@ export class MedicinesPlanComponent implements OnInit {
       },
     }
     this.detailsModalRef = this.modalService.show(EditMedicinesPlanComponent, modalOptions);
-    // this.bsModalRef.onHide.subscribe(() => { //! Unsubscribre from this thing
-    //   if (this.bsModalRef?.content.hideReason === "success") {
-    //     //! what now?
-    //   }
-    // });
+    this.detailsModalRef.onHide.subscribe(() => { //! Unsubscribre from this thing
+      console.log(this.detailsModalRef.content.dayMedicines)
+      const dayInfo = this.detailsModalRef.content.dayMedicines;
+      const dayPos = this.weekdaysMap[dayInfo.day];
+      this.weekMedicines[dayPos] = dayInfo;
+
+    });
   }
 }

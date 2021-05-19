@@ -35,12 +35,22 @@
     width: 60%;
     height: 100%;
     padding: 2%;
-    background: pink;
+    border: solid 2px gray;
+    border-radius: 10px;
     box-sizing: border-box;
+    overflow: auto;
 }
 
 .user-search-result {
     padding: 1%;
     margin: 1%;
     background: lightblue;
+    border: 1px solid gray;
+    border-radius: 10px;
+    background-color: rgba(179, 179, 179, 0.459);
+
+}
+
+.user-search-result > i {
+    margin-right: 5%;
 }

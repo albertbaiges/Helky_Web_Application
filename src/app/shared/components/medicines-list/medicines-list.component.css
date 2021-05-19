@@ -1,4 +1,8 @@
 
+#medicines-list-container {
+    height: 100%;
+    overflow: auto;
+}
 
 .medicine {
     margin: 2% 0;
