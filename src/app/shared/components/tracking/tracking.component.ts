@@ -24,6 +24,8 @@ export class TrackingComponent implements OnInit {
   date: Date;
   register: any;
   patient: any;
+  disorder: string;
+  disorderFamily: string;
   @Input() registerID: string;
 
   modalRef: BsModalRef;
@@ -47,6 +49,8 @@ export class TrackingComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log("del paciente", this.patient);
+    console.log("el registro", this.register)
     this.registersService.getRegisterTracking(this.registerID)
       .then((response: any) => {
         const date = new Date();
@@ -54,6 +58,8 @@ export class TrackingComponent implements OnInit {
         this.currentYear = date.getFullYear();
         console.log("respuesta", response)
         this.patient = response.patient;
+        this.disorder = response.disorder;
+        this.disorderFamily = response.disorderFamily;
         let data;
         if(response.tracking) {
           data = response.tracking[date.getFullYear()][date.getMonth()+1];
@@ -189,11 +195,15 @@ export class TrackingComponent implements OnInit {
 
 
   openEditModal(day: any, weekNum: number, dayNum: number) {
+
+    if(day.number === 0) 
+      return
+
     console.log("weeknum", weekNum, "dayNum", dayNum)
     console.log("registro", this.register)
     const modalOptions = {
       animated: true,
-      class: 'modal-dialog-centered modal-lg',
+      class: 'modal-dialog-centered modal-lg border-radius-modal',
       backdrop: true,
       keyboard: true,
       initialState: {

@@ -1,10 +1,10 @@
 
 #general-register-container {
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 30%;
+    width: 40%;
     padding: 2%;
     border-top-style: solid;
     border-top-width: 10px;

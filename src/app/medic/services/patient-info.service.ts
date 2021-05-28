@@ -9,7 +9,4 @@ export class PatientInfoService {
   patient: Patient
   constructor() { }
 
-  getTracking(): any {
-    
-  }
 }

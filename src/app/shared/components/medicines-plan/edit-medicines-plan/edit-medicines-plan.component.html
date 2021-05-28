@@ -5,47 +5,54 @@
         <button type="button" class="close" data-dismiss="modal" (click)="closeModal()">&times;</button>
     </div>
     <div id="edit-medicines-list-container">
-        <div *ngFor="let medicine of dayMedicines.medicines; let i = index">
+        <div *ngFor="let medicine of dayMedicines.medicines; let i = index" class="medicine-assigned-hour">
             <i class="fas fa-trash" (click)="remove(i)"></i>
             {{medicine.at}}: {{medicine.data.name}}
         </div>
     </div>
     <button class="btn btn-primary apply-changes" (click)="submit()">Aplicar cambios</button>
     <div id="search-medicines-container">
-        <h4 class="modal-title">Añadir medicamentos</h4>
-        <div id="dropdown-select">
+        <h4 class="modal-title">Añadir medicamentos al plan</h4>
+        <div id="dropdown-select-container">
             <ng-multiselect-dropdown
+                class="full-size-dropdown"
                 [placeholder]="'Selecciona Medicamento'"
                 [settings]="dropdownSettings"
                 [data]="medicines"
-                [ngModel]="[]"
+                [ngModel]=""
                 (onSelect)="select($event)"
                 (onDeselect)="deselect()"
                 >
             </ng-multiselect-dropdown>
-            
-            <div *ngIf="medicineSlot.medicine">
-                <div class="edit-medicines-timepicker-container">
-                    <timepicker [(ngModel)]="selectedHour" [showSeconds]="true" [showMeridian]="false" 
-                    [hourStep]="6" [minuteStep]="10" [minuteStep]="20"></timepicker>
-                    <button (click)="addHour()" class="btn btn-secondary">Añadir hora</button>
-                </div>
-                <ng-template #noHours>
-                    <div>Sin horas asignadas</div>
-                </ng-template>
-                <div id="edit-medicines-hours-container">
-                    <h5>Horas Seleccionadas</h5>
-                    <div *ngIf="medicineSlot.at.length !== 0 else noHours">
-                        <div *ngFor="let hour of medicineSlot.at; let index = index">
-                            <i class="fas fa-times" (click)="removeHour(index)"></i>
-                            {{hour}}
+
+                <div *ngIf="medicineSlot.medicine" class="adding-container">
+                    <div class="edit-medicines-timepicker-container">
+                        <div>
+                            <timepicker [(ngModel)]="selectedHour" [showSeconds]="true" [showMeridian]="false" 
+                            [hourStep]="6" [minuteStep]="10" [minuteStep]="20"></timepicker>
+                            <button (click)="addHour()" class="btn btn-secondary ml-3">Añadir hora</button>
                         </div>
+                        <img *ngIf="previewImage else noImageAvailable" [src]="previewImage" class="w-50"
+                        alt="Imagen no disponible">
+                        <ng-template #noImageAvailable>
+                            <div>Imagen no disponible</div>
+                        </ng-template>
                     </div>
-                    <button class="btn btn-primary" [disabled]="medicineSlot.at.length === 0" (click)="addToCalendar()">
-                        Añadir al calendario
-                    </button>
-                </div>
+                    <ng-template #noHours>
+                        <div  class="added-hours-container">Sin horas seleccionadas</div>
+                    </ng-template>
+                    <div class="edit-medicines-hours-container">
+                        <h5>Horas Seleccionadas</h5>
+                        <div *ngIf="medicineSlot.at.length !== 0 else noHours" class="added-hours-container">
+                            <div *ngFor="let hour of medicineSlot.at; let index = index" class="added-hour">
+                                <i class="fas fa-times" (click)="removeHour(index)"></i>
+                                {{hour}}
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" [disabled]="medicineSlot.at.length === 0" (click)="addToCalendar()">
+                            Añadir al calendario
+                        </button>
+                    </div>
             </div>
-            <img *ngIf="previewImage" [src]="previewImage" alt="Imagen no disponible">
         </div>
     </div>

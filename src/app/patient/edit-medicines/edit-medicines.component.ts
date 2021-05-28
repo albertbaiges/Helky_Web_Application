@@ -15,7 +15,7 @@ export class EditMedicinesComponent implements OnInit {
   patientID: string;
   medicines: Array<any>;
   promptModal: BsModalRef;
-  medicineCodes: Array<number>
+  medicineCodes: Array<string>
 
   constructor(public bsModalRef: BsModalRef, private patientService: PatientService,
               private modalService: BsModalService, private cima: MedicinesCimaService) { }
@@ -36,8 +36,8 @@ export class EditMedicinesComponent implements OnInit {
 
   apply() {
     //Perform the service request
-    const medicines = this.medicines.map(medicine => Number(medicine.nregistro));
-    this.patientService.updatePatient(this.patientID, {medicines})
+    const medicines = this.medicines.map(medicine => medicine.nregistro);
+    this.patientService.updatePatient({medicines})
       .then((response: any) => {
         console.log("hemos obtenido la respuesta", response);
         //!Comprobar si ha venido un error en al respuesta,

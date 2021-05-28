@@ -1,9 +1,9 @@
 
 <div id="general-login-container" class="container-element purple-accent">
-    <h1>Iniciar sesión en MiSalud</h1>
+    <h1>Iniciar sesión en Helke</h1>
     <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
         <div class="form-group mb-2">
-            <input class="form-control form-control-lg" ngModel name="username" placeholder="Usuario">
+            <input class="form-control form-control-lg" ngModel name="email" placeholder="Email">
             <div class="alert alert-danger" *ngIf="notRegistered">
                 Usuario no registrado
             </div>
@@ -17,10 +17,19 @@
         <button class="btn btn-primary w-100">Login</button>
     </form>
     <p class="mt-3">No tienes cuenta? </p>
-    <button class="btn btn-secondary w-100" (click)="goToRegister()">Registro</button>
+    <button class="btn btn-secondary w-100" (click)="goTo('/signup')">Registro</button>
 
 </div>
 
-<div class="release_notes" (click)="goToNotes()">
-    Release Notes
+
+<div class="links-section">
+    <div (click)="goTo('/privacy')">
+        Privacy
+    </div>
+    <div (click)="goTo('/tutorials')">
+        Tutorials
+    </div>
+    <div (click)="goTo('/release_notes')">
+        Release Notes
+    </div>
 </div>

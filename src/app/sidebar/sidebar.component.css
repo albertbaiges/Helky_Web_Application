@@ -11,14 +11,27 @@
     margin-bottom: 1.5%;
 }
 
-#logout {
+#application-topbar > div {
+    user-select: none;
+}
+
+
+.bar-button {
+    /* position: absolute; */
     padding: 0 2%;
-    position: absolute;
     user-select: none;
     cursor: pointer;
+}
+
+.bar-button:hover {
+    background: rgb(189, 182, 255);
+}
+
+/* #logout {
     right: 10%;
 }
 
-#logout:hover {
-    background: rgb(189, 182, 255);
-}
+
+#feedback-button {
+    left: 10%;
+} */

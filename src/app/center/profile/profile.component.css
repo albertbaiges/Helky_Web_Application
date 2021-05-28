@@ -1,10 +1,9 @@
 #center-profile-container {
     width: 90%;
-    height: 90%;
+    min-height: 93vh;
     padding: 2%;
     border-top-style: solid;
     border-top-width: 10px;
-    border-radius: 20px;
     margin: auto;
     overflow: auto;
 }

@@ -1,13 +1,13 @@
 
 <div id="medicines-boxinfo-container" class="container-element green-accent">
-    <div class='modal-header'>
+    <div class='modal-header mb-4'>
         <h3>Medicamento</h3>
         <button type="button" class="close"
             data-dismiss="modal" (click)="closeModal()">&times;</button>
     </div>
     <h4>{{medicine.name}}</h4>
     <h5>Numero de registro: {{medicine.nregistro}}</h5>
-    <div id="thumbnail" style='width:"500px"'>
+    <div *ngIf="medicine.box else boxNotAvailable" class="thumbnail" style='width:"500px"'>
         <lib-ngx-image-zoom
         [thumbImage]="medicine.box"
         [magnification]="2"
@@ -15,6 +15,11 @@
         [zoomMode]="'toggle'"
         ></lib-ngx-image-zoom>
     </div>
+    <ng-template #boxNotAvailable >
+        <div class="thumbnail w-50 my-5 text-center">
+            Imagen no disponible
+        </div>
+    </ng-template>
     <i>Fuente de la información: Agencia Española de Medicamentos y Productos Sanitarios
         <a href="https://www.aemps.gob.es/" target="_blank">www.aemps.gob.es</a>.</i>
 </div>

@@ -1,7 +1,11 @@
 
 
+#search-medicines {
+    height: 100%;
+}
+
 #results {
-    height: 120px;
+    height: 75%;
     overflow: auto;
 }
 

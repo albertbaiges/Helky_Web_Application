@@ -5,6 +5,7 @@
     <h3>Buscador</h3>
     <div class="search-subcontainer">
         <div id="search-form-container">
+            <h4 class="mb-3">Filtro:</h4>
             <form #form="ngForm" (ngSubmit)="submit(form.value)">
                 <div class="form-group">
                     <label for="search_username">Nombre de usuario</label>
@@ -36,7 +37,7 @@
 
         <div id="search-results-container">
             <div *ngFor="let user of users" class="user-search-result">
-                <i class="fas fa-plus" (click)="sendRequest(user.userID)"></i>
+                <i class="fas fa-plus" (click)="sendRequest(user.userID)" *ngIf="user.utype !== 'patient'"></i>
                 {{user.username}} | {{user.email}} | {{user.utype}}
             </div>
         </div>

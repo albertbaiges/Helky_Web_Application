@@ -51,8 +51,7 @@ export class PatientService {
     return this.http.post(`/api/registers`, data).toPromise();
   }
 
-  updatePatient(patientID: string, data: any) {
-    console.log("Queremos actualizar", patientID, "y asignarle", data)
-    return this.http.patch(`/api/patient/${patientID}`, data).toPromise();
+  updatePatient(data: any) {
+    return this.http.patch(`/api/patient`, data).toPromise();
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -10,7 +11,8 @@ import { UserService } from 'src/app/services/user.service';
 export class NotificationsComponent implements OnInit {
   notifications: any;
 
-  constructor(private router: Router, private userService: UserService) { }
+  constructor(private router: Router, private userService: UserService,
+    private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.userService.getNotifications()
@@ -31,6 +33,10 @@ export class NotificationsComponent implements OnInit {
           const request = this.notifications.requests.find((request: any) => request.userID === userID);
           const index = this.notifications.requests.indexOf(request);
           this.notifications.requests.splice(index, 1);
+          this.toastr.success("Solicitud aceptada", "", {
+            timeOut: 2000,
+              positionClass: "toast-top-right"
+            });
         }
       });
   }
@@ -45,6 +51,10 @@ export class NotificationsComponent implements OnInit {
           const request = this.notifications.requests.find((request: any) => request.userID === userID);
           const index = this.notifications.requests.indexOf(request);
           this.notifications.requests.splice(index, 1);
+          this.toastr.success("Solicitud rechazada", "", {
+            timeOut: 2000,
+              positionClass: "toast-top-right"
+            });
       });
   }
 

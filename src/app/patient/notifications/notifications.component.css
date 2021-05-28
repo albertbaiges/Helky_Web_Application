@@ -2,11 +2,10 @@
 
 #patient-notifications-container {
     width: 90%;
-    height: 90%;
+    min-height: 93vh;
     padding: 2%;
     border-top-style: solid;
     border-top-width: 10px;
-    border-radius: 20px;
     margin: auto;
     overflow: auto;
 }
@@ -28,7 +27,7 @@
 
 .sub-container {
     padding: 2%;
-    height: 40%;
+    height: calc(0.35 * 93vh);
     overflow: auto;
     box-sizing: border-box;
 }

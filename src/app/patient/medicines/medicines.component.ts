@@ -33,7 +33,7 @@ export class MedicinesComponent implements OnInit {
   medicinesCalendar() {
     const modalOptions = {
       animated: true,
-      class: 'modal-dialog-centered modal-lg',
+      class: 'modal-dialog-centered edit-medicines-modal border-radius-modal',
       backdrop: true,
       keyboard: true,
       initialState: {
@@ -52,7 +52,7 @@ export class MedicinesComponent implements OnInit {
   editMedicines() {
     const modalOptions = {
       animated: true,
-      class: 'modal-dialog-centered modal-lg',
+      class: 'modal-dialog-centered edit-medicines-modal border-radius-modal',
       backdrop: true,
       ignoreBackdropClick: true,
       initialState: {

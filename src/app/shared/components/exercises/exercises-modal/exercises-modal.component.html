@@ -1,33 +1,23 @@
-<div id="full-activity-container">
-    <ng-template #noData>
-        No hay información disponible
-    </ng-template>
-    
-    <ng-template #noComments>
-        No hay ningun comentario
-    </ng-template>
-
+<div id="full-activity-container" class="container-element blue-accent">
     <div class='modal-header full-activity-header'>
         <h3>Actividad Física - {{day | titlecase}}</h3>
         <button type="button" class="close"
             data-dismiss="modal" (click)="closeModal()">&times;</button>
     </div>
-    <ng-container *ngIf="activitiesInfo else noData">
-        <i class="fas fa-edit activitiy-functinalities" *ngIf="!editable" (click)="toggleEdit()"></i>
+    <ng-container *ngIf="activitiesInfo">
+        <i class="fas fa-edit activitiy-functionalities" *ngIf="!editable" (click)="toggleEdit()"></i>
         <div *ngIf="editable" id="edit-functionalities">
             <i class="fas fa-check meal-functinalities" (click)="applyChanges({exercises: exercises.innerText, comments: comments.innerText})"></i>
             <i class="fas fa-times meal-functinalities" (click)="rejectChanges()"></i>
         </div>
         <h2>Ejercicios</h2>
-        <div id="exercises" class='activity-content' #exercises [attr.contentEditable]="editable" [ngClass]="{'editable': editable}">
-            {{activitiesInfo.activities.exercises}}
+        <div id="exercises" class='activity-content' #exercises [attr.contentEditable]="editable" [ngClass]="{'editable': editable}"
+        [innerText]="activitiesInfo.activities.exercises || ''">
         </div>
         <hr>
-        <h3>Comments</h3>
-        <div id="comments" class='activity-content' #comments [attr.contentEditable]="editable" [ngClass]="{'editable': editable}">
-            <ng-container *ngIf="activitiesInfo.activities.comments else noComments">
-                {{activitiesInfo.activities.comments}}
-            </ng-container>
+        <h3>Comentarios</h3>
+        <div id="comments" class='activity-content' #comments [attr.contentEditable]="editable" [ngClass]="{'editable': editable}"
+        [innerText]="activitiesInfo.activities.comments || ''">
         </div>
     </ng-container>
 </div>

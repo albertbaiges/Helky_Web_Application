@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { ToastrService } from 'ngx-toastr';
 import { PatientService } from 'src/app/services/patient.service';
 import { RegistersService } from 'src/app/services/registers.service';
 import { CreateRegisterComponent } from './create-register/create-register.component';
@@ -16,7 +17,7 @@ export class RegistersComponent implements OnInit {
   bsModalRef: BsModalRef;
   
   constructor(private router: Router, private patientService: PatientService, private registersService: RegistersService,
-    private modalService: BsModalService) {
+    private modalService: BsModalService, private toastr: ToastrService) {
 
   }
 
@@ -40,7 +41,7 @@ export class RegistersComponent implements OnInit {
     } else if (disorder.family !== "other") {
       const modalOptions = {
         animated: true,
-        class: 'modal-dialog-centered',
+        class: 'modal-dialog-centered border-radius-modal',
         backdrop: true,
         keyboard: true,
         initialState: {
@@ -57,14 +58,19 @@ export class RegistersComponent implements OnInit {
           this.patientService.createRegister(body)
             .then(response => {
               const index = this.disorders.indexOf(disorder);
-              console.log("está en el indice", index);
               this.disorders.splice(index, 1, response);
-              console.log("nuevos datos de disorders", this.disorders)
+              this.toastr.success("Registro creado", "", {
+                timeOut: 2000,
+                positionClass: "toast-top-right"
+              });
             })
         }
       });
-    } else if (disorder.family === "Other") {
-      alert("es un other")
+    } else if (disorder.family === "other") {
+      this.toastr.error("Esta patología no admite registros", "", {
+        timeOut: 2000,
+        positionClass: "toast-top-right"
+      });
     }
   }
 

@@ -148,7 +148,7 @@ export class PatientInfoComponent implements OnInit {
   editMedicines() {
     const modalOptions = {
       animated: true,
-      class: 'modal-dialog-centered modal-lg',
+      class: 'modal-dialog-centered edit-medicines-modal border-radius-modal',
       backdrop: true,
       ignoreBackdropClick: true,
       initialState: {
@@ -176,7 +176,7 @@ export class PatientInfoComponent implements OnInit {
   medicinesCalendar() {
     const modalOptions = {
       animated: true,
-      class: 'modal-dialog-centered modal-lg',
+      class: 'modal-dialog-centered edit-medicines-modal border-radius-modal',
       backdrop: true,
       keyboard: true,
       initialState: {
@@ -195,7 +195,7 @@ export class PatientInfoComponent implements OnInit {
   showDetails(medicine: any) {
     const modalOptions = {
       animated: true,
-      class: 'modal-dialog-centered modal-lg',
+      class: 'modal-dialog-centered modal-lg border-radius-modal',
       backdrop: true,
       keyboard: true,
       initialState: {

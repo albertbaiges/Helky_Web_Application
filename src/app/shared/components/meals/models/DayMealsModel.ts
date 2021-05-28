@@ -1,8 +1,10 @@
 
 
 export interface DayMealsModel{
-    day?: string
-    breakfast: string[],
-    lunch: string[],
-    dinner: string[]
+    day?: string,
+    meals: {
+        breakfast: string[],
+        lunch: string[],
+        dinner: string[]
+    }
 }

@@ -4,5 +4,5 @@ export interface Patient {
     username: string,
     email: string,
     disorders: any,
-    medicines: Array<number>
+    medicines: Array<string>
 }

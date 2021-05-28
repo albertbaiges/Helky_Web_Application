@@ -1,31 +1,24 @@
 
 <div id="meal-fullmeal-container" class="container-element red-accent">
-    <ng-template #noComments>
-        No hay ningun comentario
-    </ng-template>
-
     <div class='modal-header full-meal-header'>
         <h3>{{timezone | titlecase}} - {{day | titlecase}}</h3>
         <button type="button" class="close"
             data-dismiss="modal" (click)="closeModal()">&times;</button>
     </div>
-    <div *ngIf="mealInfo">
-
-        <i class="fas fa-edit meal-functinalities" *ngIf="!editable" (click)="toggleEdit()"></i>
+    <ng-container *ngIf="mealInfo">
+        <i class="fas fa-edit meal-functionalities" *ngIf="!editable" (click)="toggleEdit()"></i>
         <div *ngIf="editable" id="edit-functionalities">
             <i class="fas fa-check meal-functinalities" (click)="applyChanges({menu: menu.innerText, comments: comments.innerText})"></i>
             <i class="fas fa-times meal-functinalities" (click)="rejectChanges()"></i>
         </div>
-        <h2>Menu</h2>
-        <div id="menu" class='meal-content' #menu [attr.contentEditable]="editable" [ngClass]="{'editable': editable}">
-            {{mealInfo.menu}}
+        <h2>Menú</h2>
+        <div id="menu" class='meal-content' #menu [attr.contentEditable]="editable" [ngClass]="{'editable': editable}"
+        [innerText]="mealInfo.menu">
         </div>
         <hr>
-        <h3>Comments</h3>
-        <div id="comments" class='meal-content' #comments [attr.contentEditable]="editable" [ngClass]="{'editable': editable}">
-            <ng-container *ngIf="mealInfo.comments else noComments">
-                {{mealInfo.comments}}
-            </ng-container>
+        <h3>Comentarios</h3>
+        <div id="comments" class='meal-content' #comments [attr.contentEditable]="editable" [ngClass]="{'editable': editable}"
+        [innerText]="mealInfo.comments">
         </div>
-    </div>
+    </ng-container>
 </div>

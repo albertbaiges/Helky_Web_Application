@@ -32,7 +32,7 @@ body {
 
 .container-element {
     background-color: white;
-    border-radius: 10px;
+    border-radius: 20px 20px 0 0 ;
     box-shadow: 0 10px  20px 2px gray;
     box-sizing: border-box;
 }
@@ -56,4 +56,20 @@ body {
 
 .blue-accent {
     border-color: #0084ff;
+}
+
+
+
+.edit-medicines-modal {
+    width: 80vw !important;
+    max-width: none !important;
+}
+
+.border-radius-modal .modal-content{
+    border-radius: 20px !important;
+}
+
+
+.full-size-dropdown div div span span {
+    max-width: none !important;
 }

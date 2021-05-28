@@ -1,15 +1,18 @@
 
-<div>
+<div id="search-medicines" class="pl-2">
     <form #medicinesForm=ngForm (ngSubmit)="searchMedicines(medicinesForm)">
-        <input type="text" name="medicine" ngModel>
-        <button class="btn btn-secondary">Buscar</button>
+        <div class="w-75 mx-auto">
+            <input type="text" name="medicine" ngModel>
+            <button class="btn btn-secondary">Buscar</button>
+        </div>
+        <br/>
         <i>Fuente de la información: Agencia Española de Medicamentos y Productos Sanitarios
             <a href="https://www.aemps.gob.es/" target="_blank">www.aemps.gob.es</a>.</i>
     </form>
 
     <ng-container *ngIf="searched">
         <div id="results" *ngIf="results.length !== 0 else noResults">
-            Resultados obtenidos a las: {{now | date : "H:m:s d/M/Y"}}
+            Resultados obtenidos a las: {{now | date : "HH:mm:ss d/M/Y"}}
             <div *ngFor="let result of results" [attr.data-nregistro]="result.nregistro" class="results-item">
                 <div class="icon">
                     <i class="fa fa-plus" (click)="emitMedicine(result)"></i>

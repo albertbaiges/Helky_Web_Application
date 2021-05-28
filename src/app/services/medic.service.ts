@@ -19,6 +19,10 @@ export class MedicService {
     ).toPromise();
   }
 
+  updatePatient(userID: string, medicines: any) {
+    return this.http.patch("/api/medic/patients", {userID, medicines}).toPromise();
+  }
+
   getCenters(): Promise<any> {
     return this.http.get(`/api/medic/centers`)
     .pipe(

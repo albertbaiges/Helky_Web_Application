@@ -7,6 +7,7 @@
     border-top-style: solid;
     border-top-width: 10px;
     margin: auto;
+    overflow: auto;
 }
 
 #edit-medicines-list-container {
@@ -14,10 +15,28 @@
     width: 90%;
     margin: auto;
     border: solid 1px gray;
-    border-radius: 20px;
     overflow: auto;
     padding: 2%;
 }
+
+.medicine-assigned-hour {
+    margin: 2% 0;
+}
+
+.medicine-assigned-hour:hover {
+    background: lightgray;
+}
+
+
+.medicine-assigned-hour i {
+    margin-right: 5%;
+    cursor: pointer;
+}
+
+.medicine-assigned-hour i:hover {
+    color: red;
+}
+
 
 .apply-changes {
     position: relative;
@@ -32,62 +51,54 @@
     height: 50%;
 }
 
-#dropdown-select {
+#dropdown-select-container {
     position: relative;
-    height: 90%;
+    margin-top: 2%;
+    height: 85%;
+}
+
+.adding-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2%;
+    height: 80%;
+}
+
+.adding-container .edit-medicines-timepicker-container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    width: 45%;
+
 }
 
 
-#dropdown-select .selected-item {
-    max-width: none !important;
+.adding-container .edit-medicines-timepicker-container div{
+    display: flex;
+    align-items: center;
 }
 
-#edit-medicines-hours-container {
+
+.adding-container .edit-medicines-hours-container {
     display: flex;
     flex-direction: column;
-    position: absolute;
-    right: 5%;
-    bottom: 10%;
-    width: 50%;
-    height: 50%;
-    border: 1px solid gray;
-    border-radius: 20px;
+    width: 45%;
     padding: 2%;
 }
-#edit-medicines-hours-container h5{
-    font-weight: bold;
-}
 
-#edit-medicines-hours-container > div{
-    height: 65%;
+.adding-container .edit-medicines-hours-container .added-hours-container{
+    padding: 2% 5%;
+    height: 75%;
     margin-bottom: 2%;
+    border: 1px solid gray;
     overflow: auto;
+    box-sizing: border-box;
 }
 
-#edit-medicines-hours-container > button {
-    position: relative;
-    right: 5%;
-    align-self: flex-end;
-}
 
-#dropdown-select > img {
-    position: absolute;
-    left: 5%;
-    bottom: 0;
-    width: 25%;
-}
-
-.edit-medicines-timepicker-container {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    left: 5%;
-    width: 30%;
-}
-
-.edit-medicines-timepicker-container > button{
-    margin-top: 2%;
-    align-self: center;
+.added-hour {
+    margin: 2% 0;
 }
 
 

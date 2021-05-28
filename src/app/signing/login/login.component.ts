@@ -21,12 +21,12 @@ export class LoginComponent implements OnInit {
   }
 
   login(form: NgForm) {
-    const {username, password} = form.value;
-    if(username === "" || password === "") {
+    const {email, password} = form.value;
+    if(email === "" || password === "") {
       return
     }
 
-    this.authService.login(username, password)
+    this.authService.login(email, password)
       .then(response => {
         this.router.navigateByUrl("/home");
       })
@@ -43,13 +43,8 @@ export class LoginComponent implements OnInit {
       });
   }
 
-
-  goToRegister() {
-    this.router.navigateByUrl("/signup");
-  }
-
-  goToNotes() {
-    this.router.navigateByUrl("/release_notes");
+  goTo(path: string) {
+    this.router.navigateByUrl(path);
   }
 
 }

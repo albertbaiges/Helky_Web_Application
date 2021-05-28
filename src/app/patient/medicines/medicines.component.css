@@ -1,5 +1,4 @@
 
-
 #medicines-list-container {
     width: 75%;
     margin: auto;
@@ -7,11 +6,10 @@
 
 #patient-medicines-container {
     width: 90%;
-    height: 90%;
+    min-height: 93vh;
     padding: 2%;
     border-top-style: solid;
     border-top-width: 10px;
-    border-radius: 20px;
     margin: auto;
 }
 
@@ -32,12 +30,15 @@
     position: absolute;
     right: 10%;
     font-size: 2vw;
+}
+
+.medicines-actions i{
     cursor: pointer;
 }
 
 #patient-medicines-list {
     margin-top: 4%;
-    height: 80%;
+    height: calc(0.7 * 93vh);
     border: solid 2px gray;
     border-radius: 20px;
     padding: 1%;

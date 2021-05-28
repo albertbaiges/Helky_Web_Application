@@ -5,30 +5,48 @@
     </div>
     <h3>Configuración del perfil</h3>
     <div class="patient-profile-disorders-section">
-        <h4>Modificar patologias</h4>
-        <div class="patient-profile-disorders-list">
-            <div *ngFor="let disorder of disorders; let i = index">
-                <i class="fas fa-times" (click)="removeDisorder(i)"></i>
-                {{disorder.type}} || {{disorder.family | titlecase}}
+        <h4>Modificar patologías</h4>
+        <div class="patient-profile-disorders-content">
+            <div class="add-disorders-section">
+                <form #disorderForm="ngForm" (ngSubmit)="addDisorder(disorderForm.value)">
+                    <div class="form-group">
+                        <label for="disorders">Patología</label>
+                        <input #disorderName class="form-control" type="text" id="disorders" name="disorder" ngModel placeholder="Patología">
+                    </div>
+                    <div class="form-group">                
+                        <label for="disorders">Tipo de patología</label><br>
+                        <div class="multiselect-dropdown-container">                
+                            <ng-multiselect-dropdown
+                            [placeholder]="'Tipo de patología'"
+                            [settings]="dropdownSettings"
+                            [data]="supportedRegisters"
+                            name="family"
+                            ngModel
+                            >
+                            </ng-multiselect-dropdown>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-secondary w-100"
+                        [disabled]="!disorderName.value"
+                    >
+                        Añadir
+                    </button>
+                </form>
             </div>
-        </div>
-        <form #disorderForm="ngForm" (ngSubmit)="addDisorder(disorderForm.value)">
-            <input type="text" id="disorders" name="disorder" ngModel placeholder="Patologia">
-            <div class="multiselect-dropdown-container">                
-                <ng-multiselect-dropdown
-                 [placeholder]="'Tipo de patologia'"
-                 [settings]="dropdownSettings"
-                 [data]="supportedRegisters"
-                 name="family"
-                 ngModel
-               >
-               </ng-multiselect-dropdown>
+            <div class="disorders-list-section">
+                <div class="alert alert-warning deletion-warning">
+                    Eliminar una patología con registro provocará perder los registros
+                </div>
+                <div class="disorders-list">
+                    <div *ngFor="let disorder of disorders; let i = index" class="disorder-item">
+                        <i class="fas fa-times" (click)="removeDisorder(i)"></i>
+                        {{disorder.type}} || {{disorder.family | titlecase}}
+                    </div>
+                </div>
+                <div class="button-container pt-2 ">
+                    <button class="btn btn-primary d-block w-75 mx-auto" (click)="submitDisorders()">Aplicar cambios</button>
+                </div>
             </div>
-            <button type="submit" class="btn btn-secondary">Añadir</button>
-        </form>
-        <button class="submitdisorders btn btn-primary" (click)="submitDisorders()">Aplicar cambios</button>
-        <div class="alert alert-warning deletion-warning">
-            Eliminar una enfermedad con registro provocará perder los registros
         </div>
     </div>
     <hr>
@@ -48,7 +66,7 @@
                 <div class="alert alert-info">
                     Seleccione un nombre de usuario identificativo, preferiblemente su nombre y apellidos
                 </div>
-                <label for="email">Correo electronico</label>
+                <label for="email">Correo electrónico</label>
                 <input type="email" id="email" name="email" [ngModel]="user.email" #email="ngModel"
                     email
                     pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"

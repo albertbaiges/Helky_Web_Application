@@ -29,7 +29,7 @@ export class SearchMedicinesComponent implements OnInit {
   showDetails(medicine: any) {
       const modalOptions = {
         animated: true,
-        class: 'modal-dialog-centered',
+        class: 'modal-dialog-centered modal-lg border-radius-modal',
         backdrop: true,
         keyboard: true,
         initialState: {
@@ -59,6 +59,7 @@ export class SearchMedicinesComponent implements OnInit {
       this.cima.getByName(medicine).then(response => {
         this.results = response;
         this.searched = true;
+        this.now = new Date();
       });
     } else {
       //Helpers
@@ -66,13 +67,13 @@ export class SearchMedicinesComponent implements OnInit {
       const ncLenght = 6; //National codes lenght (without .X)
 
       const firstNumber = medicine.charAt(0);
-      const code = Number(medicine);
+      const code = medicine;
       if(ncFirstNumber.includes(firstNumber) && medicine.length === ncLenght) {
         //Tenemos un codigo nacional en code
         this.cima.getByNationalCode(code).then(response => {
           this.results = response;
           this.searched = true;
-
+          this.now = new Date();
         });
       } else {
         //Tenemos un codigo de registro en code

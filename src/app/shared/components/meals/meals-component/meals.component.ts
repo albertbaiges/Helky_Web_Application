@@ -42,9 +42,9 @@ export class MealsComponent implements OnInit {
       for (const dayMeals of weekMeals) {
         console.log(dayMeals)
         const dayPos = this.weekdaysMap[dayMeals.day!];
-        this.weekMeals.breakfasts[dayPos] = dayMeals.breakfast;
-        this.weekMeals.lunches[dayPos] = dayMeals.lunch;
-        this.weekMeals.dinners[dayPos] = dayMeals.dinner;
+        this.weekMeals.breakfasts[dayPos] = dayMeals.meals.breakfast;
+        this.weekMeals.lunches[dayPos] = dayMeals.meals.lunch;
+        this.weekMeals.dinners[dayPos] = dayMeals.meals.dinner;
       }
       console.log("las comidas para esta semana son", this.weekMeals)
     });
@@ -59,7 +59,7 @@ export class MealsComponent implements OnInit {
       console.log(day, zone)
       const modalOptions = {
         animated: true,
-        class: 'modal-dialog-centered modal-lg',
+        class: 'modal-dialog-centered modal-lg border-radius-modal',
         backdrop: true,
         keyboard: true,
         initialState: {

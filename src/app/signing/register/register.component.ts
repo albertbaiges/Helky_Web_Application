@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AuthorizationService } from 'src/app/services/authorization.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { AuthorizationService } from 'src/app/services/authorization.service';
 export class RegisterComponent implements OnInit {
 
   showEmailTaken: boolean;
-  constructor(private router: Router, private authService: AuthorizationService) {
+  constructor(private router: Router, private authService: AuthorizationService, private toastr: ToastrService) {
     this.showEmailTaken = false;
   }
 
@@ -25,7 +26,12 @@ export class RegisterComponent implements OnInit {
     }
     console.log("queremos registrar a", body)
     this.authService.register(body)
-      .then((response: any) => console.log(response))
+      .then((response: any) => {
+        this.toastr.success('Usuario registrado satisfactoriamente', "", {
+          timeOut: 2000,
+          positionClass: "toast-bottom-full-width"
+        });
+      })
       .catch(response => {
         if(response.error && response.error.Error) {
           if(response.error.Error === "Email in use") {

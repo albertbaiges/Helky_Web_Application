@@ -16,6 +16,7 @@ import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 import { ExercisesComponent } from './components/exercises/exercises.component';
 import { ExercisesModalComponent } from './components/exercises/exercises-modal/exercises-modal.component';
 import { EditTrackingModalComponent } from './components/tracking/edit-tracking-modal/edit-tracking-modal.component';
+import { TrackingMomentPipe } from './pipes/tracking-moment.pipe';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { EditTrackingModalComponent } from './components/tracking/edit-tracking-
     EditMedicinesPlanComponent,
     ExercisesComponent,
     ExercisesModalComponent,
-    EditTrackingModalComponent
+    EditTrackingModalComponent,
+    TrackingMomentPipe
   ],
   imports: [
     CommonModule,

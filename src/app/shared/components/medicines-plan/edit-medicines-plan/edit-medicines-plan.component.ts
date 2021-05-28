@@ -5,6 +5,7 @@ import { IDropdownSettings} from "ng-multiselect-dropdown"
 import { PatientService } from 'src/app/services/patient.service';
 import { MedicinesCimaService } from 'src/app/services/medicines-cima.service';
 import { PlansService } from 'src/app/services/plans.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-edit-medicines-plan',
@@ -26,7 +27,8 @@ export class EditMedicinesPlanComponent implements OnInit {
 
   constructor(private bsModalRef: BsModalRef,
     private plansService: PlansService,
-    private cima: MedicinesCimaService) {
+    private cima: MedicinesCimaService,
+    private toastr: ToastrService) {
       this.medicines = null;
       this.previewImage = "";
       this.medicineSlot = {medicine: null, at: []};
@@ -61,7 +63,7 @@ export class EditMedicinesPlanComponent implements OnInit {
 
   select(medicine: any) {
     console.log("Seleccionada", medicine)
-    this.medicineSlot.medicine = Number(medicine.nregistro);
+    this.medicineSlot.medicine = medicine.nregistro;
     const [medicineInfo] = this.medicines.filter(({nregistro}: any) => medicine.nregistro === nregistro);
     this.previewImage = medicineInfo.box;
     console.log(this.medicineSlot)
@@ -151,7 +153,12 @@ export class EditMedicinesPlanComponent implements OnInit {
     }
     console.log("datos a actualizar", data);
     this.plansService.updateMedicines(this.planID, data)
-      .then(response => { })
+      .then(response => {
+        this.toastr.success("Pauta de medicamentos actualizada", "", {
+          timeOut: 2000,
+          positionClass: "toast-top-right"
+        });
+       })
   }
 
 }

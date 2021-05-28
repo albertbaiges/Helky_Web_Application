@@ -1,11 +1,10 @@
 
 #patient-search-container {
     width: 90%;
-    height: 90%;
+    min-height: 93vh;
     padding: 2%;
     border-top-style: solid;
     border-top-width: 10px;
-    border-radius: 20px;
     margin: auto;
     overflow: auto;
 }
@@ -33,7 +32,7 @@
 
 #search-results-container {
     width: 60%;
-    height: 100%;
+    height: calc(0.8 * 93vh);
     padding: 2%;
     border: solid 2px gray;
     border-radius: 10px;

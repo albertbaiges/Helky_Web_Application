@@ -13,7 +13,8 @@ export class MedicinesListComponent implements OnInit, OnChanges {
   @Input() registerCodes: Array<any>;
   medicines: Array<any>;
   private bsModalRef: BsModalRef;
-  
+  spinner: boolean;
+
   constructor(private cima: MedicinesCimaService,
     private modalService: BsModalService) {
 
@@ -26,12 +27,12 @@ export class MedicinesListComponent implements OnInit, OnChanges {
   
   private init() {
     if(this.registerCodes.length !== 0) {
-      // this.showSpinner("loading");
+      this.showSpinner(true);
       const promises = this.registerCodes.map(medicine => this.cima.getByNRegistro(medicine));
       Promise.all(promises).then(responses => {
         this.medicines = responses.map(response => response[0]);
         console.log("Medicinas que debe tomarse", this.medicines);
-        // this.hideSpinner("loading");
+        this.showSpinner(false);
       });
     }
   }
@@ -39,12 +40,18 @@ export class MedicinesListComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     this.init()
   }
+
+
+  private showSpinner(bool: boolean) {
+    console.log("cambiando valor del spinner", bool)
+    this.spinner = bool;
+  }
   
   showDetails(medicine: any) {
     console.log(medicine)
     const modalOptions = {
       animated: true,
-      class: 'modal-dialog-centered modal-lg',
+      class: 'modal-dialog-centered modal-lg border-radius-modal',
       backdrop: true,
       keyboard: true,
       initialState: {
@@ -52,10 +59,5 @@ export class MedicinesListComponent implements OnInit, OnChanges {
       },
     }
     this.bsModalRef = this.modalService.show(MedicineBoxModalComponent, modalOptions);
-    // this.bsModalRef.onHide.subscribe(() => { //! Unsubscribre from this thing
-    //   if (this.bsModalRef?.content.hideReason === "success") {
-    //     //! what now?
-    //   }
-    // });
   }
 }

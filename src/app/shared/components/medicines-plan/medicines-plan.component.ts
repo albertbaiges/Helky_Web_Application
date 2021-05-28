@@ -95,7 +95,7 @@ export class MedicinesPlanComponent implements OnInit {
 
 
         //Request names
-        const promises = medicineCodes.map((code: number) => this.cima.getByNRegistro(code));
+        const promises = medicineCodes.map((code: string) => this.cima.getByNRegistro(code));
         Promise.all(promises).then(response => {
           response.forEach((medicineData: any) => {
             weekMedicinesTemp.forEach((dayMedicines: any) => {
@@ -136,7 +136,7 @@ export class MedicinesPlanComponent implements OnInit {
   editDayMedicines(dayMedicines: any) {
     const modalOptions = {
       animated: true,
-      class: 'modal-dialog-centered modal-lg',
+      class: 'modal-dialog-centered modal-lg border-radius-modal',
       backdrop: true,
       keyboard: true,
       initialState: {
