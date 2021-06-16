@@ -11,7 +11,7 @@
             <label for="email">Correo electrónico</label>
             <input ngModel #email="ngModel" required name="email" class="form-control form-control-lg mb-2" type="text" placeholder="Email"
                 email
-                pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+                pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+$"
             >
             <div class="alert alert-danger" *ngIf="email.touched && email.errors?.pattern">
                 Email invalido
@@ -24,7 +24,7 @@
                 pattern="^(?=.*[A-Z])(?=.*\d)[\w]{8,}$"
             >
             <div class="alert alert-danger" *ngIf="password.errors?.pattern">
-                La constraseña debe contener un minimo de 8 caracteres con minimo una letra mayuscula 
+                La contraseña debe contener un minimo de 8 caracteres con minimo una letra mayuscula 
                 y miniscula
             </div>
             <label for="repeat_password">Repetir Contraseña</label>

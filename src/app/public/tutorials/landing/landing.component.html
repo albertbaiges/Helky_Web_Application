@@ -1,9 +1,9 @@
 
 
-<div class="tutorials-container">
+<div class="tutorials-container container-element">
     <i class="fas fa-home" (click)="goToHome()"></i>
     <h2>Tutoriales</h2>
-    <p>Seleccione su tipo de usuario para poder consultar el tutorial de lo que puede hacer con Helke.</p>
+    <p>Seleccione su tipo de usuario para poder consultar el tutorial de lo que puede hacer con Helky.</p>
     <div class="tutorials-navbar" (click)="goToTutorial($event)">
         <div [attr.data-tutorial]="'patient'"
         [ngClass]="{'current-path': path === 'patient'}">

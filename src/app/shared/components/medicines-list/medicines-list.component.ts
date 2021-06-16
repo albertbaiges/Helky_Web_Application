@@ -34,6 +34,8 @@ export class MedicinesListComponent implements OnInit, OnChanges {
         console.log("Medicinas que debe tomarse", this.medicines);
         this.showSpinner(false);
       });
+    } else {
+      this.medicines = [];
     }
   }
 

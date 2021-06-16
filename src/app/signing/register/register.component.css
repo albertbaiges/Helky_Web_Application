@@ -12,11 +12,15 @@
     margin: auto;
 }
 
+#general-register-container h1{
+    color: #5a5656;
+}
+
 .btn-primary, .btn-primary:active, .btn-primary:visited {
-    background-color: #5c2f94 !important;
+    background-color: #7503df !important;
     border: none;
 }
 
 .btn-primary:hover {
-    background-color: #7139b6 !important;
+    background-color: #8846d8 !important;
 }

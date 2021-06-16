@@ -19,6 +19,10 @@ export class RegisterComponent implements OnInit {
   }
 
   register(values: any) {
+    this.toastr.info('Registrando...', "", {
+      timeOut: 2000,
+      positionClass: "toast-bottom-full-width"
+    });
     const body = {
       username: values.username,
       email: values.email,
@@ -40,6 +44,11 @@ export class RegisterComponent implements OnInit {
               this.showEmailTaken = false;
             }, 1000 * 3);
           }
+        } else {
+          this.toastr.error(response.error, "Error", {
+            timeOut: 2000,
+            positionClass: "toast-bottom-full-width"
+          });
         }
       });
 

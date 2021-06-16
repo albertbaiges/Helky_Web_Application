@@ -13,13 +13,17 @@
     margin: auto;
 }
 
+#general-login-container h1{
+    color: #5a5656;
+}
+
 .btn-primary, .btn-primary:active, .btn-primary:visited {
-    background-color: #5c2f94 !important;
+    background-color: #7503df !important;
     border: none;
 }
 
 .btn-primary:hover {
-    background-color: #7139b6 !important;
+    background-color: #8846d8 !important;
 }
 
 .links-section {
@@ -31,4 +35,15 @@
     right: 0;
     cursor: pointer;
     font-size: 1.2em;
+    box-sizing: border-box;
+}
+
+.links-section > div {
+    border-bottom: 1px solid #ffffff00;
+}
+
+.links-section > div:hover {
+    color: #7139b6;
+    border-bottom-color: #7139b6;
+    box-sizing: border-box;
 }

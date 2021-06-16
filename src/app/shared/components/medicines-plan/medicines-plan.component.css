@@ -70,7 +70,8 @@
 
 .medicines-calendar-cellcontent-edit {
     margin: auto;
-    background: lightblue;
+    color: white;
+    background-color: #807e7e;
     font-weight: bold;
     cursor: pointer;
     text-align: center;
@@ -79,5 +80,6 @@
 }
 
 .medicines-calendar-cellcontent-edit:hover {
-    background-color: rgb(122, 201, 228)
+    background-color: #6d6a6a;
+
 }

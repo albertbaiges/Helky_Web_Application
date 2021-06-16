@@ -32,8 +32,7 @@ export class EditMedicinesComponent implements OnInit {
 
     this.medicService.updatePatient(this.patientID, medicines)
       .then((response: any) => {
-        console.log("hemos obtenido la respuesta", response);
-        this.medicines = response.data.medicines;
+        this.medicines = response.medicines;
         this.modalService.hide();
         this.hideReason="success";
       })

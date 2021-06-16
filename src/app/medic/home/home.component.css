@@ -1,31 +1,18 @@
 
-/* #menu-options {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    padding: 5% 0;
-    height: 100%;
-    overflow: auto;
-} */
-
 #medic-menu-options {
     display: grid;
-    /* grid-template-columns: repeat(4, 15%); */
-
     grid-template-columns: repeat(auto-fit, 20%);
     grid-auto-rows: 15vw;
     gap: 5em;
     justify-content: center;
-    
-    
-    /* grid-auto-rows: 14.25vw; */
-    /* gap: 6.25%; */
+
 }
 
 .box-option {
     width: 100%;
     background-color: white;
-    border-top: solid 5px rgb(0, 132, 255);
+    border-top-width: 5px;
+    border-top-style: solid;
     box-sizing: border-box;
     border-radius: 10px;
     box-shadow: 0 10px  20px 2px gray;
@@ -47,21 +34,6 @@
     grid-column: 2 / span 2;
 }
 
-.red-accent {
-    border-color: #ff1e00;
-}
-
-.green-accent {
-    border-color: #008001;
-}
-
-.gray-accent {
-    border-color: #8f8f8f;
-}
-
-.purple-accent {
-    border-color: #8400ff;
-}
 
 .box-option:hover {
     background-color: rgba(189, 182, 255, 0.315);

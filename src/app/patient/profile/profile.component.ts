@@ -65,7 +65,8 @@ export class ProfileComponent implements OnInit {
         });
      })
      .catch(errorResponse => {
-       if (errorResponse.status === 400 && errorResponse.error.Error === "Email already taken") {
+       console.log(errorResponse.error)
+       if (errorResponse.status === 400 && errorResponse.error.Error === "Email in use") {
          this.emailTaken = true;
          setTimeout(() => {this.emailTaken = false}, 1000 * 3);
        }
@@ -73,7 +74,7 @@ export class ProfileComponent implements OnInit {
   }
 
   addDisorder(value: any) {
-    console.log("Queremos añadir el", value)
+    value.family = (value.family.length)? value.family : "";
     const family = (value.family)? value.family[0] : "Other";
     const disorder = {
       type: value.disorder,
@@ -100,7 +101,7 @@ export class ProfileComponent implements OnInit {
           timeOut: 2000,
           positionClass: "toast-top-right"
         });
-        this.disorders = Object.values(response.data.disorders)
+        this.disorders = Object.values(response.disorders)
       }).catch(errorResponse => {
         const {error} = errorResponse;
         if(error.disorders) {

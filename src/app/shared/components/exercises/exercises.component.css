@@ -35,3 +35,13 @@
 .generic-activityplan-viewer {
     width: 100%;
 }
+
+
+.btn-info, .btn-info:active, .btn-info:visited {
+    background-color: #6d6363 !important;
+    border: none;
+}
+
+.btn-info:hover {
+    background-color: #534c4c !important;
+}

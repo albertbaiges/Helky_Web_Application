@@ -5,10 +5,11 @@
     width: 75%;
     min-height: 100vh;
     padding: 3%;
-    background: rgb(235, 235, 235);
+    background: #f4f4f4 !important;
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-radius: 0 !important;
 }
 
 .tutorials-container i {

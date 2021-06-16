@@ -10,7 +10,6 @@ export class PatientService {
   constructor(private http: HttpClient) { }
 
   getMedicines(): Promise<any> {
-    console.log("pidiendo con esto")
     return this.http.get(`/api/patient/medicines`)
     .pipe(
       tap(response => console.log(response)),

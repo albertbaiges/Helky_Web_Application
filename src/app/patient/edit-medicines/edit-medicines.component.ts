@@ -39,10 +39,7 @@ export class EditMedicinesComponent implements OnInit {
     const medicines = this.medicines.map(medicine => medicine.nregistro);
     this.patientService.updatePatient({medicines})
       .then((response: any) => {
-        console.log("hemos obtenido la respuesta", response);
-        //!Comprobar si ha venido un error en al respuesta,
-        //!para alertar con mensaje de fallo
-        this.medicines = response.data.medicines;
+        this.medicines = response.medicines;
         this.modalService.hide();
         this.hideReason="success";
       })

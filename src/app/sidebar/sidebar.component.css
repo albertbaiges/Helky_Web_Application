@@ -5,7 +5,7 @@
     justify-content: space-around;
     align-items: center;
     height: 4%;
-    background: rgb(161, 127, 255);
+    background: rgb(114, 77, 216);
     color: white;
     font-size: 1.5em;
     margin-bottom: 1.5%;
@@ -24,7 +24,7 @@
 }
 
 .bar-button:hover {
-    background: rgb(189, 182, 255);
+    background: rgb(132, 123, 214);
 }
 
 /* #logout {

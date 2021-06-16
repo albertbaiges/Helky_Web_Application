@@ -5,7 +5,8 @@
     padding: 2%;
     margin: auto;
     text-align: justify;
-    background: rgb(235, 235, 235);
+    background: #f4f4f4 !important;
+    border-radius: 0 !important;
 }
 
 #release-notes-container i {

@@ -32,7 +32,7 @@ export class ProfileComponent implements OnInit {
         });
      })
      .catch(errorResponse => {
-       if (errorResponse.status === 400 && errorResponse.error.Error === "Email already taken") {
+       if (errorResponse.status === 400 && errorResponse.error.Error === "Email in use") {
          this.emailTaken = true;
          setTimeout(() => {this.emailTaken = false}, 1000 * 3);
        }
