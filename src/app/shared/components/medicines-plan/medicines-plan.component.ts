@@ -95,7 +95,7 @@ export class MedicinesPlanComponent implements OnInit {
 
 
         //Request names
-        const promises = medicineCodes.map((code: number) => this.cima.getByNRegistro(code));
+        const promises = medicineCodes.map((code: string) => this.cima.getByNRegistro(code));
         Promise.all(promises).then(response => {
           response.forEach((medicineData: any) => {
             weekMedicinesTemp.forEach((dayMedicines: any) => {
@@ -129,9 +129,6 @@ export class MedicinesPlanComponent implements OnInit {
     }
     this.detailsModalRef = this.modalService.show(MedicineBoxModalComponent, modalOptions);
     // this.bsModalRef.onHide.subscribe(() => { //! Unsubscribre from this thing
-    //   if (this.bsModalRef?.content.hideReason === "success") {
-    //     //! what now?
-    //   }
     // });
   }
 
@@ -139,7 +136,7 @@ export class MedicinesPlanComponent implements OnInit {
   editDayMedicines(dayMedicines: any) {
     const modalOptions = {
       animated: true,
-      class: 'modal-dialog-centered modal-lg',
+      class: 'modal-dialog-centered modal-lg border-radius-modal',
       backdrop: true,
       keyboard: true,
       initialState: {
@@ -149,10 +146,12 @@ export class MedicinesPlanComponent implements OnInit {
       },
     }
     this.detailsModalRef = this.modalService.show(EditMedicinesPlanComponent, modalOptions);
-    // this.bsModalRef.onHide.subscribe(() => { //! Unsubscribre from this thing
-    //   if (this.bsModalRef?.content.hideReason === "success") {
-    //     //! what now?
-    //   }
-    // });
+    this.detailsModalRef.onHide.subscribe(() => { //! Unsubscribre from this thing
+      console.log(this.detailsModalRef.content.dayMedicines)
+      const dayInfo = this.detailsModalRef.content.dayMedicines;
+      const dayPos = this.weekdaysMap[dayInfo.day];
+      this.weekMedicines[dayPos] = dayInfo;
+
+    });
   }
 }

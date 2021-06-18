@@ -52,7 +52,7 @@ export class ExercisesComponent implements OnInit {
   editDayActivities(day: string) {
     const modalOptions = {
       animated: true,
-      class: 'modal-dialog-centered modal-lg',
+      class: 'modal-dialog-centered modal-lg border-radius-modal',
       backdrop: true,
       keyboard: true,
       initialState: {

@@ -1,0 +1,186 @@
+
+<div id="release-notes-container" class="container-element">
+    <i class="fas fa-home" (click)="goToHome()"></i>
+    <article>
+        <h2>v0.81</h2>
+        <p>
+            Está versión es una pequeña actualización donde se corrige un error que surgía a la hora de modificar el menú
+            de un día a causa de la actualización de las peticiones a la nueva versión de la API.
+        </p>
+            Actualizaciones: 
+            <ul>
+                <li>
+                    Se ha solvenatdo un error a la hora de modificar el menú y comentarios de la dieta de un día
+                    que impedia recibir los nuevos datos.
+                </li>
+            </ul>
+            <footer>
+                <p>
+                    Albert Baiges
+                </p>
+            </footer>
+    </article>
+    <article>
+        <h2>v0.8</h2>
+        <p>
+            Está versión introduce mejoras al aspecto de la página web arreglando problemas de aspecto que surgían
+            en dispositivos con pantallas menores a 16 pulgadas. <br>
+            Otro de los principales aspectos de mejora de esta versión es la introducción de las notificaciones laterales 
+            a modo de feedback para saber si la acción se ha llevado a cabo correctamente.
+        </p>
+            Actualizaciones: 
+            <ul>
+                <li>
+                    Se ha añadido feedback para saber si la acción ha tenido efecto
+                </li>
+                <li>
+                    Se ha mejorado el aspecto de la página web, mejorándola así también 
+                    en dispositivos con menores pantallas. <br>
+                    ** Dispositivos móviles aún no están soportados.
+                </li>
+                <li>
+                    Actualización de peticiones acorde a actualizaciones en la API.
+                </li>
+            </ul>
+            <footer>
+                <p>
+                    Albert Baiges
+                </p>
+            </footer>
+    </article>
+    <article>
+        <h2>v0.7</h2>
+        <p>
+            Primera versión de la aplicación web realizada por Albert Baiges. Esta aplicación permite tres tipos de usuarios 
+            (pacientes, médicos y centros médicos) los cuales cuentan con una interfaz y funcionalidades personalizadas 
+            para llevar a cabo sus distintas tareas. Próximas versiones de la aplicación extenderá los tipos de usuarios
+            soportados a más de las funcionalidades con las que cuenta cada tipo de usuario. <br>
+            La skill de Alexa únicamente puede ser usada por pacientes y será necesario tener registrada una cuenta en la 
+            aplicación con el mismo correo electrónico con el que se tiene iniciada sesión en el dispositivo o dispositivos Alexa. 
+            Esta skill ofrece una forma rápida y cómoda de poder consultar a la aplicación información sobre planes de dietas, 
+            medicamentos y actividades físicas a más de poder introducir datos a los registros de las patologias mediante voz. <br>
+            En esta primera versión las funcionalidades ofrecidas son:
+        </p>
+        <h5>Usuarios pacientes</h5>
+        <ul>
+            <li>
+                Introducir calendario semanales de comidas las cuales posteriormente pueden ser consultados desde la versión
+                de Alexa. Comentarios personalizados sobre las dietas pueden ser añadidos en cada una de las franjas.
+            </li>
+
+            <li>
+                Introducir los medicamentos que se deben de tomar junto con las días y 
+                horas a las que se debe de realizar el tratamiento.
+            </li>
+
+            <li>
+                Introducir los ejercicios semanales que se deben de llevar a cabo por día de la semana más comentarios extra
+                sobre ellos.
+            </li>
+
+            <li>
+                Registrar lecturas de patologias de las que sea conveniente mantener al día todos los datos. 
+                Estos registros pueden ser especificados con diferentes etiquetas como "antes de comer", "despues de comer"
+                para que se destaquen con un color especial y así facilitar la lectura, destacarlas y mantener 
+                un patrón.
+            </li>
+
+            <li>
+                Consultar las notificaciones recibidas. Entre estas notificaciones se encuentran las peticiones de relación 
+                pendientes de aprobar las cuales vienen solicitadas por un profesional médico o por el propio centro hospitalario.
+                Es de suma importancia aceptar las peticiones de aquellos médicos a los cuales se les quiere permitir
+                acceso para consultar los registros de las patologias o para ofrecer acceso a que nos modifiquen la 
+                pauta alimentaria, física o de medicamentos.
+                En futuras versiones de introducirá la posibilidad de apreciar notificaciones de planes que hayan sido
+                actualizados por médicos con acceso a nuestros datos.
+            </li>
+
+            <li>
+                La modificación del perfil permite cambiar las patologias que tenemos registradas, al igual que cambiar
+                el nombre de usuario, el correo electronico de la cuenta o la contraseña para acceder al usuario.
+                Importante destacar que al eliminar una patologia de la cual se ha llevado se está llevando
+                a cabo un registro provocará la eliminación de los datos registrados. 
+                Esto es con el fin de protección de datos de los usuarios y no mantener información.
+            </li>
+
+            <li>
+                Consultar la lista de médicos y centros hospitalarios asignados.
+            </li>
+
+            <li>
+                Buscador de usuarios que permite encontrar otros usuarios de la aplicación para poder 
+                solicitar una relación. En la actualidad estas relaciones no pueden ser creadas entre usuarios
+                del mismo tipo.
+            </li>
+        </ul>
+        <h5>Usuarios médicos</h5>
+        <ul>
+            <li>
+                Por motivos de seguridad y garantía para darse de alta en la aplicación como médico será necesario 
+                ponerse en contacto con el desarrollador Albert Baiges o con un centro
+                hospitalario presente en la aplicación para que le de alta una cuenta de usuario.
+            </li>
+            <li>
+                Listar los pacientes que tenemos asignados y poder consultar o modificar sus planes, ya sea
+                alimentario, físico o de medicamentos. Los registros del paciente también pueden ser consultados
+                pero no se permite modificarlos ni crear nuevas entradas en ellos.
+            </li>
+
+            <li>
+                Consultar las notificaciones de la cuenta para ver si hay peticiones entrates de relación.
+                Notificaciones extras serán añadidas en futuras versiones.
+            </li>
+
+            <li>
+                Modificación del perfil que permite actualizar el nombre de usuario, correo electrónico
+                y contraseña de la cuenta.
+            </li>
+
+            <li>
+                Listado de centros médicos con los que tenemos una relación o a los que estamos asignados.
+            </li>
+
+            <li>
+                Buscador de usuarios que permite la busqueda de otros usuarios de la aplicación
+                y poder enviar solicitudes de relación. En la actualidad estás solicitudes únicamente
+                están disponibles entre usuarios con diferentes roles.
+            </li>
+        </ul>
+        <h5>Usuarios centros hospitalarios</h5>
+        <ul>
+            <li>
+                Consultar el listado de pacientes con los que se tiene relación o que están asignados
+                al centro hospitalario
+            </li>
+
+            <li>
+                Consultar el listado de médicos con los que se teinen relación o que estén asignados
+                al centro hospitalario.
+            </li>
+
+            <li>
+                Consultar las notificaciones de relación que provienen de otros usuarios de la aplicación.
+                Futuras versiones introducirán la posibilidad de recibir otro tipo de notificaciones.
+            </li>
+
+            <li>
+                Modificación del perfil la cual permite modificar el nombre de usuario de la cuenta, correo electrónico
+                o contraseña de acceso.
+            </li>
+
+            <li>
+                Buscador de usuarios dentro de la aplicación para poder enviar solicitudes de relación.
+            </li>
+
+            <li>
+                Formulario de creación de usuarios medicos para poder dar de alta medicos asociados al centro
+                sin la necesidad de ponerse en contacto con el desarrollador
+            </li>
+            </ul>
+            <footer>
+                <p>
+                    Albert Baiges
+                </p>
+            </footer>
+    </article>
+</div>

@@ -1,10 +1,10 @@
 
 
-<div id="generic-tracking-container">
+<div id="generic-tracking-container" *ngIf="register.stamp">
     <i class="fas fa-chevron-left move-month move-prev" *ngIf="currentMonth > 1 && currentYear >= 2021" (click)="previousMonth()"></i>
     <div id="generic-calendar-container">
         <table class = "calendar">
-           <caption>{{monthNames[currentMonth - 1] + " " + currentYear}}</caption>
+           <caption> {{disorder | titlecase}} - {{monthNames[currentMonth - 1] + " " + currentYear}}</caption>
            <thead>
                <tr>
                    <th *ngFor="let day of weekdays">{{day}}</th>
@@ -12,7 +12,9 @@
            </thead>
            <tr *ngFor="let week of register.data; let weekNum = index">
                <td *ngFor="let day of week; let dayNum = index" (click)="openEditModal(day, weekNum, dayNum)">
-                   <div class="generic-tracking-cellcontent">
+                   <div class="generic-tracking-cellcontent"
+                   [ngClass]="{'disabled-cell': day.number === 0}"
+                   >
                        <div class="generic-tracking-daynumber" *ngIf="day.number !== 0">
                            {{day.number}}
                         </div>
@@ -28,7 +30,11 @@
                                     'other': register.at === 'other'
                                 }"
                                 >
-                                {{register.timestamp | date: "shortTime"}} - {{register.data}}mg/dl
+                                {{register.timestamp | date: "shortTime"}} - {{register.data}}
+                                {{
+                                    disorderFamily === "diabetes" ? "mg/dl" :
+                                    disorderFamily === "blood pressure" ? "mmHg" : ""
+                                }}
                                 </div>
                             </ng-container>
                         </div>

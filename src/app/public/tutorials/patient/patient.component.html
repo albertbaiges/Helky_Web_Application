@@ -1,0 +1,431 @@
+
+
+<div>
+    <article>
+        <h3>
+            Bienvenido a Helky! <br>
+        </h3>
+        <p>
+            A continuación llevaremos a cabo un pequeño tutorial para poder empezar a usar todo el entorno Helky.<br>
+            Para comenzar a usar Helky será necesario crearse una cuenta en la aplicación:
+            <a href="./signup" target="_blank">registro</a>. <br> <br>
+            <strong [style.font-size]="'1.1em'">
+                Es muy importante registrarse con la misma cuenta de correo con que se tiene iniciada sesión
+                en los dispositivos de Alexa si se quiere usar la skill Helky.
+            </strong> <br> <br>
+            Una vez registrado el usuario ya podemos darnos acceder mediante la pantalla de login o usar la skill 
+            de Alexa.    
+        </p>
+        <h4>Aplicación Web</h4>
+        <p>
+            Una vez se ha accedido a la aplicación web se podrán observar diferentes paneles 
+            cada uno con un fin y que a continuación se detallarán. 
+        </p>
+        <ul>
+            <li>
+                <h4>Dietas</h4>
+                <p>
+                    En esta zona podremos observar las dietas (menús) que seria conveniente seguir cada día, donde 
+                    las filas indican la comida a la que pertenece el menú y las columnas el día de la semana.
+                    Si queremos observar una comida en más detalle al mismo tiempo que observar los comentarios
+                    de dicha dieta se deberá de hacer click sobre la casilla en cuestión. <br>
+                    Una vez hecho click podremos observar una pantalla emergente en la que se nos muestra el menú 
+                    y los comentarios. <br>
+                    En el caso de querer modificar ya sea el menú o los comentarios se deberá de hacer click sobre el 
+                    lápiz <i class="fas fa-edit"></i> que podemos observar 
+                    al lado derecho sobre el menú para desbloquear los campos y así poder
+                    modificarlos. <br>
+                    Una vez hechos los cambios podremos aplicarlos haciendo click sobre el tick
+                    <i class="fas fa-check"></i> para que se apliquen o podemos dar click
+                    sobre <i class="fas fa-times"></i> para descartarlos.
+                    Finalmente podemos cerrar la ventana emergente y en el caso de haber añadido un menú o haber
+                    modificado el anterior, se podrá observar esta nueva información en el calendario semanal.
+                </p>
+            </li>
+            <li>
+                <h4>Medicinas</h4>
+                <h5>Listado de medicamentos</h5> 
+                <p>
+                    En esta zona podremos observas las medicinas que tenemos asignadas, y si hacemos click
+                    sobre cualquiera de ellas se nos mostrará información más detalla sobre ellas como
+                    el nombre, el número de registro y la imágen de la caja del medicamento en caso de estar disponible.
+                    <br>
+                </p>
+                <h5>Editar medicamentos <i class="fas fa-edit"></i>.</h5>
+                <p>
+                    En el caso de querer modificar los medicamentos asignados deberemos de hacer click sobre el lapíz
+                    <i class="fas fa-edit"></i>. <br>
+                    Una vez hecho click podremos observar una pantalla emergente con dos zonas resaltadas,
+                    buscar medicamentos que nos permite realizar búsquedas de medicamentos y la de la derecha
+                    que nos muestra los medicamentos que tenemos actualmente asignados. <br>
+
+                    En la zona de la izquierda (Buscar medicamentos) podremos realizar búsquedas por nombre, número de registro
+                    o el código nacional de España del medicamento. <br>
+                    Una vez realizada la búsqueda y se hayan obtenido resultados, los cuales podemos inspeccionar 
+                    haciendo click sobre ellos, podremos añadir los deseados a nuestra lista de medicamentos con un simple
+                    click en el <i class="fa fa-plus"></i> que hay a su lado. <br>
+                    
+                    Una vez hecho click podremos observar como este medicamento ha pasado a la lista de medicamentos actuales,
+                    es esta zona a parte de poder observar todos los medicamentos que tenemos asignados también podremos eliminar
+                    aquellos medicamentos que deseemos con un simple click en la papelera 
+                    <i class="fas fa-trash"></i> que tienen a su lado. <br>
+
+                    Finalmente, una vez hayamos realizado los cambios que vemos convenientes deberemos de hacer click
+                    en el botón de aplicar si queremos que estos cambios se apliquen o por si lo contrario
+                    queremos cancelar toda la operación podemos hacer click en el botón de cancelar y nada de lo hecho
+                    será aplicado. <br>
+
+                </p>
+                <h5>Pauta de medicamentos <i class="far fa-calendar"></i></h5>
+                <p>
+                    Si queremos tanto ver como añadir medicamentos a nuestro plan de medicación semanal, horas de medicación,
+                    deberemos de hacer click sobre el calendario <i class="far fa-calendar"></i>
+                    que podemos encontrar sobre el listado de medicamentos. <br>
+                    Una vez hecho click podremos observar un calendario semanal donde se nos mostrarán los medicamentos, 
+                    y las horas a las que se deben de tomar, en el caso de haber realizado una asignación de horas. <br>
+                    Para poder asignar horas o modificar las horas actuales deberemos de hacer click sobre el botón 
+                    <strong>editar</strong> que podemos encontrar en la parte superior de cada día de la semana. <br>
+
+                    Una vez hecho click en la parte superior podremos observar los medicamentos y las respectivas horas
+                    de su consumo que tenemos aplicados actualmente. <br>
+                    En el caso querer eliminar la hora de unas de las dosis esto se podrá realizar con un simple click
+                    en la papelera <i class="fas fa-trash"></i> que podemos encontrar a su lado. <br>
+                    En el caso de querer añadir horas de un medicamento podremos hacer uso de la parte inferior de la 
+                    pantalla emergente. <br>
+                    Para poder añadir la hora de un medicamento primero deberemos seleccionar el medicamento
+                    con la ayuda del desplegable, importante destacar que unicamente se mostrarán los medicamentos que tenemos
+                    añadidos a nuestro plan de medicación por lo que si queremos asignar un plan de medicación a cierto 
+                    medicamento primero deberemos de asegurarnos de que este se encuentre en la lista de medicamentos asignados. <br>
+                    Una vez seleccionado el medicamento deseado, a continuación se nos mostrará un selector de horas al igual
+                    que una pequeña vista previa del medicamento en cuestión. <br>
+                    Para añadir las horas deberemos de introducir la hora deseada en el selector de hora y darle a añadir hora
+                    para que esta hora se tenga en cuenta y aparezca en la lista de horas seleccionadas. A continuación,
+                    para añadir más horas deberemos de introducir nuevamente las horas en el selector de horas o 
+                    podemos hacer uso de la rueda del ratón/flechas del selector para realizar saltos de 6h 
+                    desde la hora introducida, esto con el fin de facilitar la introducción de medicaciones que 
+                    deben de consumirse varias veces al día y cada 6h. <br>
+                    Una vez tengamos seleccionadas toras las horas deseadas del medicamento y estas aparezcan en la lista
+                    de horas seleccionadas podremos hacer click en el botón de añadir al calendario para que estas pasen
+                    al listado de medicinas superior. <br>
+
+                    <strong>
+                        Es importante que si queremos que estos cambios se apliquen, ya sea después de añadir o eliminar
+                        horas de un medicamento se de click sobre el botón de aplicar cambios.
+                    </strong>
+                </p>
+            </li>
+            <li>
+                <h4>Actividades físicas</h4>
+                <p>
+                    En esta zona podremos observas las actividades físicas que seria conveniente seguir cada día. 
+                    Con un simple vistazo podemos observar las actividades que deberemos de seguir cada día 
+                    pero en el caso de querer ver los comentarios de estas actividades o querer editar tanto 
+                    las actividades como los comentarios deberemos de hacer click sobre el botón de <strong>ver</strong>
+                    que se encuentra al final del día. <br>
+                    Una vez hecho click podremos observar en detalle la información de las actividades físicas 
+                    al mismo tiempo que sus comentarios. <br>
+                    En el caso de querer modificar alguno de estos campos será necesario hacer click sobre el botón
+                    de editar <i class="fas fa-edit"></i> para que se desbloquee el contenido de las casillas. <br>
+                    Una vez hayamos realizado los cambios convenientes podremos ya sea aplicar estos cambios 
+                    haciendo click sobre el tick <i class="fas fa-check"></i> o descartarlos
+                    mediante un click sobre la cruz <i class="fas fa-times"></i>
+                    Finalmente podemos cerrar la ventana emergente y en el caso de haber añadido ejercicios nuevos o haber
+                    modificado los anteriores, se podrá observar esta nueva información en el calendario semanal. <br>
+                </p>
+            </li>
+            <li>
+                <h4>Registros</h4>
+                <p>
+                    En esta zona podremos observar todas las patologías que hemos registrado y poder
+                    acceder al servicio de registro de la patología en caso de que esta lo admita. <br>
+                    Importante destacar que para añadir patologías será necesario hacerlo desde el perfil
+                    de la forma en la que se detalla abajo. Esta parte del tutorial asume que los pasos
+                    detallados en la zona del perfil para las patologías se han llevado a cabo. <br>
+                    Una vez nos asignemos una serie de patologías podremos observar como estas aparecen
+                    listadas en esta zona con el icono de una tabla a su lado <i class="fa fa-table"></i>. 
+                    El color de fondo de esta tabla nos indicará una de los siguientes tres cosas:
+                </p>
+                <div class="tables-list-examples ml-5">
+                    <div class="d-flex mb-2 align-items-center"> 
+                        <div class="table-active mr-3">
+                            <i class="fa fa-table"></i>
+                        </div>
+                        Registro activado
+                    </div>
+                    <div class="d-flex mb-2 align-items-center"> 
+                        <div class="table-active table-disabled mr-3">
+                            <i class="fa fa-table"></i>
+                        </div>
+                        Registro disponible pero no activado
+                    </div>
+                    <div class="d-flex align-items-center"> 
+                        <div class="table-active table-invalid mr-3">
+                            <i class="fa fa-table"></i>
+                        </div>
+                        Registro no disponible
+                    </div>
+                </div>
+                <br>
+                <p>
+                    En el caso de hacer click sobre la tabla con el registro activado se nos llevará a un calendario
+                    donde podremos consultar nuestros registros y crear nuevos registros. <br>
+                    En el caso de hacer click sobre la tabla con el registro desactivado se nos preguntará
+                    si queremos crear un registro para dicha patología y en caso de aceptar el icono pasará a ser azul
+                    y al volver a hacer click podremos observar lo comentado en el párrafo anterior.
+                    Finalmente, en el caso de hacer click sobre una tabla con el registro no disponible se nos mostrará
+                    un mensaje emergente avisando de que dicha patología no admite registros. <br>
+
+                </p>
+                <h5>Registro de patología</h5>
+                <p> 
+
+                    Podremos llegar a esta pantalla mediante un click a un registro con patología.
+                    En esta podremos observar un calendario donde se nos mostrará por cada día del mes 
+                    los registros que hemos introducido y podremos navegar entre meses, mediante las flechas
+                    que aparecen al lado del calendario. Destacar que esta navegación entre meses unicamente
+                    se puede realizar entre enero del año 2021 y el mes actual. <br>
+
+                    Para poder ver los registros en más detalle, al mismo tiempo que para poder introducir 
+                    registros deberemos de hacer click sobre el día del mes que deseemos. <br>
+                    
+                    Una vez hecho click se nos mostrará una pantalla emergente donde veremos los registros 
+                    creados para ese día los cuales siguen un código de colores dependiendo del momento en el que 
+                    se han creado (antes/después de comer, antes/después actividad física, otro) con el 
+                    fin de facilitar la identificación. <br>
+
+                    A continuación, en la parte inferior podremos observar un pequeño formulario para insertar
+                    entradas al registro donde se nos solicitará el valor de la lectura, la hora de la lectura
+                    y si queremos podemos introducir el momento en el que se ha realizado la lectura (si no se especifica
+                    pasará por defecto al momento "otro"). <br>
+                    Una vez hecho click sobre el botón registrar podremos observar como esta se añade a la lista de registros
+                    y posteriormente podremos observarla en el calendario exterior.
+                </p>
+            </li>
+            <li>
+                <h4>Notificaciones</h4>
+                <p>
+                    En esta zona podremos observar las notificaciones de nuestra cuenta. Donde en la primera sección
+                    de peticiones podremos observar las peticiones de relación que nos han enviado otros usuarios
+                    y podremos aceptarlas haciendo click en <i class="fas fa-user-check"></i> o rechazarlas con un click
+                    mediante un click en <i class="fas fa-user-times"></i>. <br>
+                    A continuación, podemos observar la zona de actualizaciones que estará disponible en un futuro 
+                    en donde se nos mostrarán notificaciones de cambios hechos sobre alguno de nuestros planes (comidas, 
+                    medicación, actividad física) realizados por parte de otro usuario con permisos. <br>
+                </p>
+            </li>
+            <li>
+                <h4>Perfil</h4>
+                <p>
+                    En esta zona podremos llevar a cabo modificaciones de nuestro perfil, ya sea para cambiar las 
+                    patologías que tenemos asignadas, como los datos de la cuenta o la contraseña de acceso. <br>
+                    Por lo que respeta a la modificación de patologías en la caja de la derecha podremos
+                    observar la lista de patologías que tenemos asignadas actualmente y en caso de querer eliminar alguna
+                    podremos hacerlo mediante un click en al cruz <i class="fas fa-times"></i> que se encuentra
+                    al lado de la patología. <br>
+                    Para poder añadir patologías, deberemos de introducir el nombre de la patología en el campo patología
+                    y a continuación seleccionar el tipo de patología a la que esta pertenece, donde actualmente
+                    solo están soportadas la diabetes, la presión sanguinea y "otras". <br>
+                    Asignar una patología como uno de estos dos tipos concretos anteriormente citados 
+                    permitirá la creación de registros para ella, hecho que se detalla en la zona de Registros de este tutorial.
+                    Finalmente, para aplicar los cambios hechos en el listado de patologías asignados se deberá 
+                    de hacer click sobre el botón de aplicar cambios.
+                    <strong>
+                        Es importante destacar que actualmente solo se tener una patología de cada tipo, por temas de 
+                        capacidad máxima de almacenaje de datos. Por lo que al intentar aplicar cambios
+                        teniendo en la lista varias patologias pertenecientes a un mismo tipo de patologia (sin incluir "otros")
+                        provocará que los cambios no se apliquen. Será necesario dejar únicamente una patología
+                        con el tipo de patologia concreto y asignar las demás como "otra".
+                    </strong>
+                </p>
+            </li>
+            <li>
+                <h4>Médicos</h4>
+                <p>
+                    En esta zona podremos observar el listado de médicos con los que hemos establecido relación
+                    (hemos aceptado su petición o nos han aceptado una petición enviada por nosotros) y que 
+                    por lo tanto tienen acceso a consultar y modificar nuestros planes (comidas, medicamentos y de actividades físicas).
+                </p>
+            </li>
+            <li>
+                <h4>Centros Médicos</h4>
+                <p>
+                    En esta zona podremos observar el listado de centros médicos con los que hemos establecido relación
+                    (hemos aceptado su petición o nos han aceptado una petición enviada por nosotros).
+                </p>
+            </li>
+            <li>
+                <h4>Buscar médicos y centros</h4>
+                <p>
+                    En esta zona podremos llevar a cabo búsquedas de usuarios dentro de la red Helky 
+                    y así poder enviar peticiones de relación. <br>
+                    Actualmente no se permite enviar peticiones de relación a otros usuarios con el mismo
+                    tipo de perfil, por lo que no se podrán enviar peticiones de relación a otros pacientes.
+                </p>
+            </li>
+        </ul>
+        <h4>Alexa Skill</h4>
+        <p>
+            La skill de Alexa es una forma más cómoda de poder llevar a cabo todas las consultas a los planes de salud
+            y poder insertar lecturas a los registros de las patologías que los tengan activados (ver zona de registros
+            en la aplicación web). <br>
+            La skill de Alexa se despierta mediante el comando de voz: <br> <br>
+            <strong >Alexa abre mi asistente de salud</strong>
+            <br> <br>
+            A continuación detallaremos que es lo que se puede realizar a través de la skill de Alexa al mismo tiempo
+            de mostrar ejemplos de uso.
+        </p>
+        <ul>
+            <li>
+                <h5>Preguntarle al asistente que puede hacer</h5>
+                <p>
+                    Si se le pregunta a la asistente de Helky por las cosas que puede llegar a hacer responderá con
+                    dos frases de ejemplo y a continuación nos sugerirá venir a consultar la información de esta página. <br>
+                    Ejemplos de frases que pueden activar esta funcionalidad de la asistente de Helky son:
+                </p>
+                <ul>
+                    <li>
+                        ¿Que puedes hacer?
+                    </li>
+                    <li>
+                        ¿Que eres capaz de hacer?
+                    </li>
+                    <li>
+                        Ayuda
+                    </li>
+                    <li>
+                        Ayúdame
+                    </li>
+                </ul>
+                <br>
+                <p>
+                    En el caso de que el menú contenga comentarios, la asistente de Helky preguntará si quiere que le lea los comentarios
+                    podrá responder "sí" o "no" a su elección.
+                </p>
+            </li>
+            <li>
+                <h5>Consultar el menú de una comida</h5>
+                <p>
+                    La skill de Helky en Alexa facilita la consulta de menús para poder conocer de forma rápida cuales son
+                    nuestras recomendaciones de menú y los posibles comentarios que haya.<br>
+                    Ejemplos de frases que pueden activar esta funcionalidad de la asistente de Helky son:
+                </p>
+                <ul>
+                    <li>
+                        Que tengo hoy para comer
+                    </li>
+                    <li>
+                        Que tengo que cocinar para cenar
+                    </li>
+                    <li>
+                        Que tengo el lunes para comer
+                    </li>
+                    <li>
+                        Que tengo el miércoles para cenar
+                    </li>
+                </ul>
+                <br>
+                <p>
+                    En el caso de que el menú contenga comentarios, la asistente de Helky preguntará si quiere que le lea los comentarios
+                    podrá responder "sí" o "no" a su elección.
+                </p>
+            </li>
+            <li>
+                <h5>Consultar el plan de medicamentos de un día</h5>
+                <p>
+                    La skill de Helky en Alexa facilita la consulta de los medicamentos que deben de tomarse a lo largo de un día. <br>
+                    Ejemplos de frases que pueden activar esta funcionalidad de la asistente de Helky son:
+                </p>
+                <ul>
+                    <li>
+                        Que medicinas tengo que tomarme hoy
+                    </li>
+                    <li>
+                        Que medicamentos me tocan hoy
+                    </li>
+                    <li>
+                        Que he de tomarme el jueves
+                    </li>
+                    <li>
+                        Que medicinas me tocan el viernes
+                    </li>
+                </ul>
+                <br>
+            </li>
+            <li>
+                <h5>Consultar el plan de actividades de un día</h5>
+                <p>
+                    La skill de Helky en Alexa facilita la consulta de las actividades recomendadas para llevar a cabo 
+                    durante un día. <br>
+                    Ejemplos de frases que pueden activar esta funcionalidad de la asistente de Helky son:
+                </p>
+                <ul>
+                    <li>
+                        Que ejercicios me toca hacer hoy
+                    </li>
+                    <li>
+                        Voy a hacer ejercicio
+                    </li>
+                    <li>
+                        Que ejercicios tengo que hacer el viernes
+                    </li>
+                    <li>
+                        Que actividades he de hacer el lunes
+                    </li>
+                </ul>
+                <br>
+                <p>
+                    En el caso de que el menú contenga comentarios, la asistente de Helky preguntará si quiere que le lea los comentarios
+                    podrá responder "sí" o "no" a su elección.
+                </p>
+            </li>
+            <li>
+                <h5>Registrar lecturas del azúcar/glucosa</h5>
+                <p>
+                    La skill de Helky en Alexa facilita la inserción de lecturas de niveles de azúcar al registro 
+                    de la patología asignada como Diabetes y que tenga el registro activado (consultar puntos
+                    Registros y Perfil de la Aplicación Web en este tutorial).
+                    Ejemplos de frases que pueden activar esta funcionalidad de la asistente de Helky son:
+                </p>
+                <ul>
+                    <li>
+                        Antes de comer mi nivel de glucosa es 54 coma 3
+                    </li>
+                    <li>
+                        Mi nivel de azúcar después de comer es 60
+                    </li>
+                    <li>
+                        Antes de hacer ejercicio mi nivel de azúcar es 60
+                    </li>
+                    <li>
+                        Mi nivel de azúcar después de hacer ejercicio es 80 coma 3
+                    </li>
+                </ul>
+                <br>
+            </li>
+            <li>
+                <h5>Registrar lecturas de la presíon</h5>
+                <p>
+                    La skill de Helky en Alexa facilita la inserción de lecturas de niveles de presión sanguínea al registro 
+                    de la patología asignada como Blood Pressure y que tenga el registro activado (consultar puntos
+                    Registros y Perfil de la Aplicación Web en este tutorial).
+                    Ejemplos de frases que pueden activar esta funcionalidad de la asistente de Helky son:
+                </p>
+                <ul>
+                    <li>
+                        Antes de comer mi presión es 115
+                    </li>
+                    <li>
+                        Mi presión después de comer es 130 
+                    </li>
+                    <li>
+                        Mi presión antes de hacer ejercicio es 110
+                    </li>
+                    <li>
+                        Después de hacer ejercicio mi presión es 100
+                    </li>
+                </ul>
+                <br>
+            </li>
+        </ul>
+    </article>
+</div>

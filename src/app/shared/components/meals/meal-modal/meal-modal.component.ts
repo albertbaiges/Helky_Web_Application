@@ -1,5 +1,6 @@
 import { ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
+import { ToastrService } from 'ngx-toastr';
 import { PlansService } from 'src/app/services/plans.service';
 import { DayMealsModel } from '../models/DayMealsModel';
 
@@ -24,7 +25,8 @@ export class MealModalComponent implements OnInit {
   @ViewChild("menu") private menu: ElementRef;
   @ViewChild("comments") private comments: ElementRef;
   
-  constructor(public bsModalRef: BsModalRef, private plansService: PlansService) {
+  constructor(public bsModalRef: BsModalRef, private plansService: PlansService,
+    private toastr: ToastrService) {
   }
 
   ngOnInit(): void {
@@ -47,16 +49,22 @@ export class MealModalComponent implements OnInit {
   }
 
   applyChanges(info: any) {
+
     const body = {
       day: this.day,
       meal: this.timezone,
       info
     }
 
-    //!Se puede comparar con lo que está en mealInfo y enviar solo aquellos campos nuevos
-    //! o si no hay nada, cancelarlo
     this.plansService.updateMeal(this.patientID, body)
-      .then((response: any) => this.mealInfo = response[this.day][this.timezone]);
+      .then((response: any) => {
+        console.log("respuesta", response)
+        this.mealInfo = response[this.day].meals[this.timezone];
+        this.toastr.success("Menú actualizado", "", {
+          timeOut: 2000,
+          positionClass: "toast-top-right"
+        });
+      });
     this.editable = false;
   }
 

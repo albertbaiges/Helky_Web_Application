@@ -1,19 +1,28 @@
-<div>
+<div id="center-medics-container" class="container-element gray-accent">
     <div (click)="goBack()" class="back-button">
         <i class="fa fa-arrow-left"></i>
     </div>
+
+    <h3>Médicos Asignados</h3>
+
     <ng-template #noMedics>
         <div id="noMedics">
             Ningun medico asignado
         </div>
     </ng-template>
 
-    <accordion [isAnimated]="true" *ngIf="medics">
-        <accordion-group *ngFor="let medic of medics" [heading]="medic.username"
-        [panelClass]="'medic-panel'">
-            <p>
-                Email: {{medic.email}}
-            </p>
-        </accordion-group>
-    </accordion>
+    <div id="center-medics-list" *ngIf="medics">
+        <accordion [isAnimated]="true" *ngIf="medics.length !== 0">
+            <div class="center-medic-panel" *ngFor="let medic of medics">
+                <accordion-group [heading]="medic.username"
+                  [panelClass]="'medic-panel'">
+                    <p>
+                        Email: {{medic.email}}
+                        Center: {{medic.center}}
+                    </p>
+                </accordion-group>
+            </div>
+        </accordion>
+    </div>
 </div>
+

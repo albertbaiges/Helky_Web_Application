@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AuthorizationService } from 'src/app/services/authorization.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -11,9 +12,11 @@ import { UserService } from 'src/app/services/user.service';
 export class ProfileComponent implements OnInit {
 
   user: any;
-
-  constructor(private router: Router, private userService: UserService, private authService: AuthorizationService) {
+  emailTaken: boolean;
+  constructor(private router: Router, private userService: UserService, private authService: AuthorizationService,
+    private toastr: ToastrService) {
     this.userService.getUser().then(user => {this.user = user});
+    this.emailTaken = false;
   }
 
   ngOnInit(): void {
@@ -22,15 +25,18 @@ export class ProfileComponent implements OnInit {
   submitProfile(data: any) {
     this.userService.updateUser(data)
      .then((response: any) => {
-      this.authService.username$.next(response.username);
-      console.log("actualizacion", response)
+        this.authService.updateUser(response);
+        this.toastr.success("Usuario actualizado", "", {
+          timeOut: 2000,
+          positionClass: "toast-top-right"
+        });
      })
-     // Si cambian estas dos hay que cambiar el auth, el nombre de la barra y el localStorage
-  }
-
-  submitDisorders(values: any) {
-    console.log("datos a actualizar", values);
-
+     .catch(errorResponse => {
+       if (errorResponse.status === 400 && errorResponse.error.Error === "Email in use") {
+         this.emailTaken = true;
+         setTimeout(() => {this.emailTaken = false}, 1000 * 3);
+       }
+     })
   }
 
   submitPassword(values: any) {
@@ -40,7 +46,17 @@ export class ProfileComponent implements OnInit {
     }
 
     this.userService.updateUser(data)
-     .then((response: any) => console.log(response))
+     .then(response => {
+      this.toastr.success("Contraseña actualizada", "", {
+        timeOut: 2000,
+        positionClass: "toast-top-right"
+      });
+     }).catch(error => {
+      this.toastr.error("Contraseña no actualizada", "", {
+        timeOut: 2000,
+        positionClass: "toast-top-right"
+      });
+     })
     //mostrar popup con mensaje de se han actualizado datos
 
     //si se cambia el nombre hay que actualizar el jwt y cambiar el usuario de authService

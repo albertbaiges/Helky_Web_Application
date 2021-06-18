@@ -1,0 +1,92 @@
+
+
+#patient-editMedicines-container {
+    position: relative;
+    height: 90vh;
+    background: #f1f1f1;
+    padding: 1% 5%;
+    border-top-style: solid;
+    border-top-width: 10px;
+    border-radius: 20px;
+    overflow: auto;
+}
+
+.edit-medicines-content {
+    display: flex;
+    justify-content: space-between;
+    height: 80%;
+}
+
+#search-medicines-container {
+    height: 100%;
+    width: 45%;
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 1%;
+    box-sizing: border-box;
+}
+
+.search-medicines-component {
+    height: 85%;
+}
+
+
+#current-medicines {
+    width: 50%;
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 1%;
+    box-sizing: border-box;
+}
+
+.current-medicines-list {
+    height: 90%;
+    overflow: auto;
+}
+
+.subtitle {
+    text-align: center;
+    border-bottom: 1px solid gray;
+    box-sizing: border-box;
+}
+
+
+.medicine {
+    display: flex;
+    align-items: center;
+    width: 75%;
+    margin: 2% 0 2% 5%;
+    padding: 1%;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.medicine i {
+    margin-right: 5%;
+}
+
+.medicine i:hover {
+    color: red;
+}
+
+.medicine:hover {
+    background: #dbdbdb;
+    
+}
+
+
+#buttons {
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    margin: 2% auto 0 ;
+}
+
+#buttons > button {
+    width: 40%;
+}
+
+.popup-dialog {
+    text-align: center;
+    font-size: 1.6em;
+}

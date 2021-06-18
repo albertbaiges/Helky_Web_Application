@@ -1,0 +1,46 @@
+<div id="patient-editMedicines-container" class="container-element green-accent">
+    <div class='modal-header mb-3'>
+        <h3 class="modal-title">Medicamentos</h3>
+    </div>
+
+
+    <div class="edit-medicines-content">
+        <div id="search-medicines-container">
+            <h4 class="w-75 mx-auto my-3 subtitle">Buscar medicamentos</h4>
+            <div class="search-medicines-component">
+                <app-search-medicines (medicine)="addMedicine($event)"></app-search-medicines>
+            </div>
+        </div>
+        <div id="current-medicines">
+            <h4 class="w-75 mx-auto my-3 subtitle">Medicamentos actuales</h4>
+            <div class="current-medicines-list">
+                <div *ngFor="let medicine of medicines" class="medicine">
+                    <i class="fas fa-trash" (click)="removeMedicine(medicine)"></i>
+                    {{medicine.name}}
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+    <div id="buttons">
+        <button type="button" class="btn btn-success" (click)="promptApply(askApply)">Aplicar</button>
+        <button type="button" class="btn btn-danger" (click)="promptDiscard(askDiscard)">Cancelar</button>
+    </div>
+
+    <ng-template #askApply>
+        <div class="popup-dialog">
+            Quieres aplicar los cambios?
+        </div>
+        <button type="button" class="btn btn-default" (click)="apply()">Sí</button>
+        <button type="button" class="btn btn-primary" (click)="cancel()">Cancelar</button>
+    </ng-template>
+
+    <ng-template #askDiscard>
+        <div class="popup-dialog">
+            Quieres descartar los cambios?
+        </div>
+            <button type="button" class="btn btn-default" (click)="discard()">Sí</button>
+            <button type="button" class="btn btn-primary" (click)="cancel()">Cancelar</button>
+    </ng-template>
+</div>

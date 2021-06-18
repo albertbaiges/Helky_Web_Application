@@ -3,11 +3,10 @@
 #medic-patientInfo-container {
     position: relative;
     width: 90%;
-    height: 90%;
+    min-height: 93vh;
     padding: 2%;
     border-top-style: solid;
     border-top-width: 10px;
-    border-radius: 20px;
     margin: auto;
     overflow: auto;
 }
@@ -22,7 +21,11 @@
 }
 
 
-
+.spinner-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
 
 
 #infoBox {
@@ -62,7 +65,7 @@
     /* left: 2%;
     bottom: 2%; */
     bottom: 0;
-    /* width: 15%; */
+    width: 100%;
     /* height: 400px; */
     height: 50%;
     overflow: hidden;
@@ -87,6 +90,7 @@
 }
 
 #medicines {
+    width: 100%;
     height: 85%;
     overflow: auto;
 }
@@ -112,20 +116,20 @@ aside {
 #dieta-toggle {
     position: absolute;
     top: 2%;
-    width: 45%;
+    width: 40%;
 }
 
 #activity-toggle {
     position: absolute;
     top: 2%;
-    width: 45%;
-    left: 55%;
+    width: 55%;
+    left: 45%;
 }
 
 #dropdown-select {
     position: absolute;
     width: 100%;
-    top: 10%;
+    top: 13%;
     height: 50px;
 }
 
@@ -141,6 +145,9 @@ aside {
     overflow: auto;
 }
 
+.patient-register-container {
+    height: 750px;
+}
 
 
 /*    height: 160%;*/

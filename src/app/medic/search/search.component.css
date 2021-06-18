@@ -1,0 +1,55 @@
+
+#medic-search-container {
+    width: 90%;
+    min-height: 93vh;
+    padding: 2%;
+    border-top-style: solid;
+    border-top-width: 10px;
+    margin: auto;
+    overflow: auto;
+}
+
+#medic-search-container h3 {
+    text-align: center;
+    border-bottom: solid thick rgba(128, 128, 128, 0.281);
+    border-radius: 5px;
+    padding-bottom: 1%;
+    box-sizing: border-box;
+    margin-bottom: 1%;
+}
+
+.search-subcontainer {
+    position: relative;
+    top: 2%;
+    display: flex;
+    justify-content: space-evenly;
+    height: 85%;
+}
+
+#search-form-container {
+    width: 30%;
+}
+
+#search-results-container {
+    width: 60%;
+    height: calc(0.8 * 93vh);
+    padding: 2%;
+    border: solid 2px gray;
+    border-radius: 10px;
+    box-sizing: border-box;
+    overflow: auto;
+}
+
+.user-search-result {
+    padding: 1%;
+    margin: 1%;
+    background: lightblue;
+    border: 1px solid gray;
+    border-radius: 10px;
+    background-color: rgba(179, 179, 179, 0.459);
+
+}
+
+.user-search-result > i {
+    margin-right: 5%;
+}

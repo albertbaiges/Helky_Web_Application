@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserService } from 'src/app/services/user.service';
+import { MedicService } from 'src/app/services/medic.service';
 
 @Component({
   selector: 'app-centers',
@@ -11,7 +11,7 @@ export class CentersComponent implements OnInit {
 
   centers: Array<any>;
 
-  constructor(private router: Router, private userService: UserService) {
+  constructor(private router: Router, private medicService: MedicService) {
     this.centers = [];
   }
   
@@ -20,7 +20,7 @@ export class CentersComponent implements OnInit {
   }
 
   async init() {
-    this.centers = await this.userService.getCenters();
+    this.centers = await this.medicService.getCenters();
   }
 
 

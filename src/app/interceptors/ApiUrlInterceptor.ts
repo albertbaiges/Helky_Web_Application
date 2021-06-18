@@ -8,13 +8,14 @@ export class ApiUrlInterceptor implements HttpInterceptor {
     constructor(private auth: AuthorizationService) { }
 
     intercept(req: HttpRequest<any>, next: HttpHandler) {
+        // const API_URL = "http://ec2-18-206-255-199.compute-1.amazonaws.com";
         const API_URL = "http://localhost:3000";
         let finalReq: HttpRequest<any> | null = null;
         console.log(req)
         if (req.url.startsWith('http') || req.url.includes('/assets/')) {
             finalReq = req;
         } else {
-            if(req.url !== "/login" && req.url !== "/register") {
+            if(req.url !== "/login" && req.url !== "/signup") {
                 finalReq = req.clone({
                     setHeaders: {Authorization: `Bearer ${this.auth.user.authorization.jwt}`},
                     url: `${API_URL}${req.url}`

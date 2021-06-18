@@ -1,0 +1,24 @@
+
+
+<div class="tutorials-container container-element">
+    <i class="fas fa-home" (click)="goToHome()"></i>
+    <h2>Tutoriales</h2>
+    <p>Seleccione su tipo de usuario para poder consultar el tutorial de lo que puede hacer con Helky.</p>
+    <div class="tutorials-navbar" (click)="goToTutorial($event)">
+        <div [attr.data-tutorial]="'patient'"
+        [ngClass]="{'current-path': path === 'patient'}">
+            Paciente
+        </div>
+        <div [attr.data-tutorial]="'medic'"
+        [ngClass]="{'current-path': path === 'medic'}">
+            Médico
+        </div>
+        <div [attr.data-tutorial]="'center'"
+        [ngClass]="{'current-path': path === 'center'}">
+            Centro
+        </div>
+    </div>
+    <div class="tutorial-content">
+        <router-outlet name="tutorials"></router-outlet>
+    </div>
+</div>

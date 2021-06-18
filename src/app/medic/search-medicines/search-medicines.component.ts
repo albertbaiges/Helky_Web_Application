@@ -10,7 +10,7 @@ import { MedicineBoxModalComponent } from '../../shared/components/medicine-box-
   styleUrls: ['./search-medicines.component.css']
 })
 export class SearchMedicinesComponent implements OnInit {
-
+  now: Date;
   results: any[];
   searched: boolean;
   bsModalRef: BsModalRef;
@@ -58,6 +58,7 @@ export class SearchMedicinesComponent implements OnInit {
       this.cima.getByName(medicine).then(response => {
         this.results = response;
         this.searched = true;
+        this.now = new Date();
       });
     } else {
       //Helpers
@@ -65,19 +66,20 @@ export class SearchMedicinesComponent implements OnInit {
       const ncLenght = 6; //National codes lenght (without .X)
 
       const firstNumber = medicine.charAt(0);
-      const code = Number(medicine);
+      const code = medicine;
       if(ncFirstNumber.includes(firstNumber) && medicine.length === ncLenght) {
         //Tenemos un codigo nacional en code
         this.cima.getByNationalCode(code).then(response => {
           this.results = response;
           this.searched = true;
-
+          this.now = new Date();
         });
       } else {
         //Tenemos un codigo de registro en code
         this.cima.getByNRegistro(code).then(response => {
           this.results = response;
           this.searched = true;
+          this.now = new Date();
         });
       }
     }

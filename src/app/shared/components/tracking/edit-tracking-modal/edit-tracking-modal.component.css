@@ -1,0 +1,67 @@
+
+
+#edit-tracking-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 2%;
+    border-top-style: solid;
+    border-top-width: 10px;
+    margin: auto;
+    height: 90vh;
+    overflow: auto;
+}
+
+#tracking-logs-container {
+    height: 40%;
+    margin-bottom: 2%;
+    box-sizing: border-box;
+    overflow: auto;
+}
+
+.entire-height {
+    height: 85% !important;
+}
+
+#tracking-logs-container > div{
+    font-size: 1.1em;
+    padding: 1%;
+    margin: 1%;
+    box-sizing: border-box;
+}
+
+#tracking-adding-container {
+    position: relative;
+    height: 40%;
+    padding: 1rem;
+}
+
+#tracking-adding-container .tracking-moments-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+#tracking-adding-container .tracking-moments-container > div{
+    width: 50%;
+}
+
+.prior-meal {
+    background: rgba(255, 95, 47, 0.521);
+
+}
+
+.post-meal {
+    background: rgba(192, 75, 39, 0.521);
+}
+
+.prior-activity {
+    background: rgba(0, 255, 255, 0.521);
+}
+
+.post-activity {
+    background: rgba(0, 172, 172, 0.521);
+}
+
+.other {
+    background: rgba(179, 64, 255, 0.521);
+}

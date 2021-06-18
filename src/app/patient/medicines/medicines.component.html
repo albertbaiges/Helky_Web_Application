@@ -6,7 +6,10 @@
 
     <h3>Medicinas semanales</h3>
 
-    <i class="far fa-calendar calendar-icon" (click)="medicinesCalendar()"></i>
+    <div class="medicines-actions">
+        <i class="fas fa-edit actions-item" (click)="editMedicines()"></i>
+        <i class="far fa-calendar calendar-icon" (click)="medicinesCalendar()"></i>
+    </div>
     <div id="patient-medicines-list">
         <ng-container *ngIf="medicines">
             <app-medicines-list [registerCodes]="medicines"></app-medicines-list>

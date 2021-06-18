@@ -13,9 +13,22 @@ export class MedicService {
   constructor(private http: HttpClient, private authService: AuthorizationService) { }
 
   getPatients(): Promise<Array<Patient>> {
-    return this.http.get(`/api/medics/${this.authService.user.userID}/patients`)
+    return this.http.get(`/api/medic/patients`)
     .pipe(
       map((response: any) => Object.values(response.patients) as Array<Patient>)
     ).toPromise();
+  }
+
+  updatePatient(userID: string, medicines: any) {
+    return this.http.patch("/api/medic/patients", {userID, medicines}).toPromise();
+  }
+
+  getCenters(): Promise<any> {
+    return this.http.get(`/api/medic/centers`)
+    .pipe(
+      map((response: any) => response.centers),
+      map(centers => Object.values(centers))
+    )
+    .toPromise();
   }
 }

@@ -23,7 +23,20 @@ export class ExercisesModalComponent implements OnInit {
 
   ngOnInit(): void {
     this.plansService.getExerciseInfo(this.planID, this.day).then(response => {
-      this.activitiesInfo = (response.constructor === Object && Object.keys(response).length !== 0)? response : null;
+      this.activitiesInfo = (response.constructor === Object && Object.keys(response).length !== 0)? response : ({
+        day: this.day,
+        activities: {
+          exercises: "",
+          comments: ""
+        }
+      });
+
+      if(this.activitiesInfo.activities.constructor !== Object || Object.keys(this.activitiesInfo.activities).length === 0) {
+        this.activitiesInfo.activities = {
+          exercises: "",
+          comments: ""
+        }
+      }
       console.log("informacion de actividades", this.activitiesInfo)
     });
   }

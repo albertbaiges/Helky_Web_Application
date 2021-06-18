@@ -24,6 +24,8 @@ export class TrackingComponent implements OnInit {
   date: Date;
   register: any;
   patient: any;
+  disorder: string;
+  disorderFamily: string;
   @Input() registerID: string;
 
   modalRef: BsModalRef;
@@ -47,6 +49,8 @@ export class TrackingComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log("del paciente", this.patient);
+    console.log("el registro", this.register)
     this.registersService.getRegisterTracking(this.registerID)
       .then((response: any) => {
         const date = new Date();
@@ -54,6 +58,8 @@ export class TrackingComponent implements OnInit {
         this.currentYear = date.getFullYear();
         console.log("respuesta", response)
         this.patient = response.patient;
+        this.disorder = response.disorder;
+        this.disorderFamily = response.disorderFamily;
         let data;
         if(response.tracking) {
           data = response.tracking[date.getFullYear()][date.getMonth()+1];
@@ -110,6 +116,8 @@ export class TrackingComponent implements OnInit {
         const week = this.register.data.find((week: any) => week.find((day: any) => day.number === Number(entry[0])));
         const day = week.find((day: any) => day.number === Number(entry[0]));
         day.logs = entry[1];
+        console.log("***Antes de ordenar", day.logs)
+        console.log("***Despues de ordenar", day.logs)
         console.log("datos cargado en el dia", day)
 
 
@@ -187,11 +195,15 @@ export class TrackingComponent implements OnInit {
 
 
   openEditModal(day: any, weekNum: number, dayNum: number) {
+
+    if(day.number === 0) 
+      return
+
     console.log("weeknum", weekNum, "dayNum", dayNum)
     console.log("registro", this.register)
     const modalOptions = {
       animated: true,
-      class: 'modal-dialog-centered modal-lg',
+      class: 'modal-dialog-centered modal-lg border-radius-modal',
       backdrop: true,
       keyboard: true,
       initialState: {
@@ -202,10 +214,11 @@ export class TrackingComponent implements OnInit {
       },
     }
     this.modalRef = this.modalService.show(EditTrackingModalComponent, modalOptions);
-    // this.bsModalRef.onHide.subscribe(() => { //! Unsubscribre from this thing
-    //   if (this.bsModalRef?.content.hideReason === "success") {
-    //     //! what now?
-    //   }
-    // });
+    this.modalRef.onHide.subscribe(() => { //! Unsubscribre from this thing
+      const receivedDay = this.modalRef.content.day;
+      const week = this.register.data.find((week: any) => week.find((day: any) => day.number === receivedDay.number));
+      const day = week.find((day: any) => day.number === receivedDay.number);
+      day.logs = receivedDay.logs;
+    });
   }
 }

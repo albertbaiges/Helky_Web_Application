@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
 import { BsModalRef } from 'ngx-bootstrap/modal';
+import { ToastrService } from 'ngx-toastr';
 import { AuthorizationService } from 'src/app/services/authorization.service';
 import { RegistersService } from 'src/app/services/registers.service';
 
@@ -25,10 +26,12 @@ export class EditTrackingModalComponent implements OnInit {
   dropdownSettings: IDropdownSettings;
 
   constructor(private authService: AuthorizationService, private bsModalRef: BsModalRef,
-    private registersService: RegistersService) {
+    private registersService: RegistersService, private toastr: ToastrService) {
   }
 
   ngOnInit(): void {
+    console.log("day", this.day);
+    console.log("patient", this.patient);
     this.editable = this.authService.user.userID === this.patient.userID;
     this.atList = ["Antes de una comida", "Despues de una comida", "Antes actividad fisica", "Despues actividad fisica", "Otro"];
     this.atMap = {
@@ -61,7 +64,7 @@ export class EditTrackingModalComponent implements OnInit {
 
     console.log("Marca de tiempo", timestamp);
 
-
+    console.log("timestamp", timestamp)
 
     let at = value.at[0];
     if(!at) {
@@ -76,8 +79,20 @@ export class EditTrackingModalComponent implements OnInit {
     }
 
     this.registersService.addRegister(this.registerID, body)
-      .then(response => {
-        console.log("response")
+      .then((response: any) => {
+        console.log("respuesta", response)
+        console.log("año", timestamp.getFullYear());
+        console.log("mes", timestamp.getMonth() + 1);
+        console.log("dia", timestamp.getDate());
+        const year = timestamp.getFullYear();
+        const month = timestamp.getMonth() + 1;
+        const day = timestamp.getDate();
+        const registers = response.tracking[year][month][day];
+        this.day.logs = registers;
+        this.toastr.success("Registro añadido", "", {
+          timeOut: 2000,
+            positionClass: "toast-top-right"
+          });
       });
   }
 

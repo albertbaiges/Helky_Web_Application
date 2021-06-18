@@ -25,4 +25,8 @@ export class SidebarComponent implements OnInit {
     this.router.navigateByUrl("/login");
   }
 
+  openFeedback() {
+    
+  }
+
 }

@@ -1,9 +1,9 @@
-<div id="patient-medics-container" class="container-element green-accent">
+<div id="patient-medics-container" class="container-element gray-accent">
     <div (click)="goBack()" class="back-button">
         <i class="fa fa-arrow-left"></i>
     </div>
 
-    <h3>Medicos Asignados</h3>
+    <h3>Médicos Asignados</h3>
 
     <ng-template #noMedics>
         <div id="noMedics">
@@ -18,7 +18,6 @@
                   [panelClass]="'medic-panel'">
                     <p>
                         Email: {{medic.email}}
-                        Center: {{medic.center}}
                     </p>
                 </accordion-group>
             </div>

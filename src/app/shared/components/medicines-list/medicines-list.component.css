@@ -1,4 +1,8 @@
 
+#medicines-list-container {
+    height: 100%;
+    overflow: auto;
+}
 
 .medicine {
     margin: 2% 0;
@@ -8,4 +12,13 @@
 
 .medicine:hover {
     background: #dbdbdb;
+}
+
+.loading-screen {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10em;
 }

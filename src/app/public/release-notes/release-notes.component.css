@@ -1,0 +1,31 @@
+
+
+#release-notes-container {
+    width: 80%;
+    padding: 2%;
+    margin: auto;
+    text-align: justify;
+    background: #f4f4f4 !important;
+    border-radius: 0 !important;
+}
+
+#release-notes-container i {
+    font-size: 2em;
+    cursor: pointer;
+    margin-bottom: 2%;
+}
+
+#release-notes-container article {
+    display: flex;
+    flex-direction: column;
+    border-bottom: solid 2px rgba(0, 0, 0, 0.5);
+}
+
+#release-notes-container article h2 {
+    color: rgba(126, 38, 126, 0.87);
+    font-weight: bold;
+}
+
+#release-notes-container article footer {
+    align-self: flex-end;
+}

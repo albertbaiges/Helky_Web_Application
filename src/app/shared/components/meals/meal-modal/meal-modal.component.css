@@ -16,7 +16,7 @@
     margin-bottom: 2%;
 }
 
-.meal-functinalities {
+.meal-functionalities {
     align-self: flex-end;
     cursor: pointer;
 }
@@ -28,6 +28,11 @@
     width: 10%;
     padding: 0 1%;
 }
+
+#edit-functionalities i {
+    cursor: pointer;
+}
+
 
 .meal-content {
     height: 25%;
@@ -43,4 +48,14 @@
     border: 2px dashed gray;
     content: editable;
     outline: none;
+    cursor: text;
+}
+
+#menu:empty:before {
+    content: "No hay ningún menú";
+    color:gray
+}
+#comments:empty:before {
+    content: "No hay ningún comentario";
+    color:gray
 }

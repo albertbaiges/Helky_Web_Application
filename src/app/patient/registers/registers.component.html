@@ -1,22 +1,22 @@
 
-<div id="patient-registers-container" class="container-element blue-accent">
+<div id="patient-registers-container" class="container-element purple-accent">
     <div (click)="goBack()" class="back-button">
         <i class="fa fa-arrow-left"></i>
     </div>
 
-    <h3>Lista de patologias</h3>
+    <h3>Lista de patologías</h3>
 
     <div id="patient-registers-list">
         <div [ngClass] = "'disorder'" *ngFor="let disorder of disorders">
             <div>
                 <!--Remove the disorder.info... in database there will only be disorder.type-->
-                {{disorder.type}}
+                {{disorder.type | titlecase}}
             </div>
             <div (click)="loadRegisters(disorder)" 
             [ngClass]="{
                 button: true,
-                disabled: !disorder.registerID && disorder.family !== 'Other',
-                invalid: !disorder.registerID && disorder.family === 'Other'
+                disabled: !disorder.registerID && disorder.family !== 'other',
+                invalid: !disorder.registerID && disorder.family === 'other'
             }"
             >
                 <i class="fa fa-table"></i>

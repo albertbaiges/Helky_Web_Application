@@ -6,7 +6,6 @@
     padding: 2%;
     border-top-style: solid;
     border-top-width: 10px;
-    border-radius: 20px;
     margin: auto;
     overflow: auto;
 }
@@ -53,7 +52,75 @@
     margin-top: 1%;
 }
 
+
 .patient-profile-disorders-section {
+    height: 500px;
+    overflow: hidden;
+}
+
+
+.patient-profile-disorders-section h4{
+    margin: 2% 11.5%;
+}
+
+.patient-profile-disorders-content {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    height: 90%;
+}
+
+.add-disorders-section {
+    width: 20%;
+}
+
+
+.disorders-list-section {
+    width: 40%;
+    height: 80%;
+    border: 1px solid gray;
+    background: #F2F4F5;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.disorders-list {
+    height: 60%;
+    border-bottom: 1px solid gray;
+    overflow: auto;
+    box-sizing: border-box;
+}
+
+.disorder-item {
+    margin: 1%;
+    transition: background 0.5s;
+}
+
+.disorder-item:hover {
+    background: lightgrey;
+}
+
+.disorder-item i {
+    cursor: pointer;
+    margin-right: 10%;
+    margin-left: 5%;
+}
+
+.disorder-item i:hover {
+    color: red;
+}
+
+.deletion-warning {
+    border-radius: 10px 10px 0 0;
+    border-bottom: 1px solid gray;
+    box-sizing: border-box;
+}
+
+.button-container {
+    height: 15%;
+}
+
+/* .patient-profile-disorders-section {
     position: relative;
     height: 70%;
 }
@@ -104,4 +171,4 @@
     width: 50%;
     top: calc(40vh + 45px);
     overflow: auto;
-}
+} */

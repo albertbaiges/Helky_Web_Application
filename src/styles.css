@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 body {
-    background: #F3F2EF;
+    background: #f2eff3;
     height: calc(100vh - 2*8px);
     box-sizing: border-box;
     font-size: 16px;
@@ -14,6 +14,9 @@ body {
     padding: 0.5%;
     border-radius: 50%;
 }
+
+
+
 
 .panel.medic-panel {
     color: black;
@@ -32,11 +35,19 @@ body {
 
 .container-element {
     background-color: white;
-    border-radius: 10px;
+    border-radius: 20px 20px 0 0 ;
     box-shadow: 0 10px  20px 2px gray;
     box-sizing: border-box;
 }
 
+.container-element h3 {
+    color: #5a5656;
+}
+
+
+.orange-accent {
+    border-color: #ff9900;
+}
 
 .red-accent {
     border-color: #b61702;
@@ -56,4 +67,20 @@ body {
 
 .blue-accent {
     border-color: #0084ff;
+}
+
+
+
+.edit-medicines-modal {
+    width: 80vw !important;
+    max-width: none !important;
+}
+
+.border-radius-modal .modal-content{
+    border-radius: 20px !important;
+}
+
+
+.full-size-dropdown div div span span {
+    max-width: none !important;
 }

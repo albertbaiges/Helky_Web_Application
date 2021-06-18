@@ -1,5 +1,6 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { MedicService } from 'src/app/services/medic.service';
 import { PatientService } from 'src/app/services/patient.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class EditMedicinesComponent implements OnInit {
   medicines: Array<any>;
   promptModal: BsModalRef;
 
-  constructor(public bsModalRef: BsModalRef, private patientService: PatientService,
+  constructor(public bsModalRef: BsModalRef, private medicService: MedicService,
               private modalService: BsModalService) { }
 
   ngOnInit(): void {
@@ -27,14 +28,11 @@ export class EditMedicinesComponent implements OnInit {
 
   apply() {
     //Perform the service request
-    const medicines = this.medicines.map(medicine => Number(medicine.nregistro));
-    this.patientService.updatePatient(this.patientID, {medicines})
-      .then((response: any) => {
-        console.log("hemos obtenido la respuesta", response);
-        //!Comprobar si ha venido un error en al respuesta,
-        //!para alertar con mensaje de fallo
-        this.medicines = response.data.medicines;
+    const medicines = this.medicines.map(medicine => medicine.nregistro);
 
+    this.medicService.updatePatient(this.patientID, medicines)
+      .then((response: any) => {
+        this.medicines = response.medicines;
         this.modalService.hide();
         this.hideReason="success";
       })

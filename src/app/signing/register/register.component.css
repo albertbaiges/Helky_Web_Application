@@ -1,10 +1,10 @@
 
 #general-register-container {
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 30%;
+    width: 40%;
     padding: 2%;
     border-top-style: solid;
     border-top-width: 10px;
@@ -12,11 +12,15 @@
     margin: auto;
 }
 
+#general-register-container h1{
+    color: #5a5656;
+}
+
 .btn-primary, .btn-primary:active, .btn-primary:visited {
-    background-color: #5c2f94 !important;
+    background-color: #7503df !important;
     border: none;
 }
 
 .btn-primary:hover {
-    background-color: #7139b6 !important;
+    background-color: #8846d8 !important;
 }

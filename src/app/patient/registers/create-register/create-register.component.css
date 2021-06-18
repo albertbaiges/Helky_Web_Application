@@ -1,0 +1,25 @@
+
+#patient-createRegister-container {
+    padding: 3%;
+    border-top-style: solid;
+    border-top-width: 10px;
+    border-radius: 10px;
+    margin: auto;
+    overflow: auto;
+}
+
+#patient-createRegister-container > div {
+    font-size: 1.6em;
+    margin-bottom: 2%;
+}
+
+#buttons {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
+
+#buttons > button {
+    width: 40%;
+}

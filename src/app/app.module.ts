@@ -6,19 +6,23 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './signing/login/login.component';
-import { NoAccountInterceptor } from './interceptors/noaccount.interceptor';
 import { FormsModule } from "@angular/forms"
 import { HomeComponent } from './home/home.component';
 import { ApiUrlInterceptor } from './interceptors/ApiUrlInterceptor';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
-import { MealsComponent } from './shared/components/meals/meals-component/meals.component';
-import { MealModalComponent } from './shared/components/meals/meal-modal/meal-modal.component';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ProfileComponent } from './shared/components/profile/profile.component';
 import { SharedModule } from './shared/shared.module';
 import { RegisterComponent } from './signing/register/register.component';
+import { ReleaseNotesComponent } from './public/release-notes/release-notes.component';
+import { ToastrModule } from 'ngx-toastr';
+import { PatientComponent } from './public/tutorials/patient/patient.component';
+import { LandingComponent } from './public/tutorials/landing/landing.component';
+import { MedicComponent } from './public/tutorials/medic/medic.component';
+import { CenterComponent } from './public/tutorials/center/center.component';
+import { PrivacyComponent } from './public/privacy/privacy.component';
+
 
 
 @NgModule({
@@ -27,7 +31,13 @@ import { RegisterComponent } from './signing/register/register.component';
     LoginComponent,
     HomeComponent,
     SidebarComponent,
-    RegisterComponent
+    RegisterComponent,
+    ReleaseNotesComponent,
+    PatientComponent,
+    LandingComponent,
+    MedicComponent,
+    CenterComponent,
+    PrivacyComponent
   ],
   imports: [
     BrowserModule,
@@ -39,10 +49,11 @@ import { RegisterComponent } from './signing/register/register.component';
     NgMultiSelectDropDownModule.forRoot(),
     NgxSpinnerModule,
     BrowserAnimationsModule,
-    SharedModule
+    SharedModule,
+    ToastrModule.forRoot()
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: ApiUrlInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: ApiUrlInterceptor, multi: true}
   ],
   bootstrap: [AppComponent]
 })

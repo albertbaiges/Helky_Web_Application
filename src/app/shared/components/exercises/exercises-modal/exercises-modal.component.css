@@ -1,20 +1,23 @@
 
+
 #full-activity-container {
-    position: relative;
-    height: 50vh;
-    background: #f1f1f1;
-    padding: 2%;
-    border: 2px solid black;
-    box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    position: relative;
+    padding: 2%;
+    border-top-style: solid;
+    border-top-width: 10px;
+    margin: auto;
+    max-height: 70vh;
+    overflow: auto;
 }
+
 
 .full-activity-header {
     margin-bottom: 2%;
 }
 
-.activitiy-functinalities {
+.activitiy-functionalities {
     align-self: flex-end;
     cursor: pointer;
 }
@@ -25,6 +28,10 @@
     justify-content: space-between;
     width: 10%;
     padding: 0 1%;
+}
+
+#edit-functionalities i {
+    cursor: pointer;
 }
 
 .activity-content {
@@ -41,4 +48,13 @@
     border: 2px dashed gray;
     content: editable;
     outline: none;
+}
+
+#exercises:empty:before {
+    content: "No hay ninguna actividad";
+    color:gray
+}
+#comments:empty:before {
+    content: "No hay ningún comentario";
+    color:gray
 }

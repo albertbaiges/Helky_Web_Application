@@ -42,9 +42,9 @@ export class MealsComponent implements OnInit {
       for (const dayMeals of weekMeals) {
         console.log(dayMeals)
         const dayPos = this.weekdaysMap[dayMeals.day!];
-        this.weekMeals.breakfasts[dayPos] = dayMeals.breakfast;
-        this.weekMeals.lunches[dayPos] = dayMeals.lunch;
-        this.weekMeals.dinners[dayPos] = dayMeals.dinner;
+        this.weekMeals.breakfasts[dayPos] = dayMeals.meals.breakfast;
+        this.weekMeals.lunches[dayPos] = dayMeals.meals.lunch;
+        this.weekMeals.dinners[dayPos] = dayMeals.meals.dinner;
       }
       console.log("las comidas para esta semana son", this.weekMeals)
     });
@@ -54,11 +54,12 @@ export class MealsComponent implements OnInit {
     const element = event.target as Element;
     const day = element.getAttribute("data-day");
     const zone = element.getAttribute("data-zone");
+    console.log("queremos abrir el modal")
     if(day && zone) {
       console.log(day, zone)
       const modalOptions = {
         animated: true,
-        class: 'modal-dialog-centered modal-lg',
+        class: 'modal-dialog-centered modal-lg border-radius-modal',
         backdrop: true,
         keyboard: true,
         initialState: {
@@ -68,8 +69,13 @@ export class MealsComponent implements OnInit {
         }
       }
       this.bsModalRef = this.modalService.show(MealModalComponent, modalOptions);
+      console.log("referencia al modal", this.bsModalRef)
       this.bsModalRef.onHide.subscribe(() => { //! Unsubscribre from this thing
+        console.log("subscripcion activada")
         const dayPos = this.weekdaysMap[this.bsModalRef.content.day!];
+        console.log("dia", this.bsModalRef.content.timezone)
+        console.log("posicion de dia", dayPos);
+        console.log("franja", this.bsModalRef.content.timezone)
         switch(this.bsModalRef.content.timezone) {
           case "breakfast":
             this.weekMeals.breakfasts[dayPos] = this.bsModalRef.content.mealInfo.menu;

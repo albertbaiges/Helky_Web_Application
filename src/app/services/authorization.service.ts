@@ -63,9 +63,9 @@ export class AuthorizationService {
 
 
 
-  async login(username: string, password: string) {
+  async login(email: string, password: string) {
     const body = {
-      username,
+      email,
       password
     }
     return await this.http.post("/login", body)

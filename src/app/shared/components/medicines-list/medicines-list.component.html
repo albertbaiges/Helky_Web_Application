@@ -1,5 +1,10 @@
 
 <div id="medicines-list-container">
+    <ng-container *ngIf="this.spinner">
+        <div class="loading-screen">
+            <i class="fas fa-spinner fa-pulse"></i>
+        </div>
+    </ng-container>
     <div *ngFor="let medicine of medicines" class="medicine" (click)="showDetails(medicine)">
         {{medicine.name}}
     </div>

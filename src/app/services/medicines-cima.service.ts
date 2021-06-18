@@ -25,7 +25,7 @@ export class MedicinesCimaService {
     });
   }
 
-  getByNRegistro(nregistro: number): Promise<any> {
+  getByNRegistro(nregistro: string): Promise<any> {
     return this.http.get(`https://cima.aemps.es/cima/rest/medicamentos?nregistro=${nregistro}`)
       .pipe(
         this.infoMapper()
@@ -34,7 +34,7 @@ export class MedicinesCimaService {
   }
 
   //cn: codigo nacional
-  getByNationalCode(cn: number): Promise<any> {
+  getByNationalCode(cn: string): Promise<any> {
     return this.http.get(`https://cima.aemps.es/cima/rest/medicamentos?cn=${cn}`)
     .pipe(
       this.infoMapper()

@@ -7,11 +7,10 @@
     <h3>Lista de pacientes</h3>
     <div id="patientList">
         <div *ngFor="let patient of patientList" class="patient">
-            {{patient.username}}
-            {{patient.email}}
+            Nombre: {{patient.username}} |
+            Email:{{patient.email}}
             <div id="actions">
                 <i class="fa fa-archive" (click)="goToInfo(patient)"></i>
-                <i class="fas fa-user" (click)="goToProfile(patient)"></i>
             </div>
         </div>
     </div>

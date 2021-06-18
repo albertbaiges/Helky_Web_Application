@@ -1,11 +1,10 @@
 
 #patient-tracking-container {
     width: 90%;
-    height: 90%;
+    min-height: 93vh;
     padding: 2%;
     border-top-style: solid;
     border-top-width: 10px;
-    border-radius: 20px;
     margin: auto;
 }
 
@@ -15,10 +14,11 @@
     border-radius: 5px;
     padding-bottom: 1%;
     box-sizing: border-box;
-    margin-bottom: 1%;
+    margin-bottom: 0.5%;
 }
 
 
 #patient-generic-tracking-container {
-    height: 80%;
+    height: 90%;
+    overflow: auto;
 }

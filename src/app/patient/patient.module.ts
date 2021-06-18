@@ -17,6 +17,9 @@ import { ActivityPlanComponent } from './activity-plan/activity-plan.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { RegisterTrackingComponent } from './register-tracking/register-tracking.component';
 import { NotificationsComponent } from './notifications/notifications.component';
+import { EditMedicinesComponent } from './edit-medicines/edit-medicines.component';
+import { SearchMedicinesComponent } from './search-medicines/search-medicines.component';
+import { CreateRegisterComponent } from './registers/create-register/create-register.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,10 @@ import { NotificationsComponent } from './notifications/notifications.component'
     SearchComponent,
     ActivityPlanComponent,
     RegisterTrackingComponent,
-    NotificationsComponent
+    NotificationsComponent,
+    EditMedicinesComponent,
+    SearchMedicinesComponent,
+    CreateRegisterComponent
   ],
   imports: [
     CommonModule,

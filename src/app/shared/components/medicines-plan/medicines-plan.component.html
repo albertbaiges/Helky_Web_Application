@@ -14,13 +14,18 @@
             <tr>
                 <td *ngFor="let dayMedicines of weekMedicines">
                     <div class="medicines-calendar-cellcontent">
+                        <div class="medicines-calendar-cellcontent-edit mb-2" (click)="editDayMedicines(dayMedicines)">
+                            Editar
+                        </div>
                         <div *ngFor="let medicine of dayMedicines.medicines" (click)="showDetails(medicine.data)">
                             <div class="medicines-calendar-item">
-                                {{medicine.at}}: {{medicine.data.name}}
+                                <div class="calendar-item-hour">
+                                    {{medicine.at}}
+                                </div>
+                                <div class="calendar-item-content">
+                                    {{medicine.data.name}}
+                                </div>
                             </div>
-                        </div>
-                        <div class="medicines-calendar-cellcontent-edit" (click)="editDayMedicines(dayMedicines)">
-                            Editar
                         </div>
                     </div>
                 </td>
