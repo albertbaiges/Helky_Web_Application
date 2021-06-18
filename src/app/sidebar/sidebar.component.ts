@@ -26,7 +26,7 @@ export class SidebarComponent implements OnInit {
   }
 
   openFeedback() {
-    
+    window.open("https://j52yo6u4z4j.typeform.com/to/MuJrPF8L", "_blank");
   }
 
 }
