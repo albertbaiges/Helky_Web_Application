@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "miSalud": {
+    "Helky": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/miSalud",
+            "outputPath": "dist/Helky",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -66,18 +66,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "miSalud:build"
+            "browserTarget": "Helky:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "miSalud:build:production"
+              "browserTarget": "Helky:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "miSalud:build"
+            "browserTarget": "Helky:build"
           }
         },
         "test": {
@@ -114,16 +114,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "miSalud:serve"
+            "devServerTarget": "Helky:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "miSalud:serve:production"
+              "devServerTarget": "Helky:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "miSalud"
+  "defaultProject": "Helky"
 }
