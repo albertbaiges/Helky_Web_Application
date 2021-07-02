@@ -1,13 +1,13 @@
 
 <div *ngIf="username" id="application-topbar">
     <div (click)="openFeedback()" class="bar-button">
-        Feedback
+        Dar feedback
     </div>
-    <div>
+    <div class="topbar-username">
         {{username}}
     </div>
 
     <div (click)=logout() class="bar-button">
-        Log out
+        Desconectar
     </div>
 </div>

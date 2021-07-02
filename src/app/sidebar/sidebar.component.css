@@ -7,7 +7,7 @@
     height: 4%;
     background: rgb(114, 77, 216);
     color: white;
-    font-size: 1.5em;
+    font-size: 1.2em;
     margin-bottom: 1.5%;
 }
 
@@ -15,6 +15,9 @@
     user-select: none;
 }
 
+.topbar-username {
+    font-size: 1.4em;
+}
 
 .bar-button {
     /* position: absolute; */

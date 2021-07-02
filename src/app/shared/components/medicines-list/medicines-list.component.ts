@@ -20,7 +20,6 @@ export class MedicinesListComponent implements OnInit, OnChanges {
 
   }
 
-  
   ngOnInit(): void {
     this.init();
   }
@@ -31,7 +30,6 @@ export class MedicinesListComponent implements OnInit, OnChanges {
       const promises = this.registerCodes.map(medicine => this.cima.getByNRegistro(medicine));
       Promise.all(promises).then(responses => {
         this.medicines = responses.map(response => response[0]);
-        console.log("Medicinas que debe tomarse", this.medicines);
         this.showSpinner(false);
       });
     } else {
@@ -45,12 +43,10 @@ export class MedicinesListComponent implements OnInit, OnChanges {
 
 
   private showSpinner(bool: boolean) {
-    console.log("cambiando valor del spinner", bool)
     this.spinner = bool;
   }
   
   showDetails(medicine: any) {
-    console.log(medicine)
     const modalOptions = {
       animated: true,
       class: 'modal-dialog-centered modal-lg border-radius-modal',

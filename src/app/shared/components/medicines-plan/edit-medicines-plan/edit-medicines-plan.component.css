@@ -37,15 +37,13 @@
     color: red;
 }
 
-
-.apply-changes {
-    position: relative;
-    top: 2%;
-    right: 2%;
-    align-self: flex-end;
+#search-medicines-container {
+    margin-top: 4%;
+    padding: 0 2%;
+    height: 50%;
 }
 
-#search-medicines-container {
+#export-medicines-container {
     margin-top: 4%;
     padding: 0 2%;
     height: 50%;

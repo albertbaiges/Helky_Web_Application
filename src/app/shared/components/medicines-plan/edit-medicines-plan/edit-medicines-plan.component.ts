@@ -19,11 +19,15 @@ export class EditMedicinesPlanComponent implements OnInit {
   medicines: any;
   _medicines: any;
   dropdownSettings: IDropdownSettings;
+  dropdownExportSettings: IDropdownSettings;
   previewImage: string;
-  
+  weekdays: any[];
   medicineSlot: any;
 
   selectedHour: Date;
+
+  exportContent: boolean;
+  exportedData: boolean;
 
   constructor(private bsModalRef: BsModalRef,
     private plansService: PlansService,
@@ -32,6 +36,8 @@ export class EditMedicinesPlanComponent implements OnInit {
       this.medicines = null;
       this.previewImage = "";
       this.medicineSlot = {medicine: null, at: []};
+      this.exportContent = false;
+      this.exportedData = false;
     }
 
   ngOnInit(): void {
@@ -53,6 +59,22 @@ export class EditMedicinesPlanComponent implements OnInit {
       searchPlaceholderText: "Medicamento",
       noDataAvailablePlaceholderText: "Sin medicinas",
       closeDropDownOnSelection: true
+    };
+    this.weekdays = [
+      {day: 'monday', spanish: "Lunes"},
+      {day: 'tuesday', spanish: "Martes"},
+      {day: 'wednesday', spanish: "Miércoles"},
+      {day: 'thursday', spanish: "Jueves"},
+      {day: 'friday', spanish: "Viernes"},
+      {day: 'saturday', spanish: "Sábado"},
+      {day: 'sunday', spanish: "Domingo"}
+    ];
+    this.weekdays = this.weekdays.filter(weekday => weekday.day !== this.dayMedicines.day);
+    this.dropdownExportSettings = {
+      idField: "day",
+      textField: "spanish",
+      searchPlaceholderText: "Día",
+      noDataAvailablePlaceholderText: "Sin dias"
     };
   }
 
@@ -86,10 +108,23 @@ export class EditMedicinesPlanComponent implements OnInit {
     this.medicineSlot.at.splice(index, 1);
   }
 
-  //! Finish to prevent updating always
-  private compareObjects(a: any, b: any) {
-    const aKeys = Object.keys(a);
-    const bKeys = Object.keys(b);
+  submitExport(value: any) {
+    if (value.days !== null && value.days.length !== 0) {
+      const medicines = this.compactMedicines(this.dayMedicines.medicines)
+      const updates = value.days.map((weekday: any) => ({
+        day: weekday.day,
+        medicines
+      }));
+      console.log(updates)
+      const promises = updates.map((update: any) => this.plansService.updateMedicines(this.planID, update));
+      Promise.all(promises).then(response => {
+        this.exportedData = true;
+        this.toastr.success("Pauta de medicamentos actualizada", "", {
+          timeOut: 2000,
+          positionClass: "toast-top-right"
+        });
+      })
+    }
   }
 
   private compactMedicines(medicines: any) {

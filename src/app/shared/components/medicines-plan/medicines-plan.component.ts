@@ -38,6 +38,10 @@ export class MedicinesPlanComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.init();
+  }
+
+  private init(): void {
     const weekMedicinesTemp: any = []
     this.plansService.getMedicines(this.planID)
       .then((weekMedicines: Array<any>) => {
@@ -120,7 +124,7 @@ export class MedicinesPlanComponent implements OnInit {
     // console.log(medicine)
     const modalOptions = {
       animated: true,
-      class: 'modal-dialog-centered modal-lg',
+      class: 'modal-dialog-centered modal-lg border-radius-modal',
       backdrop: true,
       keyboard: true,
       initialState: {
@@ -151,7 +155,12 @@ export class MedicinesPlanComponent implements OnInit {
       const dayInfo = this.detailsModalRef.content.dayMedicines;
       const dayPos = this.weekdaysMap[dayInfo.day];
       this.weekMedicines[dayPos] = dayInfo;
+      const exported: boolean = this.detailsModalRef.content.exportedData;
 
+      console.log("se han exportado datos a otros dias?", exported);
+      if (exported) {
+        this.init();
+      }
     });
   }
 }
